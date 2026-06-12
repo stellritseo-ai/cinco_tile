@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { ContactForm } from "@/components/ContactForm";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 import hero from "@/assets/hero.jpg";
 import experts from "@/assets/experts.jpg";
