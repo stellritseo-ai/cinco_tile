@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { ContactForm } from "@/components/ContactForm";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 import hero from "@/assets/hero.jpg";
 import experts from "@/assets/experts.jpg";
@@ -28,6 +29,15 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
+
+const Reveal = ({ children, className = "", variant = "reveal" }: { children: React.ReactNode; className?: string; variant?: "reveal" | "reveal-scale" | "reveal-left" | "reveal-right" }) => {
+  const { ref, isVisible } = useScrollReveal<HTMLDivElement>();
+  return (
+    <div ref={ref} className={`${variant} ${isVisible ? "visible" : ""} ${className}`}>
+      {children}
+    </div>
+  );
+};
 
 const TopBar = () => (
   <div className="bg-ink text-cream/90 text-xs">
@@ -120,29 +130,33 @@ const SectionEyebrow = ({ children }: { children: React.ReactNode }) => (
 const LocalExperts = () => (
   <section className="py-24 bg-background">
     <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center">
-      <div className="relative">
-        <img src={experts} alt="Bright interior with laminate floors" className="rounded-2xl w-full aspect-[5/4] object-cover" width={800} height={640} loading="lazy" />
-        <div className="absolute -bottom-6 -right-6 bg-background rounded-2xl shadow-xl border border-border p-5 max-w-[220px]">
-          <div className="flex -space-x-2 mb-2">
-            {[1,2,3].map(i => <div key={i} className="w-8 h-8 rounded-full bg-brand-soft border-2 border-background" />)}
+      <Reveal variant="reveal-left">
+        <div className="relative">
+          <img src={experts} alt="Bright interior with laminate floors" className="rounded-2xl w-full aspect-[5/4] object-cover" width={800} height={640} loading="lazy" />
+          <div className="absolute -bottom-6 -right-6 bg-background rounded-2xl shadow-xl border border-border p-5 max-w-[220px]">
+            <div className="flex -space-x-2 mb-2">
+              {[1,2,3].map(i => <div key={i} className="w-8 h-8 rounded-full bg-brand-soft border-2 border-background" />)}
+            </div>
+            <div className="text-2xl font-display font-semibold">2,400+</div>
+            <div className="text-xs text-muted-foreground">Floors installed across Thurston County</div>
           </div>
-          <div className="text-2xl font-display font-semibold">2,400+</div>
-          <div className="text-xs text-muted-foreground">Floors installed across Thurston County</div>
         </div>
-      </div>
-      <div>
-        <SectionEyebrow>About</SectionEyebrow>
-        <h2 className="mt-4 text-4xl md:text-5xl font-semibold">Your Local Laminate-Only Experts</h2>
-        <p className="mt-5 text-muted-foreground leading-relaxed">
-          At Pacific Northwest Laminate Experts, we focus on one thing — laminate flooring. That singular focus makes us Olympia's most trusted, dedicated, and skilled installation team.
-        </p>
-        <p className="mt-4 text-muted-foreground leading-relaxed">
-          Licensed, insured, and proudly local, we serve Olympia, Lacey, Tumwater, and surrounding communities with workmanship guaranteed for life and a customer experience that feels truly local.
-        </p>
-        <a href="#about" className="mt-7 inline-flex items-center gap-2 bg-brand text-primary-foreground rounded-full px-6 py-3 font-semibold hover:brightness-105">
-          Learn More About Us <ArrowRight className="w-4 h-4" />
-        </a>
-      </div>
+      </Reveal>
+      <Reveal variant="reveal-right">
+        <div>
+          <SectionEyebrow>About</SectionEyebrow>
+          <h2 className="mt-4 text-4xl md:text-5xl font-semibold">Your Local Laminate-Only Experts</h2>
+          <p className="mt-5 text-muted-foreground leading-relaxed">
+            At Pacific Northwest Laminate Experts, we focus on one thing — laminate flooring. That singular focus makes us Olympia's most trusted, dedicated, and skilled installation team.
+          </p>
+          <p className="mt-4 text-muted-foreground leading-relaxed">
+            Licensed, insured, and proudly local, we serve Olympia, Lacey, Tumwater, and surrounding communities with workmanship guaranteed for life and a customer experience that feels truly local.
+          </p>
+          <a href="#about" className="mt-7 inline-flex items-center gap-2 bg-brand text-primary-foreground rounded-full px-6 py-3 font-semibold hover:brightness-105">
+            Learn More About Us <ArrowRight className="w-4 h-4" />
+          </a>
+        </div>
+      </Reveal>
     </div>
   </section>
 );
@@ -156,29 +170,33 @@ const Services = () => {
   return (
     <section id="services" className="py-24 bg-cream">
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[1fr_1.4fr] gap-14 items-start">
-        <div className="lg:sticky lg:top-24">
-          <SectionEyebrow>Services</SectionEyebrow>
-          <h2 className="mt-4 text-4xl md:text-5xl font-semibold">Everything Laminate,<br/>All in One Place</h2>
-          <p className="mt-5 text-muted-foreground leading-relaxed">
-            At Pacific Northwest Laminate Experts, laminate flooring is all we do. From new installs to repair and stair work, we have the tools, training, and experience to handle every project with care.
-          </p>
-          <a href="#services" className="mt-7 inline-flex items-center gap-2 border border-foreground/20 rounded-full px-6 py-3 font-semibold hover:bg-background">
-            See All Services <ArrowRight className="w-4 h-4" />
-          </a>
-        </div>
+        <Reveal className="lg:sticky lg:top-24">
+          <div>
+            <SectionEyebrow>Services</SectionEyebrow>
+            <h2 className="mt-4 text-4xl md:text-5xl font-semibold">Everything Laminate,<br/>All in One Place</h2>
+            <p className="mt-5 text-muted-foreground leading-relaxed">
+              At Pacific Northwest Laminate Experts, laminate flooring is all we do. From new installs to repair and stair work, we have the tools, training, and experience to handle every project with care.
+            </p>
+            <a href="#services" className="mt-7 inline-flex items-center gap-2 border border-foreground/20 rounded-full px-6 py-3 font-semibold hover:bg-background">
+              See All Services <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+        </Reveal>
         <div className="grid sm:grid-cols-3 gap-4">
-          {items.map(s => (
-            <div key={s.title} className="group relative rounded-2xl overflow-hidden bg-ink aspect-[3/4] cursor-pointer">
-              <img src={s.img} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width={600} height={700} loading="lazy" />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5 text-cream">
-                <div className="font-display text-xl font-semibold">{s.title}</div>
-                <div className="text-xs text-cream/70 mt-1">{s.desc}</div>
+          {items.map((s, i) => (
+            <Reveal key={s.title} variant="reveal-scale" className={`stagger-${i + 1}`}>
+              <div className="group relative rounded-2xl overflow-hidden bg-ink aspect-[3/4] cursor-pointer">
+                <img src={s.img} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width={600} height={700} loading="lazy" />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
+                <div className="absolute bottom-5 left-5 right-5 text-cream">
+                  <div className="font-display text-xl font-semibold">{s.title}</div>
+                  <div className="text-xs text-cream/70 mt-1">{s.desc}</div>
+                </div>
+                <span className="absolute top-4 right-4 w-9 h-9 rounded-full bg-brand grid place-items-center text-primary-foreground opacity-0 group-hover:opacity-100 transition">
+                  <ArrowRight className="w-4 h-4" />
+                </span>
               </div>
-              <span className="absolute top-4 right-4 w-9 h-9 rounded-full bg-brand grid place-items-center text-primary-foreground opacity-0 group-hover:opacity-100 transition">
-                <ArrowRight className="w-4 h-4" />
-              </span>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -196,19 +214,23 @@ const Process = () => {
     <section className="py-24 bg-cream-deep relative overflow-hidden">
       <div className="absolute inset-0 opacity-[0.04]" style={{backgroundImage:"radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)", backgroundSize:"24px 24px"}} />
       <div className="relative max-w-6xl mx-auto px-6 text-center">
-        <SectionEyebrow>Our Process</SectionEyebrow>
-        <h2 className="mt-4 text-4xl md:text-5xl font-semibold">How We Make Your Floors Beautiful</h2>
-        <p className="mt-4 text-muted-foreground max-w-xl mx-auto">A simple, transparent three-step path to floors you'll love.</p>
+        <Reveal>
+          <SectionEyebrow>Our Process</SectionEyebrow>
+          <h2 className="mt-4 text-4xl md:text-5xl font-semibold">How We Make Your Floors Beautiful</h2>
+          <p className="mt-4 text-muted-foreground max-w-xl mx-auto">A simple, transparent three-step path to floors you'll love.</p>
+        </Reveal>
         <div className="mt-14 grid md:grid-cols-3 gap-8">
           {steps.map((s, idx) => (
-            <div key={s.t} className="relative bg-background/70 backdrop-blur rounded-2xl p-8 border border-border/60">
-              <div className="w-16 h-16 rounded-2xl bg-brand grid place-items-center mx-auto text-primary-foreground shadow-[0_12px_30px_-10px_oklch(0.74_0.165_55/0.6)]">
-                <s.i className="w-7 h-7" />
+            <Reveal key={s.t} variant="reveal-scale" className={`stagger-${idx + 1}`}>
+              <div className="relative bg-background/70 backdrop-blur rounded-2xl p-8 border border-border/60">
+                <div className="w-16 h-16 rounded-2xl bg-brand grid place-items-center mx-auto text-primary-foreground shadow-[0_12px_30px_-10px_oklch(0.74_0.165_55/0.6)]">
+                  <s.i className="w-7 h-7" />
+                </div>
+                <div className="absolute top-6 right-6 font-display text-3xl text-brand/30">0{idx+1}</div>
+                <h3 className="mt-6 font-display text-xl font-semibold">{s.t}</h3>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{s.d}</p>
               </div>
-              <div className="absolute top-6 right-6 font-display text-3xl text-brand/30">0{idx+1}</div>
-              <h3 className="mt-6 font-display text-xl font-semibold">{s.t}</h3>
-              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{s.d}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -219,36 +241,40 @@ const Process = () => {
 const Trust = () => (
   <section className="py-24 bg-background">
     <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center">
-      <div className="grid grid-cols-2 gap-4">
-        <img src={showroom} alt="Laminate showroom" className="rounded-2xl object-cover w-full h-full aspect-[3/4]" width={800} height={700} loading="lazy" />
-        <div className="grid gap-4">
-          <img src={sInstall} alt="Installation" className="rounded-2xl object-cover w-full aspect-square" loading="lazy" />
-          <img src={faqImg} alt="Cozy living room" className="rounded-2xl object-cover w-full aspect-square" loading="lazy" />
+      <Reveal variant="reveal-left">
+        <div className="grid grid-cols-2 gap-4">
+          <img src={showroom} alt="Laminate showroom" className="rounded-2xl object-cover w-full h-full aspect-[3/4]" width={800} height={700} loading="lazy" />
+          <div className="grid gap-4">
+            <img src={sInstall} alt="Installation" className="rounded-2xl object-cover w-full aspect-square" loading="lazy" />
+            <img src={faqImg} alt="Cozy living room" className="rounded-2xl object-cover w-full aspect-square" loading="lazy" />
+          </div>
         </div>
-      </div>
-      <div>
-        <SectionEyebrow>Why Us</SectionEyebrow>
-        <h2 className="mt-4 text-4xl md:text-5xl font-semibold">Here's why Olympia homeowners trust Pacific Northwest Laminate Experts</h2>
-        <div className="mt-8 space-y-5">
-          {[
-            { i: ShieldCheck, t: "Licensed & Insured", d: "Fully bonded, insured, and PNW-local for your complete peace of mind." },
-            { i: Users, t: "Laminate-Only Specialists", d: "We don't dabble. Laminate is our entire craft." },
-            { i: BadgeCheck, t: "Satisfaction Guaranteed", d: "Lifetime workmanship guarantee on every install." },
-            { i: Award, t: "Local & Trusted", d: "Hundreds of happy neighbors across Thurston County." },
-          ].map(it => (
-            <div key={it.t} className="flex gap-4">
-              <span className="shrink-0 w-11 h-11 rounded-xl bg-brand-soft grid place-items-center"><it.i className="w-5 h-5 text-brand" /></span>
-              <div>
-                <div className="font-semibold">{it.t}</div>
-                <div className="text-sm text-muted-foreground mt-0.5">{it.d}</div>
+      </Reveal>
+      <Reveal variant="reveal-right">
+        <div>
+          <SectionEyebrow>Why Us</SectionEyebrow>
+          <h2 className="mt-4 text-4xl md:text-5xl font-semibold">Here's why Olympia homeowners trust Pacific Northwest Laminate Experts</h2>
+          <div className="mt-8 space-y-5">
+            {[
+              { i: ShieldCheck, t: "Licensed & Insured", d: "Fully bonded, insured, and PNW-local for your complete peace of mind." },
+              { i: Users, t: "Laminate-Only Specialists", d: "We don't dabble. Laminate is our entire craft." },
+              { i: BadgeCheck, t: "Satisfaction Guaranteed", d: "Lifetime workmanship guarantee on every install." },
+              { i: Award, t: "Local & Trusted", d: "Hundreds of happy neighbors across Thurston County." },
+            ].map((it, idx) => (
+              <div key={it.t} className={`flex gap-4 reveal stagger-${idx + 1} ${'visible'}`}>
+                <span className="shrink-0 w-11 h-11 rounded-xl bg-brand-soft grid place-items-center"><it.i className="w-5 h-5 text-brand" /></span>
+                <div>
+                  <div className="font-semibold">{it.t}</div>
+                  <div className="text-sm text-muted-foreground mt-0.5">{it.d}</div>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+          <a href="#estimate" className="mt-8 inline-flex items-center gap-2 bg-brand text-primary-foreground rounded-full px-6 py-3 font-semibold hover:brightness-105">
+            Book Your Free Estimate <ArrowRight className="w-4 h-4" />
+          </a>
         </div>
-        <a href="#estimate" className="mt-8 inline-flex items-center gap-2 bg-brand text-primary-foreground rounded-full px-6 py-3 font-semibold hover:brightness-105">
-          Book Your Free Estimate <ArrowRight className="w-4 h-4" />
-        </a>
-      </div>
+      </Reveal>
     </div>
   </section>
 );
@@ -266,19 +292,21 @@ const TickerBar = () => (
 const EstimateCTA = () => (
   <section id="estimate" className="py-20 bg-cream">
     <div className="max-w-6xl mx-auto px-6">
-      <div className="relative rounded-3xl overflow-hidden">
-        <img src={estimate} alt="Laminate samples" className="absolute inset-0 w-full h-full object-cover" width={1600} height={600} loading="lazy" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/65 to-ink/30" />
-        <div className="relative p-10 md:p-16 text-cream max-w-2xl">
-          <SectionEyebrow>Get Started</SectionEyebrow>
-          <h2 className="mt-4 font-display text-4xl md:text-5xl font-semibold text-cream">Book Your Free In-Home Estimate Today</h2>
-          <p className="mt-4 text-cream/85">We come to you with samples, expert advice, and a clear, honest quote — no pressure, no surprises.</p>
-          <div className="mt-7 flex flex-wrap gap-3">
-            <a href="#" className="inline-flex items-center gap-2 bg-brand text-primary-foreground rounded-full px-6 py-3.5 font-semibold hover:brightness-105"><Calendar className="w-5 h-5" /> Book My Free Estimate</a>
-            <a href="tel:3602025612" className="inline-flex items-center gap-2 bg-cream/10 border border-cream/30 text-cream rounded-full px-6 py-3.5 font-semibold hover:bg-cream/15"><Phone className="w-5 h-5" /> (360) 202-5612</a>
+      <Reveal variant="reveal-scale">
+        <div className="relative rounded-3xl overflow-hidden">
+          <img src={estimate} alt="Laminate samples" className="absolute inset-0 w-full h-full object-cover" width={1600} height={600} loading="lazy" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/65 to-ink/30" />
+          <div className="relative p-10 md:p-16 text-cream max-w-2xl">
+            <SectionEyebrow>Get Started</SectionEyebrow>
+            <h2 className="mt-4 font-display text-4xl md:text-5xl font-semibold text-cream">Book Your Free In-Home Estimate Today</h2>
+            <p className="mt-4 text-cream/85">We come to you with samples, expert advice, and a clear, honest quote — no pressure, no surprises.</p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <a href="#" className="inline-flex items-center gap-2 bg-brand text-primary-foreground rounded-full px-6 py-3.5 font-semibold hover:brightness-105"><Calendar className="w-5 h-5" /> Book My Free Estimate</a>
+              <a href="tel:3602025612" className="inline-flex items-center gap-2 bg-cream/10 border border-cream/30 text-cream rounded-full px-6 py-3.5 font-semibold hover:bg-cream/15"><Phone className="w-5 h-5" /> (360) 202-5612</a>
+            </div>
           </div>
         </div>
-      </div>
+      </Reveal>
     </div>
   </section>
 );
@@ -292,25 +320,29 @@ const Testimonials = () => {
   return (
     <section className="py-24 bg-cream-deep">
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[1fr_2fr] gap-14 items-start">
-        <div>
-          <SectionEyebrow>Testimonials</SectionEyebrow>
-          <h2 className="mt-4 text-4xl md:text-5xl font-semibold">What Our Customers Say</h2>
-          <p className="mt-4 text-muted-foreground">Real reviews from neighbors across Olympia and nearby communities.</p>
-          <a href="#" className="mt-6 inline-flex items-center gap-2 text-brand font-semibold">Read all reviews on Google <ArrowRight className="w-4 h-4" /></a>
-        </div>
+        <Reveal>
+          <div>
+            <SectionEyebrow>Testimonials</SectionEyebrow>
+            <h2 className="mt-4 text-4xl md:text-5xl font-semibold">What Our Customers Say</h2>
+            <p className="mt-4 text-muted-foreground">Real reviews from neighbors across Olympia and nearby communities.</p>
+            <a href="#" className="mt-6 inline-flex items-center gap-2 text-brand font-semibold">Read all reviews on Google <ArrowRight className="w-4 h-4" /></a>
+          </div>
+        </Reveal>
         <div className="grid md:grid-cols-3 gap-5">
-          {reviews.map(r => (
-            <div key={r.n} className="bg-background rounded-2xl p-6 border border-border/60 shadow-sm">
-              <div className="flex gap-0.5 text-brand mb-3">{[...Array(5)].map((_,i)=>(<Star key={i} className="w-4 h-4 fill-current" />))}</div>
-              <p className="text-sm text-foreground/80 leading-relaxed">"{r.r}"</p>
-              <div className="mt-5 pt-4 border-t border-border flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-brand-soft grid place-items-center text-brand font-semibold text-sm">{r.n[0]}</div>
-                <div>
-                  <div className="text-sm font-semibold">{r.n}</div>
-                  <div className="text-xs text-muted-foreground">{r.l}</div>
+          {reviews.map((r, i) => (
+            <Reveal key={r.n} variant="reveal-scale" className={`stagger-${i + 1}`}>
+              <div className="bg-background rounded-2xl p-6 border border-border/60 shadow-sm">
+                <div className="flex gap-0.5 text-brand mb-3">{[...Array(5)].map((_,i)=>(<Star key={i} className="w-4 h-4 fill-current" />))}</div>
+                <p className="text-sm text-foreground/80 leading-relaxed">"{r.r}"</p>
+                <div className="mt-5 pt-4 border-t border-border flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-brand-soft grid place-items-center text-brand font-semibold text-sm">{r.n[0]}</div>
+                  <div>
+                    <div className="text-sm font-semibold">{r.n}</div>
+                    <div className="text-xs text-muted-foreground">{r.l}</div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -327,18 +359,22 @@ const WhyChoose = () => {
   return (
     <section className="py-24 bg-background">
       <div className="max-w-6xl mx-auto px-6 text-center">
-        <SectionEyebrow>Benefits</SectionEyebrow>
-        <h2 className="mt-4 text-4xl md:text-5xl font-semibold">Why Homeowners Choose Laminate Flooring</h2>
-        <p className="mt-4 text-muted-foreground max-w-xl mx-auto">Discover the style, durability, and value that make laminate Olympia's smartest flooring choice.</p>
+        <Reveal>
+          <SectionEyebrow>Benefits</SectionEyebrow>
+          <h2 className="mt-4 text-4xl md:text-5xl font-semibold">Why Homeowners Choose Laminate Flooring</h2>
+          <p className="mt-4 text-muted-foreground max-w-xl mx-auto">Discover the style, durability, and value that make laminate Olympia's smartest flooring choice.</p>
+        </Reveal>
         <div className="mt-14 grid md:grid-cols-3 gap-6">
-          {items.map(it => (
-            <div key={it.t} className="bg-cream rounded-2xl p-8 text-left border border-border/60 hover:-translate-y-1 transition-transform">
-              <div className="w-14 h-14 rounded-xl bg-brand grid place-items-center text-primary-foreground rotate-[8deg]">
-                <it.i className="w-6 h-6 -rotate-[8deg]" />
+          {items.map((it, i) => (
+            <Reveal key={it.t} variant="reveal-scale" className={`stagger-${i + 1}`}>
+              <div className="bg-cream rounded-2xl p-8 text-left border border-border/60 hover:-translate-y-1 transition-transform">
+                <div className="w-14 h-14 rounded-xl bg-brand grid place-items-center text-primary-foreground rotate-[8deg]">
+                  <it.i className="w-6 h-6 -rotate-[8deg]" />
+                </div>
+                <h3 className="mt-6 font-display text-2xl font-semibold">{it.t}</h3>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{it.d}</p>
               </div>
-              <h3 className="mt-6 font-display text-2xl font-semibold">{it.t}</h3>
-              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{it.d}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -351,37 +387,41 @@ const ServiceAreas = () => {
   return (
     <section id="areas" className="py-24 bg-cream">
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
-        <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-cream-deep border border-border">
-          <div className="absolute inset-0" style={{
-            backgroundImage: "linear-gradient(135deg, oklch(0.78 0.08 145) 0%, oklch(0.65 0.12 145) 100%)",
-          }} />
-          <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 400 300">
-            <path d="M0,150 Q100,100 200,140 T400,120" stroke="white" strokeWidth="2" fill="none" />
-            <path d="M0,180 Q150,200 250,170 T400,200" stroke="white" strokeWidth="1.5" fill="none" />
-            <path d="M50,0 L80,300 M180,0 L160,300 M280,0 L300,300" stroke="white" strokeWidth="0.5" />
-          </svg>
-          <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2">
-            <div className="relative">
-              <div className="absolute inset-0 bg-brand rounded-full animate-ping opacity-40 w-12 h-12" />
-              <div className="relative w-12 h-12 rounded-full bg-brand grid place-items-center text-primary-foreground shadow-xl">
-                <MapPin className="w-6 h-6" />
+        <Reveal variant="reveal-left">
+          <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-cream-deep border border-border">
+            <div className="absolute inset-0" style={{
+              backgroundImage: "linear-gradient(135deg, oklch(0.78 0.08 145) 0%, oklch(0.65 0.12 145) 100%)",
+            }} />
+            <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 400 300">
+              <path d="M0,150 Q100,100 200,140 T400,120" stroke="white" strokeWidth="2" fill="none" />
+              <path d="M0,180 Q150,200 250,170 T400,200" stroke="white" strokeWidth="1.5" fill="none" />
+              <path d="M50,0 L80,300 M180,0 L160,300 M280,0 L300,300" stroke="white" strokeWidth="0.5" />
+            </svg>
+            <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2">
+              <div className="relative">
+                <div className="absolute inset-0 bg-brand rounded-full animate-ping opacity-40 w-12 h-12" />
+                <div className="relative w-12 h-12 rounded-full bg-brand grid place-items-center text-primary-foreground shadow-xl">
+                  <MapPin className="w-6 h-6" />
+                </div>
               </div>
+              <div className="mt-2 bg-background rounded-lg px-3 py-1.5 text-xs font-semibold shadow-lg whitespace-nowrap">Olympia, WA</div>
             </div>
-            <div className="mt-2 bg-background rounded-lg px-3 py-1.5 text-xs font-semibold shadow-lg whitespace-nowrap">Olympia, WA</div>
           </div>
-        </div>
-        <div>
-          <SectionEyebrow>Service Areas</SectionEyebrow>
-          <h2 className="mt-4 text-4xl md:text-5xl font-semibold">Proudly Serving Olympia & Nearby Communities</h2>
-          <p className="mt-4 text-muted-foreground">We proudly bring premium laminate flooring expertise to homes across the South Sound region.</p>
-          <div className="mt-7 grid grid-cols-2 sm:grid-cols-3 gap-2.5">
-            {towns.map(t => (
-              <span key={t} className="bg-brand text-primary-foreground rounded-full px-4 py-2.5 text-sm font-semibold flex items-center justify-between gap-2">
-                {t} <MapPin className="w-3.5 h-3.5 opacity-80" />
-              </span>
-            ))}
+        </Reveal>
+        <Reveal variant="reveal-right">
+          <div>
+            <SectionEyebrow>Service Areas</SectionEyebrow>
+            <h2 className="mt-4 text-4xl md:text-5xl font-semibold">Proudly Serving Olympia & Nearby Communities</h2>
+            <p className="mt-4 text-muted-foreground">We proudly bring premium laminate flooring expertise to homes across the South Sound region.</p>
+            <div className="mt-7 grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+              {towns.map(t => (
+                <span key={t} className="bg-brand text-primary-foreground rounded-full px-4 py-2.5 text-sm font-semibold flex items-center justify-between gap-2">
+                  {t} <MapPin className="w-3.5 h-3.5 opacity-80" />
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -398,23 +438,27 @@ const FAQ = () => {
   return (
     <section id="faq" className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[1fr_1.3fr] gap-12 items-start">
-        <div>
-          <SectionEyebrow>FAQ</SectionEyebrow>
-          <h2 className="mt-4 text-4xl md:text-5xl font-semibold">Frequently Asked Questions</h2>
-          <p className="mt-4 text-muted-foreground">Everything you need to know about laminate flooring in the Pacific Northwest.</p>
-          <img src={faqImg} alt="Cozy interior" className="mt-8 rounded-2xl aspect-[4/3] object-cover w-full" width={800} height={700} loading="lazy" />
-        </div>
-        <div className="space-y-3">
-          {faqs.map((f, i) => (
-            <button key={f.q} onClick={() => setOpen(open===i?null:i)} className="w-full text-left bg-cream rounded-2xl border border-border/60 overflow-hidden">
-              <div className="flex items-center justify-between gap-4 p-6">
-                <span className="font-semibold">{f.q}</span>
-                <ChevronDown className={`w-5 h-5 text-brand shrink-0 transition-transform ${open===i?"rotate-180":""}`} />
-              </div>
-              {open===i && <div className="px-6 pb-6 text-sm text-muted-foreground leading-relaxed">{f.a}</div>}
-            </button>
-          ))}
-        </div>
+        <Reveal variant="reveal-left">
+          <div>
+            <SectionEyebrow>FAQ</SectionEyebrow>
+            <h2 className="mt-4 text-4xl md:text-5xl font-semibold">Frequently Asked Questions</h2>
+            <p className="mt-4 text-muted-foreground">Everything you need to know about laminate flooring in the Pacific Northwest.</p>
+            <img src={faqImg} alt="Cozy interior" className="mt-8 rounded-2xl aspect-[4/3] object-cover w-full" width={800} height={700} loading="lazy" />
+          </div>
+        </Reveal>
+        <Reveal variant="reveal-right">
+          <div className="space-y-3">
+            {faqs.map((f, i) => (
+              <button key={f.q} onClick={() => setOpen(open===i?null:i)} className="w-full text-left bg-cream rounded-2xl border border-border/60 overflow-hidden">
+                <div className="flex items-center justify-between gap-4 p-6">
+                  <span className="font-semibold">{f.q}</span>
+                  <ChevronDown className={`w-5 h-5 text-brand shrink-0 transition-transform ${open===i?"rotate-180":""}`} />
+                </div>
+                {open===i && <div className="px-6 pb-6 text-sm text-muted-foreground leading-relaxed">{f.a}</div>}
+              </button>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -423,21 +467,25 @@ const FAQ = () => {
 const TransformCTA = () => (
   <section className="py-20 bg-cream">
     <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 items-center">
-      <div>
-        <SectionEyebrow>Ready?</SectionEyebrow>
-        <h2 className="mt-4 text-4xl md:text-5xl font-semibold">Transform Your Home with Expert Laminate Flooring</h2>
-        <p className="mt-4 text-muted-foreground">Let's talk style, color, and durability — with a no-pressure free estimate from Olympia's most trusted laminate specialists.</p>
-        <ul className="mt-6 space-y-2.5 text-sm">
-          {["Serving Olympia & surrounding communities","Licensed & insured","Satisfaction guaranteed"].map(t => (
-            <li key={t} className="flex items-center gap-2"><Check className="w-4 h-4 text-brand" /> {t}</li>
-          ))}
-        </ul>
-        <div className="mt-7 flex flex-wrap gap-3">
-          <a href="#" className="inline-flex items-center gap-2 bg-brand text-primary-foreground rounded-full px-6 py-3.5 font-semibold"><Calendar className="w-5 h-5" /> Book My Free Estimate</a>
-          <a href="tel:3602025612" className="inline-flex items-center gap-2 font-semibold"><Phone className="w-5 h-5 text-brand" /> (360) 202-5612</a>
+      <Reveal variant="reveal-left">
+        <div>
+          <SectionEyebrow>Ready?</SectionEyebrow>
+          <h2 className="mt-4 text-4xl md:text-5xl font-semibold">Transform Your Home with Expert Laminate Flooring</h2>
+          <p className="mt-4 text-muted-foreground">Let's talk style, color, and durability — with a no-pressure free estimate from Olympia's most trusted laminate specialists.</p>
+          <ul className="mt-6 space-y-2.5 text-sm">
+            {["Serving Olympia & surrounding communities","Licensed & insured","Satisfaction guaranteed"].map(t => (
+              <li key={t} className="flex items-center gap-2"><Check className="w-4 h-4 text-brand" /> {t}</li>
+            ))}
+          </ul>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <a href="#" className="inline-flex items-center gap-2 bg-brand text-primary-foreground rounded-full px-6 py-3.5 font-semibold"><Calendar className="w-5 h-5" /> Book My Free Estimate</a>
+            <a href="tel:3602025612" className="inline-flex items-center gap-2 font-semibold"><Phone className="w-5 h-5 text-brand" /> (360) 202-5612</a>
+          </div>
         </div>
-      </div>
-      <img src={transform} alt="Bedroom with laminate" className="rounded-2xl aspect-[5/4] object-cover w-full" width={900} height={600} loading="lazy" />
+      </Reveal>
+      <Reveal variant="reveal-right">
+        <img src={transform} alt="Bedroom with laminate" className="rounded-2xl aspect-[5/4] object-cover w-full" width={900} height={600} loading="lazy" />
+      </Reveal>
     </div>
   </section>
 );
