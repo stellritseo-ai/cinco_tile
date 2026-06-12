@@ -320,25 +320,29 @@ const Testimonials = () => {
   return (
     <section className="py-24 bg-cream-deep">
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[1fr_2fr] gap-14 items-start">
-        <div>
-          <SectionEyebrow>Testimonials</SectionEyebrow>
-          <h2 className="mt-4 text-4xl md:text-5xl font-semibold">What Our Customers Say</h2>
-          <p className="mt-4 text-muted-foreground">Real reviews from neighbors across Olympia and nearby communities.</p>
-          <a href="#" className="mt-6 inline-flex items-center gap-2 text-brand font-semibold">Read all reviews on Google <ArrowRight className="w-4 h-4" /></a>
-        </div>
+        <Reveal>
+          <div>
+            <SectionEyebrow>Testimonials</SectionEyebrow>
+            <h2 className="mt-4 text-4xl md:text-5xl font-semibold">What Our Customers Say</h2>
+            <p className="mt-4 text-muted-foreground">Real reviews from neighbors across Olympia and nearby communities.</p>
+            <a href="#" className="mt-6 inline-flex items-center gap-2 text-brand font-semibold">Read all reviews on Google <ArrowRight className="w-4 h-4" /></a>
+          </div>
+        </Reveal>
         <div className="grid md:grid-cols-3 gap-5">
-          {reviews.map(r => (
-            <div key={r.n} className="bg-background rounded-2xl p-6 border border-border/60 shadow-sm">
-              <div className="flex gap-0.5 text-brand mb-3">{[...Array(5)].map((_,i)=>(<Star key={i} className="w-4 h-4 fill-current" />))}</div>
-              <p className="text-sm text-foreground/80 leading-relaxed">"{r.r}"</p>
-              <div className="mt-5 pt-4 border-t border-border flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-brand-soft grid place-items-center text-brand font-semibold text-sm">{r.n[0]}</div>
-                <div>
-                  <div className="text-sm font-semibold">{r.n}</div>
-                  <div className="text-xs text-muted-foreground">{r.l}</div>
+          {reviews.map((r, i) => (
+            <Reveal key={r.n} variant="reveal-scale" className={`stagger-${i + 1}`}>
+              <div className="bg-background rounded-2xl p-6 border border-border/60 shadow-sm">
+                <div className="flex gap-0.5 text-brand mb-3">{[...Array(5)].map((_,i)=>(<Star key={i} className="w-4 h-4 fill-current" />))}</div>
+                <p className="text-sm text-foreground/80 leading-relaxed">"{r.r}"</p>
+                <div className="mt-5 pt-4 border-t border-border flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-brand-soft grid place-items-center text-brand font-semibold text-sm">{r.n[0]}</div>
+                  <div>
+                    <div className="text-sm font-semibold">{r.n}</div>
+                    <div className="text-xs text-muted-foreground">{r.l}</div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
