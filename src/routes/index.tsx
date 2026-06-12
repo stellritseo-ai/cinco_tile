@@ -503,6 +503,7 @@ function Index() {
         <WhyChoose />
         <ServiceAreas />
         <FAQ />
+        <ContactForm />
         <TransformCTA />
       </main>
       <Footer />
