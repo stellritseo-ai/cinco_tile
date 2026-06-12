@@ -5,6 +5,7 @@ import {
   Facebook, Instagram, Mail, Clock, ArrowRight,
 } from "lucide-react";
 import { useState } from "react";
+import { ContactForm } from "@/components/ContactForm";
 
 import hero from "@/assets/hero.jpg";
 import experts from "@/assets/experts.jpg";
@@ -502,6 +503,7 @@ function Index() {
         <WhyChoose />
         <ServiceAreas />
         <FAQ />
+        <ContactForm />
         <TransformCTA />
       </main>
       <Footer />
