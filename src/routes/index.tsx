@@ -30,6 +30,15 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+const Reveal = ({ children, className = "", variant = "reveal" }: { children: React.ReactNode; className?: string; variant?: "reveal" | "reveal-scale" | "reveal-left" | "reveal-right" }) => {
+  const { ref, isVisible } = useScrollReveal<HTMLDivElement>();
+  return (
+    <div ref={ref} className={`${variant} ${isVisible ? "visible" : ""} ${className}`}>
+      {children}
+    </div>
+  );
+};
+
 const TopBar = () => (
   <div className="bg-ink text-cream/90 text-xs">
     <div className="max-w-7xl mx-auto px-6 py-2.5 flex items-center justify-between gap-4">
@@ -121,29 +130,33 @@ const SectionEyebrow = ({ children }: { children: React.ReactNode }) => (
 const LocalExperts = () => (
   <section className="py-24 bg-background">
     <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center">
-      <div className="relative">
-        <img src={experts} alt="Bright interior with laminate floors" className="rounded-2xl w-full aspect-[5/4] object-cover" width={800} height={640} loading="lazy" />
-        <div className="absolute -bottom-6 -right-6 bg-background rounded-2xl shadow-xl border border-border p-5 max-w-[220px]">
-          <div className="flex -space-x-2 mb-2">
-            {[1,2,3].map(i => <div key={i} className="w-8 h-8 rounded-full bg-brand-soft border-2 border-background" />)}
+      <Reveal variant="reveal-left">
+        <div className="relative">
+          <img src={experts} alt="Bright interior with laminate floors" className="rounded-2xl w-full aspect-[5/4] object-cover" width={800} height={640} loading="lazy" />
+          <div className="absolute -bottom-6 -right-6 bg-background rounded-2xl shadow-xl border border-border p-5 max-w-[220px]">
+            <div className="flex -space-x-2 mb-2">
+              {[1,2,3].map(i => <div key={i} className="w-8 h-8 rounded-full bg-brand-soft border-2 border-background" />)}
+            </div>
+            <div className="text-2xl font-display font-semibold">2,400+</div>
+            <div className="text-xs text-muted-foreground">Floors installed across Thurston County</div>
           </div>
-          <div className="text-2xl font-display font-semibold">2,400+</div>
-          <div className="text-xs text-muted-foreground">Floors installed across Thurston County</div>
         </div>
-      </div>
-      <div>
-        <SectionEyebrow>About</SectionEyebrow>
-        <h2 className="mt-4 text-4xl md:text-5xl font-semibold">Your Local Laminate-Only Experts</h2>
-        <p className="mt-5 text-muted-foreground leading-relaxed">
-          At Pacific Northwest Laminate Experts, we focus on one thing — laminate flooring. That singular focus makes us Olympia's most trusted, dedicated, and skilled installation team.
-        </p>
-        <p className="mt-4 text-muted-foreground leading-relaxed">
-          Licensed, insured, and proudly local, we serve Olympia, Lacey, Tumwater, and surrounding communities with workmanship guaranteed for life and a customer experience that feels truly local.
-        </p>
-        <a href="#about" className="mt-7 inline-flex items-center gap-2 bg-brand text-primary-foreground rounded-full px-6 py-3 font-semibold hover:brightness-105">
-          Learn More About Us <ArrowRight className="w-4 h-4" />
-        </a>
-      </div>
+      </Reveal>
+      <Reveal variant="reveal-right">
+        <div>
+          <SectionEyebrow>About</SectionEyebrow>
+          <h2 className="mt-4 text-4xl md:text-5xl font-semibold">Your Local Laminate-Only Experts</h2>
+          <p className="mt-5 text-muted-foreground leading-relaxed">
+            At Pacific Northwest Laminate Experts, we focus on one thing — laminate flooring. That singular focus makes us Olympia's most trusted, dedicated, and skilled installation team.
+          </p>
+          <p className="mt-4 text-muted-foreground leading-relaxed">
+            Licensed, insured, and proudly local, we serve Olympia, Lacey, Tumwater, and surrounding communities with workmanship guaranteed for life and a customer experience that feels truly local.
+          </p>
+          <a href="#about" className="mt-7 inline-flex items-center gap-2 bg-brand text-primary-foreground rounded-full px-6 py-3 font-semibold hover:brightness-105">
+            Learn More About Us <ArrowRight className="w-4 h-4" />
+          </a>
+        </div>
+      </Reveal>
     </div>
   </section>
 );
@@ -157,29 +170,33 @@ const Services = () => {
   return (
     <section id="services" className="py-24 bg-cream">
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[1fr_1.4fr] gap-14 items-start">
-        <div className="lg:sticky lg:top-24">
-          <SectionEyebrow>Services</SectionEyebrow>
-          <h2 className="mt-4 text-4xl md:text-5xl font-semibold">Everything Laminate,<br/>All in One Place</h2>
-          <p className="mt-5 text-muted-foreground leading-relaxed">
-            At Pacific Northwest Laminate Experts, laminate flooring is all we do. From new installs to repair and stair work, we have the tools, training, and experience to handle every project with care.
-          </p>
-          <a href="#services" className="mt-7 inline-flex items-center gap-2 border border-foreground/20 rounded-full px-6 py-3 font-semibold hover:bg-background">
-            See All Services <ArrowRight className="w-4 h-4" />
-          </a>
-        </div>
+        <Reveal className="lg:sticky lg:top-24">
+          <div>
+            <SectionEyebrow>Services</SectionEyebrow>
+            <h2 className="mt-4 text-4xl md:text-5xl font-semibold">Everything Laminate,<br/>All in One Place</h2>
+            <p className="mt-5 text-muted-foreground leading-relaxed">
+              At Pacific Northwest Laminate Experts, laminate flooring is all we do. From new installs to repair and stair work, we have the tools, training, and experience to handle every project with care.
+            </p>
+            <a href="#services" className="mt-7 inline-flex items-center gap-2 border border-foreground/20 rounded-full px-6 py-3 font-semibold hover:bg-background">
+              See All Services <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+        </Reveal>
         <div className="grid sm:grid-cols-3 gap-4">
-          {items.map(s => (
-            <div key={s.title} className="group relative rounded-2xl overflow-hidden bg-ink aspect-[3/4] cursor-pointer">
-              <img src={s.img} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width={600} height={700} loading="lazy" />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5 text-cream">
-                <div className="font-display text-xl font-semibold">{s.title}</div>
-                <div className="text-xs text-cream/70 mt-1">{s.desc}</div>
+          {items.map((s, i) => (
+            <Reveal key={s.title} variant="reveal-scale" className={`stagger-${i + 1}`}>
+              <div className="group relative rounded-2xl overflow-hidden bg-ink aspect-[3/4] cursor-pointer">
+                <img src={s.img} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width={600} height={700} loading="lazy" />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
+                <div className="absolute bottom-5 left-5 right-5 text-cream">
+                  <div className="font-display text-xl font-semibold">{s.title}</div>
+                  <div className="text-xs text-cream/70 mt-1">{s.desc}</div>
+                </div>
+                <span className="absolute top-4 right-4 w-9 h-9 rounded-full bg-brand grid place-items-center text-primary-foreground opacity-0 group-hover:opacity-100 transition">
+                  <ArrowRight className="w-4 h-4" />
+                </span>
               </div>
-              <span className="absolute top-4 right-4 w-9 h-9 rounded-full bg-brand grid place-items-center text-primary-foreground opacity-0 group-hover:opacity-100 transition">
-                <ArrowRight className="w-4 h-4" />
-              </span>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -197,19 +214,23 @@ const Process = () => {
     <section className="py-24 bg-cream-deep relative overflow-hidden">
       <div className="absolute inset-0 opacity-[0.04]" style={{backgroundImage:"radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)", backgroundSize:"24px 24px"}} />
       <div className="relative max-w-6xl mx-auto px-6 text-center">
-        <SectionEyebrow>Our Process</SectionEyebrow>
-        <h2 className="mt-4 text-4xl md:text-5xl font-semibold">How We Make Your Floors Beautiful</h2>
-        <p className="mt-4 text-muted-foreground max-w-xl mx-auto">A simple, transparent three-step path to floors you'll love.</p>
+        <Reveal>
+          <SectionEyebrow>Our Process</SectionEyebrow>
+          <h2 className="mt-4 text-4xl md:text-5xl font-semibold">How We Make Your Floors Beautiful</h2>
+          <p className="mt-4 text-muted-foreground max-w-xl mx-auto">A simple, transparent three-step path to floors you'll love.</p>
+        </Reveal>
         <div className="mt-14 grid md:grid-cols-3 gap-8">
           {steps.map((s, idx) => (
-            <div key={s.t} className="relative bg-background/70 backdrop-blur rounded-2xl p-8 border border-border/60">
-              <div className="w-16 h-16 rounded-2xl bg-brand grid place-items-center mx-auto text-primary-foreground shadow-[0_12px_30px_-10px_oklch(0.74_0.165_55/0.6)]">
-                <s.i className="w-7 h-7" />
+            <Reveal key={s.t} variant="reveal-scale" className={`stagger-${idx + 1}`}>
+              <div className="relative bg-background/70 backdrop-blur rounded-2xl p-8 border border-border/60">
+                <div className="w-16 h-16 rounded-2xl bg-brand grid place-items-center mx-auto text-primary-foreground shadow-[0_12px_30px_-10px_oklch(0.74_0.165_55/0.6)]">
+                  <s.i className="w-7 h-7" />
+                </div>
+                <div className="absolute top-6 right-6 font-display text-3xl text-brand/30">0{idx+1}</div>
+                <h3 className="mt-6 font-display text-xl font-semibold">{s.t}</h3>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{s.d}</p>
               </div>
-              <div className="absolute top-6 right-6 font-display text-3xl text-brand/30">0{idx+1}</div>
-              <h3 className="mt-6 font-display text-xl font-semibold">{s.t}</h3>
-              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{s.d}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
