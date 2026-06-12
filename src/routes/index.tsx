@@ -292,19 +292,21 @@ const TickerBar = () => (
 const EstimateCTA = () => (
   <section id="estimate" className="py-20 bg-cream">
     <div className="max-w-6xl mx-auto px-6">
-      <div className="relative rounded-3xl overflow-hidden">
-        <img src={estimate} alt="Laminate samples" className="absolute inset-0 w-full h-full object-cover" width={1600} height={600} loading="lazy" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/65 to-ink/30" />
-        <div className="relative p-10 md:p-16 text-cream max-w-2xl">
-          <SectionEyebrow>Get Started</SectionEyebrow>
-          <h2 className="mt-4 font-display text-4xl md:text-5xl font-semibold text-cream">Book Your Free In-Home Estimate Today</h2>
-          <p className="mt-4 text-cream/85">We come to you with samples, expert advice, and a clear, honest quote — no pressure, no surprises.</p>
-          <div className="mt-7 flex flex-wrap gap-3">
-            <a href="#" className="inline-flex items-center gap-2 bg-brand text-primary-foreground rounded-full px-6 py-3.5 font-semibold hover:brightness-105"><Calendar className="w-5 h-5" /> Book My Free Estimate</a>
-            <a href="tel:3602025612" className="inline-flex items-center gap-2 bg-cream/10 border border-cream/30 text-cream rounded-full px-6 py-3.5 font-semibold hover:bg-cream/15"><Phone className="w-5 h-5" /> (360) 202-5612</a>
+      <Reveal variant="reveal-scale">
+        <div className="relative rounded-3xl overflow-hidden">
+          <img src={estimate} alt="Laminate samples" className="absolute inset-0 w-full h-full object-cover" width={1600} height={600} loading="lazy" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/65 to-ink/30" />
+          <div className="relative p-10 md:p-16 text-cream max-w-2xl">
+            <SectionEyebrow>Get Started</SectionEyebrow>
+            <h2 className="mt-4 font-display text-4xl md:text-5xl font-semibold text-cream">Book Your Free In-Home Estimate Today</h2>
+            <p className="mt-4 text-cream/85">We come to you with samples, expert advice, and a clear, honest quote — no pressure, no surprises.</p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <a href="#" className="inline-flex items-center gap-2 bg-brand text-primary-foreground rounded-full px-6 py-3.5 font-semibold hover:brightness-105"><Calendar className="w-5 h-5" /> Book My Free Estimate</a>
+              <a href="tel:3602025612" className="inline-flex items-center gap-2 bg-cream/10 border border-cream/30 text-cream rounded-full px-6 py-3.5 font-semibold hover:bg-cream/15"><Phone className="w-5 h-5" /> (360) 202-5612</a>
+            </div>
           </div>
         </div>
-      </div>
+      </Reveal>
     </div>
   </section>
 );
