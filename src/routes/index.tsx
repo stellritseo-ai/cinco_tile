@@ -241,36 +241,40 @@ const Process = () => {
 const Trust = () => (
   <section className="py-24 bg-background">
     <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center">
-      <div className="grid grid-cols-2 gap-4">
-        <img src={showroom} alt="Laminate showroom" className="rounded-2xl object-cover w-full h-full aspect-[3/4]" width={800} height={700} loading="lazy" />
-        <div className="grid gap-4">
-          <img src={sInstall} alt="Installation" className="rounded-2xl object-cover w-full aspect-square" loading="lazy" />
-          <img src={faqImg} alt="Cozy living room" className="rounded-2xl object-cover w-full aspect-square" loading="lazy" />
+      <Reveal variant="reveal-left">
+        <div className="grid grid-cols-2 gap-4">
+          <img src={showroom} alt="Laminate showroom" className="rounded-2xl object-cover w-full h-full aspect-[3/4]" width={800} height={700} loading="lazy" />
+          <div className="grid gap-4">
+            <img src={sInstall} alt="Installation" className="rounded-2xl object-cover w-full aspect-square" loading="lazy" />
+            <img src={faqImg} alt="Cozy living room" className="rounded-2xl object-cover w-full aspect-square" loading="lazy" />
+          </div>
         </div>
-      </div>
-      <div>
-        <SectionEyebrow>Why Us</SectionEyebrow>
-        <h2 className="mt-4 text-4xl md:text-5xl font-semibold">Here's why Olympia homeowners trust Pacific Northwest Laminate Experts</h2>
-        <div className="mt-8 space-y-5">
-          {[
-            { i: ShieldCheck, t: "Licensed & Insured", d: "Fully bonded, insured, and PNW-local for your complete peace of mind." },
-            { i: Users, t: "Laminate-Only Specialists", d: "We don't dabble. Laminate is our entire craft." },
-            { i: BadgeCheck, t: "Satisfaction Guaranteed", d: "Lifetime workmanship guarantee on every install." },
-            { i: Award, t: "Local & Trusted", d: "Hundreds of happy neighbors across Thurston County." },
-          ].map(it => (
-            <div key={it.t} className="flex gap-4">
-              <span className="shrink-0 w-11 h-11 rounded-xl bg-brand-soft grid place-items-center"><it.i className="w-5 h-5 text-brand" /></span>
-              <div>
-                <div className="font-semibold">{it.t}</div>
-                <div className="text-sm text-muted-foreground mt-0.5">{it.d}</div>
+      </Reveal>
+      <Reveal variant="reveal-right">
+        <div>
+          <SectionEyebrow>Why Us</SectionEyebrow>
+          <h2 className="mt-4 text-4xl md:text-5xl font-semibold">Here's why Olympia homeowners trust Pacific Northwest Laminate Experts</h2>
+          <div className="mt-8 space-y-5">
+            {[
+              { i: ShieldCheck, t: "Licensed & Insured", d: "Fully bonded, insured, and PNW-local for your complete peace of mind." },
+              { i: Users, t: "Laminate-Only Specialists", d: "We don't dabble. Laminate is our entire craft." },
+              { i: BadgeCheck, t: "Satisfaction Guaranteed", d: "Lifetime workmanship guarantee on every install." },
+              { i: Award, t: "Local & Trusted", d: "Hundreds of happy neighbors across Thurston County." },
+            ].map((it, idx) => (
+              <div key={it.t} className={`flex gap-4 reveal stagger-${idx + 1} ${'visible'}`}>
+                <span className="shrink-0 w-11 h-11 rounded-xl bg-brand-soft grid place-items-center"><it.i className="w-5 h-5 text-brand" /></span>
+                <div>
+                  <div className="font-semibold">{it.t}</div>
+                  <div className="text-sm text-muted-foreground mt-0.5">{it.d}</div>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+          <a href="#estimate" className="mt-8 inline-flex items-center gap-2 bg-brand text-primary-foreground rounded-full px-6 py-3 font-semibold hover:brightness-105">
+            Book Your Free Estimate <ArrowRight className="w-4 h-4" />
+          </a>
         </div>
-        <a href="#estimate" className="mt-8 inline-flex items-center gap-2 bg-brand text-primary-foreground rounded-full px-6 py-3 font-semibold hover:brightness-105">
-          Book Your Free Estimate <ArrowRight className="w-4 h-4" />
-        </a>
-      </div>
+      </Reveal>
     </div>
   </section>
 );
