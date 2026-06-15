@@ -2,6 +2,7 @@ import { useState } from "react";
 import { z } from "zod";
 import { Send, Phone, Mail, MapPin, CheckCircle2, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { Reveal } from "@/components/ui/Reveal";
 
 const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -54,78 +55,131 @@ export function ContactForm() {
 
   const Field = ({ label, name, children }: { label: string; name: keyof FormState; children: React.ReactNode }) => (
     <label className="block">
-      <span className="text-sm font-semibold text-foreground">{label}</span>
-      <div className="mt-1.5">{children}</div>
-      {errors[name] && <span className="mt-1 block text-xs text-destructive">{errors[name]}</span>}
+      <span className="text-[14px] font-bold text-[#111827]">{label}</span>
+      <div className="mt-[8px]">{children}</div>
+      {errors[name] && <span className="mt-[4px] block text-[13px] text-red-500 font-medium">{errors[name]}</span>}
     </label>
   );
 
-  const inputCls = "w-full bg-background border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand/40 focus:border-brand transition";
+  const inputCls = "w-full bg-white border border-gray-200 rounded-[8px] px-[16px] py-[12px] text-[15px] text-[#111827] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#d62828] focus:border-transparent transition-all";
 
   return (
-    <section id="contact" className="py-24 bg-background">
-      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[1fr_1.2fr] gap-14 items-start">
-        <div>
-          <span className="inline-flex items-center gap-2 bg-brand-soft text-brand rounded-full px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em]">
-            <span className="w-1.5 h-1.5 rounded-full bg-brand" /> Contact Us
-          </span>
-          <h2 className="mt-4 text-4xl md:text-5xl font-semibold">Let's Talk About Your Floors</h2>
-          <p className="mt-4 text-muted-foreground leading-relaxed max-w-md">
-            Send us a quick note and we'll get back to you within one business day with answers, ideas, or a free in-home estimate.
-          </p>
-          <div className="mt-8 space-y-5">
-            {[
-              { i: Phone, t: "Call", v: "(360) 202-5612", href: "tel:3602025612" },
-              { i: Mail, t: "Email", v: "hello@pnwlaminate.com", href: "mailto:hello@pnwlaminate.com" },
-              { i: MapPin, t: "Visit", v: "Olympia, WA 98501" },
-            ].map(({ i: Icon, t, v, href }) => (
-              <div key={t} className="flex items-start gap-4">
-                <span className="w-11 h-11 rounded-xl bg-brand-soft grid place-items-center shrink-0"><Icon className="w-5 h-5 text-brand" /></span>
-                <div>
-                  <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">{t}</div>
-                  {href ? <a href={href} className="font-semibold hover:text-brand">{v}</a> : <div className="font-semibold">{v}</div>}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+    <section id="contact" className="py-[60px] bg-[#F6F5F2] w-full relative">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10">
+        <div className="grid lg:grid-cols-[1fr_1.2fr] gap-[60px] lg:gap-[60px] items-start">
 
-        <form onSubmit={submit} className="bg-cream rounded-3xl border border-border p-8 md:p-10 shadow-sm">
-          {status === "success" ? (
-            <div className="text-center py-10">
-              <div className="w-16 h-16 mx-auto rounded-full bg-brand-soft grid place-items-center"><CheckCircle2 className="w-8 h-8 text-brand" /></div>
-              <h3 className="mt-5 font-display text-2xl font-semibold">Message received!</h3>
-              <p className="mt-2 text-muted-foreground text-sm">Thanks for reaching out. We'll be in touch within one business day.</p>
-              <button type="button" onClick={() => setStatus("idle")} className="mt-6 text-brand font-semibold text-sm hover:underline">Send another message</button>
+          {/* Left Column */}
+          <Reveal variant="reveal-left">
+            <div>
+              <span className="inline-block bg-[#0077b6] text-white rounded-[20px] px-[16px] py-[6px] text-[13px] font-bold font-sans tracking-wide">
+                Contact Us
+              </span>
+
+              <h2 className="mt-[24px] font-sans text-[24px] md:text-[35px] font-extrabold text-[#111827] leading-[1.1] tracking-[-0.02em]">
+                Let's Talk About Your Tile Project
+              </h2>
+
+              <p className="mt-[20px] text-[16px] md:text-[17px] text-[#4B5563] leading-[1.6] max-w-[480px]">
+                Send us a quick note and we'll get back to you within one business day with answers, ideas, or a free in-home estimate.
+              </p>
+
+              <div className="mt-[48px] space-y-[32px]">
+                {[
+                  { i: Phone, t: "Call Us", v: "(832) 406-2716", href: "tel:8324062716" },
+                  { i: Mail, t: "Email Us", v: "tilesinstall@gmail.com", href: "mailto:tilesinstall@gmail.com" },
+                  { i: MapPin, t: "Visit Us", v: "1400 Broadfield Blvd, Houston, TX 77084" },
+                ].map(({ i: Icon, t, v, href }) => (
+                  <div key={t} className="flex items-start gap-[16px]">
+                    <div className="w-[48px] h-[48px] rounded-[12px] bg-white shadow-sm flex items-center justify-center shrink-0 border border-gray-100">
+                      <Icon className="w-[20px] h-[20px] text-[#0077b6]" strokeWidth={2.5} />
+                    </div>
+                    <div className="pt-[2px]">
+                      <div className="text-[13px] uppercase tracking-wider text-[#8b5a2b] font-bold">{t}</div>
+                      {href ? (
+                        <a href={href} className="text-[16px] font-semibold text-[#111827] hover:text-[#d62828] transition-colors mt-[4px] block">
+                          {v}
+                        </a>
+                      ) : (
+                        <div className="text-[16px] font-semibold text-[#111827] mt-[4px]">
+                          {v}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-          ) : (
-            <>
-              <div className="grid sm:grid-cols-2 gap-5">
-                <Field label="Name" name="name">
-                  <input className={inputCls} value={form.name} onChange={onChange("name")} placeholder="Jane Doe" maxLength={100} />
-                </Field>
-                <Field label="Email" name="email">
-                  <input type="email" className={inputCls} value={form.email} onChange={onChange("email")} placeholder="jane@example.com" maxLength={255} />
-                </Field>
-              </div>
-              <div className="mt-5">
-                <Field label="Phone (optional)" name="phone">
-                  <input type="tel" className={inputCls} value={form.phone} onChange={onChange("phone")} placeholder="(360) 555-0123" maxLength={30} />
-                </Field>
-              </div>
-              <div className="mt-5">
-                <Field label="Message" name="message">
-                  <textarea rows={5} className={inputCls + " resize-none"} value={form.message} onChange={onChange("message")} placeholder="Tell us about your project, square footage, timeline..." maxLength={2000} />
-                </Field>
-              </div>
-              {status === "error" && <p className="mt-4 text-sm text-destructive">{errorMsg}</p>}
-              <button type="submit" disabled={status === "loading"} className="mt-7 w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-brand text-primary-foreground rounded-full px-7 py-3.5 font-semibold hover:brightness-105 disabled:opacity-60 shadow-[0_12px_30px_-10px_oklch(0.74_0.165_55/0.6)]">
-                {status === "loading" ? <><Loader2 className="w-4 h-4 animate-spin" /> Sending...</> : <><Send className="w-4 h-4" /> Send Message</>}
-              </button>
-              <p className="mt-3 text-xs text-muted-foreground">We respect your privacy. Your info is only used to reply to you.</p>
-            </>
-          )}
-        </form>
+          </Reveal>
+
+          {/* Right Column: Form */}
+          <Reveal variant="reveal-right">
+            <form onSubmit={submit} className="bg-white rounded-[24px] border border-gray-100 p-[24px] md:p-[32px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative">
+              {status === "success" ? (
+                <div className="text-center py-[60px]">
+                  <div className="w-[64px] h-[64px] mx-auto rounded-full bg-[#0077b6]/10 flex items-center justify-center">
+                    <CheckCircle2 className="w-[32px] h-[32px] text-[#0077b6]" />
+                  </div>
+                  <h3 className="mt-[24px] text-[24px] font-extrabold text-[#111827]">Message received!</h3>
+                  <p className="mt-[12px] text-[#4B5563] text-[16px] leading-[1.6]">
+                    Thanks for reaching out. We'll be in touch within one business day.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setStatus("idle")}
+                    className="mt-[32px] text-[#d62828] font-bold text-[15px] hover:text-[#b52020] transition-colors"
+                  >
+                    Send another message &rarr;
+                  </button>
+                </div>
+              ) : (
+                <>
+                  <div className="grid sm:grid-cols-2 gap-[24px]">
+                    <Field label="Your Name" name="name">
+                      <input className={inputCls} value={form.name} onChange={onChange("name")} placeholder="John Doe" maxLength={100} />
+                    </Field>
+                    <Field label="Email Address" name="email">
+                      <input type="email" className={inputCls} value={form.email} onChange={onChange("email")} placeholder="john@example.com" maxLength={255} />
+                    </Field>
+                  </div>
+                  <div className="mt-[16px]">
+                    <Field label="Phone Number (optional)" name="phone">
+                      <input type="tel" className={inputCls} value={form.phone} onChange={onChange("phone")} placeholder="(832) 406-2716" maxLength={30} />
+                    </Field>
+                  </div>
+                  <div className="mt-[16px]">
+                    <Field label="How can we help?" name="message">
+                      <textarea rows={4} className={inputCls + " resize-none"} value={form.message} onChange={onChange("message")} placeholder="Tell us about your project, square footage, timeline..." maxLength={2000} />
+                    </Field>
+                  </div>
+
+                  {status === "error" && (
+                    <p className="mt-[16px] text-[14px] font-medium text-red-500 bg-red-50 p-[12px] rounded-[8px]">
+                      {errorMsg}
+                    </p>
+                  )}
+
+                  <div className="mt-[24px] flex flex-col sm:flex-row items-center justify-between gap-[16px]">
+                    <p className="text-[13px] text-[#6B7280]">
+                      We respect your privacy.
+                    </p>
+                    <button
+                      type="submit"
+                      disabled={status === "loading"}
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-[10px] bg-[#d62828] text-white rounded-[8px] px-[32px] py-[16px] font-bold text-[15px] hover:bg-[#b52020] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 shadow-[0_4px_14px_0_rgba(214,40,40,0.3)] disabled:opacity-60 disabled:hover:scale-100 disabled:hover:bg-[#d62828]"
+                    >
+                      {status === "loading" ? (
+                        <><Loader2 className="w-[18px] h-[18px] animate-spin" /> Sending...</>
+                      ) : (
+                        <>Send Message <Send className="w-[16px] h-[16px]" /></>
+                      )}
+                    </button>
+                  </div>
+                </>
+              )}
+            </form>
+          </Reveal>
+
+        </div>
       </div>
     </section>
   );

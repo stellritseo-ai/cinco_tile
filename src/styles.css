@@ -46,8 +46,8 @@
   --cream-deep: oklch(0.945 0.022 78);
   --ink: oklch(0.20 0.015 60);
   --ink-soft: oklch(0.42 0.012 60);
-  --brand: oklch(0.74 0.165 55);
-  --brand-soft: oklch(0.93 0.06 75);
+  --brand: #0077b6;
+  --brand-soft: #e0f2fe;
 
   --background: oklch(1 0 0);
   --foreground: var(--ink);

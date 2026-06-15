@@ -54,8 +54,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Pacific Northwest Laminate Experts | Olympia, WA" },
-      { name: "description", content: "Olympia's trusted laminate flooring specialists. Free in-home estimates, expert installation, lifetime workmanship guarantee." },
+      { title: "Cinco Tile Installers | Houston, TX" },
+      { name: "description", content: "Houston's trusted tile installation specialists. 15+ years experience, expert installation, and free estimates." },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
