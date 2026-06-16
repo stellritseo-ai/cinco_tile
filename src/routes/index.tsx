@@ -19,9 +19,9 @@ import { Footer } from "@/components/home/Footer";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Cinco Tile Installers — Houston, TX" },
+      { title: "Cinco Services — Houston, TX" },
       { name: "description", content: "Expert tile installation in Houston. Over 15 years of experience bringing quality craftsmanship to your home. Free estimates." },
-      { property: "og:title", content: "Cinco Tile Installers" },
+      { property: "og:title", content: "Cinco Services" },
       { property: "og:description", content: "Houston's trusted tile installation specialists." },
     ],
   }),

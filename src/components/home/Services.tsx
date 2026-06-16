@@ -11,7 +11,8 @@ import {
   Flame,
   Sun,
   Home,
-  ArrowRight
+  ArrowRight,
+  Paintbrush
 } from "lucide-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 import { Reveal } from "@/components/ui/Reveal";
@@ -121,6 +122,34 @@ export const Services = () => {
       tags: ["Kitchen", "Entryway", "Basement", "Laundry Room"],
       img: sStairs,
     },
+    {
+      icon: Home,
+      title: "Roofing Services",
+      desc: "Professional roof inspections, leak repairs, shingle installations, and complete roof replacements.",
+      tags: ["Roof Repair", "Replacements", "Shingles", "Inspections"],
+      img: "https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      icon: Paintbrush,
+      title: "Exterior Painting",
+      desc: "Premium outdoor painting services for siding, decks, trim, and brick to protect and beautify your home.",
+      tags: ["Siding & Trim", "Decks & Fences", "Weatherproofing", "Brick Painting"],
+      img: "https://images.unsplash.com/photo-1778342259272-142fa3f81859?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      icon: Paintbrush,
+      title: "Interior Painting",
+      desc: "Precise wall, ceiling, and trim painting with meticulous prep work, clean lines, and premium zero-VOC paints.",
+      tags: ["Walls & Ceilings", "Trim & Doors", "Meticulous Prep", "Color Selection"],
+      img: "https://images.unsplash.com/photo-1648475237029-7f853809ca14?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      icon: Hammer,
+      title: "Home Remodeling",
+      desc: "Full-scale home remodeling, kitchen conversions, basement finishes, and custom structural upgrades.",
+      tags: ["Kitchen Remodel", "Basement Finishes", "Additions", "Custom Layouts"],
+      img: "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=800&q=80",
+    },
   ];
 
   // First 3 items for the top row grid
@@ -145,7 +174,7 @@ export const Services = () => {
                 Everything Tile & Flooring,<br />All in One Place
               </h2>
               <p className="mt-5 text-muted-foreground text-sm leading-relaxed font-medium">
-                At Cinco Tile, tile and flooring installations are our specialty — and we do it best. From flawless installations to expert repairs, waterproof upgrades, and custom layout transformations, our team brings precision and care to every project. Whatever your tiling or flooring need, we've got you covered.
+                At Cinco Services, tile and flooring installations are our specialty — and we do it best. From flawless installations to expert repairs, waterproof upgrades, and custom layout transformations, our team brings precision and care to every project. Whatever your tiling or flooring need, we've got you covered.
               </p>
               <div className="mt-7">
                 <a

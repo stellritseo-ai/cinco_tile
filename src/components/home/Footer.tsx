@@ -10,7 +10,7 @@ export const Footer = () => (
         {/* Column 1: Logo & Socials */}
         <div className="flex flex-col">
           <a href="#" className="flex items-center">
-            <img src={logoImg} alt="Cinco Tile Logo" className="h-[55px] md:h-[70px] w-auto object-contain" />
+            <img src={logoImg} alt="Cinco Services Logo" className="h-[55px] md:h-[70px] w-auto object-contain" />
           </a>
 
           <p className="mt-[40px] text-[14px]">Follow us on</p>
@@ -64,7 +64,7 @@ export const Footer = () => (
           <h3 className="text-white font-bold text-[16px] pb-[12px] border-b border-gray-600 mb-[16px]">Contact</h3>
           <ul className="space-y-[14px] text-[14px] text-gray-300">
             <li>(832) 406-2716</li>
-            <li>tilesinstall@gmail.com</li>
+            <li>eli@cincoservicesllc.com</li>
             <li className="leading-[1.6]">1400 Broadfield Blvd,<br />Houston, TX 77084</li>
           </ul>
         </div>
@@ -73,7 +73,7 @@ export const Footer = () => (
 
       <div className="pt-[30px] border-t border-gray-600 text-center">
         <p className="text-[13px] text-gray-400">
-          ©{new Date().getFullYear()} - Cinco Tile Installers. All Rights Reserved. Designed and Developed By: <span className="text-white font-bold">StellR IT LLC</span>
+          ©{new Date().getFullYear()} - Cinco Services. All Rights Reserved. Designed and Developed By: <a href="https://stellrit.com" target="_blank" rel="noopener noreferrer" className="text-white font-bold hover:underline">StellR IT LLC</a>
         </p>
       </div>
 

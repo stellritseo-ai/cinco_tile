@@ -92,7 +92,7 @@ export const Trust = () => {
                 
                 {/* Heading */}
                 <h2 className="mt-[20px] max-w-[650px] font-sans text-[24px] md:text-[36px] font-extrabold text-[#111827] leading-[43px] md:leading-[55px] tracking-[-0.02em] text-center md:text-left mx-auto">
-                  Why Homeowners & Businesses Trust Cinco Tile Installers
+                  Why Homeowners & Businesses Trust Cinco Services
                 </h2>
 
                 {/* Body Text */}

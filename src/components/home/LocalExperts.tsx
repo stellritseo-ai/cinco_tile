@@ -66,7 +66,7 @@ export const LocalExperts = () => (
         <div className="w-full pt-[20px] lg:pt-0">
           {/* Badge */}
           <span className="inline-block bg-[#0077b6] text-white rounded-[20px] px-[16px] py-[6px] text-[13px] font-bold font-sans tracking-wide">
-            Welcome to Cinco Tile Installers
+            Welcome to Cinco Services
           </span>
           
           <h2 className="mt-[24px] font-sans text-[34px] lg:text-[42px] font-extrabold text-[#111827] leading-[1.15] tracking-[-0.02em]">

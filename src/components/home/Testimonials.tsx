@@ -8,7 +8,7 @@ export const Testimonials = () => {
     {
       name: "Lisa M.",
       location: "Houston",
-      text: "“Cinco Tile Installers did our master bathroom remodel – from shower tile to new bathtub. Flawless work. Showed up on time, cleaned up every day. Highly recommend.”"
+      text: "“Cinco Services did our master bathroom remodel – from shower tile to new bathtub. Flawless work. Showed up on time, cleaned up every day. Highly recommend.”"
     },
     {
       name: "James R.",

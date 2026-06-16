@@ -86,7 +86,7 @@ export function ContactForm() {
               <div className="mt-[48px] space-y-[32px]">
                 {[
                   { i: Phone, t: "Call Us", v: "(832) 406-2716", href: "tel:8324062716" },
-                  { i: Mail, t: "Email Us", v: "tilesinstall@gmail.com", href: "mailto:tilesinstall@gmail.com" },
+                  { i: Mail, t: "Email Us", v: "eli@cincoservicesllc.com", href: "mailto:eli@cincoservicesllc.com" },
                   { i: MapPin, t: "Visit Us", v: "1400 Broadfield Blvd, Houston, TX 77084" },
                 ].map(({ i: Icon, t, v, href }) => (
                   <div key={t} className="flex items-start gap-[16px]">

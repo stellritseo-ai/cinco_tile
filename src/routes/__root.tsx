@@ -54,7 +54,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Cinco Tile Installers | Houston, TX" },
+      { title: "Cinco Services | Houston, TX" },
       { name: "description", content: "Houston's trusted tile installation specialists. 15+ years experience, expert installation, and free estimates." },
     ],
     links: [
