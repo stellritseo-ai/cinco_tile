@@ -33,7 +33,7 @@ export const Nav = () => {
         <div className="max-w-[1400px] mx-auto px-6">
           <div className="flex items-center justify-between">
             <a href="#" className="flex items-center">
-              <img src={logoImg} alt="Cinco Services Logo" className="h-[55px] md:h-[70px] w-auto object-contain transition-transform duration-300 hover:scale-105" />
+              <img src={logoImg} alt="Cinco Services Logo" className="h-[65px] md:h-[85px] w-auto object-contain transition-transform duration-300 hover:scale-105" />
             </a>
             
             {/* Desktop Navigation */}
@@ -107,7 +107,7 @@ export const Nav = () => {
         >
           {/* Header area in drawer */}
           <div className="flex items-center justify-between pb-5 border-b border-white/10 mt-14">
-            <img src={logoImg} alt="Cinco Services Logo" className="h-[40px] w-auto object-contain" />
+            <img src={logoImg} alt="Cinco Services Logo" className="h-[50px] w-auto object-contain" />
             <button 
               onClick={() => setIsOpen(false)} 
               className="p-1 rounded-md text-white/70 hover:text-white hover:bg-white/10 transition-colors"
