@@ -8,24 +8,24 @@ export const FAQ = () => {
 
   const faqs = [
     {
-      q: "What types of tile do you install?",
-      a: "Ceramic, granite, marble, limestone, porcelain, slate, onyx, travertine – plus hardwood, laminate, and backsplash."
+      q: "What remodeling & construction services do you offer?",
+      a: "We provide comprehensive home additions, kitchen and bathroom remodeling, new custom home builds, framing, roofing, interior and exterior painting, as well as custom tile and flooring installation."
+    },
+    {
+      q: "Are you fully licensed and insured?",
+      a: "Yes, Cinco Services is fully licensed and insured. We prioritize safety, structural integrity, and building code compliance on every job."
     },
     {
       q: "Do you serve commercial clients?",
-      a: "Yes – restaurants, offices, retail spaces, and more."
+      a: "Yes – we handle commercial remodeling, office build-outs, retail space construction, and tenant improvements."
     },
     {
       q: "How far do you travel?",
-      a: "Within 50 miles of our Houston location at 1400 Broadfield Blvd."
+      a: "We serve clients within a 50-mile radius of our Houston location at 1400 Broadfield Blvd, including Katy, Sugar Land, Cypress, Richmond, and Pearland."
     },
     {
-      q: "Are you available on weekends?",
-      a: "We work Monday–Friday 7am–7pm and Saturday 8am–7pm. Sunday closed."
-    },
-    {
-      q: "Do you provide free quotes?",
-      a: "Yes – contact us for an in-person or photo-based estimate."
+      q: "Do you provide free consultations & estimates?",
+      a: "Yes – contact us today to schedule a free detailed estimate for your construction or remodeling project."
     }
   ];
 
@@ -46,7 +46,7 @@ export const FAQ = () => {
               </h2>
 
               <p className="mt-[20px] text-[16px] lg:text-[17px] text-[#4B5563] leading-[1.6]">
-                Have questions about tile installation? We've answered the most common ones below. Still need help? Give us a call — we're happy to guide you.
+                Have questions about our remodeling or construction services? We've answered the most common ones below. Still need help? Give us a call — we're happy to guide you.
               </p>
 
               <div className="mt-[40px] w-full h-[200px] lg:h-[240px] rounded-[16px] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100">

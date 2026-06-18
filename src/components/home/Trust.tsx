@@ -10,7 +10,7 @@ export const Trust = () => {
     {
       Icon: Award,
       t: "15+ Years of Experience",
-      d: "Skilled installation in ceramic, marble, porcelain, slate, onyx, travertine, hardwood, and laminate",
+      d: "Skilled in general contracting, home additions, framing, roofing, interior/exterior painting, and custom tile",
     },
     {
       Icon: MapPin,
@@ -20,12 +20,12 @@ export const Trust = () => {
     {
       Icon: Building2,
       t: "Residential & Commercial Experts",
-      d: "Kitchens, bathrooms, showers, fireplaces, patios, basements, entryways, and laundry rooms",
+      d: "Kitchens, bathrooms, full home remodels, framing, roofing, exterior painting, and custom tiling",
     },
     {
       Icon: Sparkles,
       t: "Clean & Reliable",
-      d: "We protect your floors, clean up daily, and finish on schedule",
+      d: "We protect your property, clean up daily, and finish on schedule",
     },
     {
       Icon: Banknote,
@@ -97,7 +97,7 @@ export const Trust = () => {
 
                 {/* Body Text */}
                 <p className="mt-[16px] max-w-[650px] text-[16px] lg:text-[18px] text-[#4B5563] leading-[1.6] text-center md:text-left mx-auto md:mx-0">
-                  With over 15 years of hands-on experience in Houston, we don't just install tiles — we deliver craftsmanship that lasts. Every project, big or small, gets the same attention to detail, respect for your home, and commitment to quality.
+                  With over 15 years of hands-on experience in Houston, we don't just build structures — we deliver craftsmanship that lasts. Every project, big or small, gets the same attention to detail, respect for your home, and commitment to quality.
                 </p>
 
                 {/* Feature Grid */}

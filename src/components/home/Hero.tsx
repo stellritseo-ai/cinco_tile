@@ -15,7 +15,7 @@ export const Hero = () => (
           15+ Years of Precision Home Remodeling & <br /> <span className="text-sky-400 font-black">Construction in Houston</span>
         </h1>
         <p className="mt-[10px] text-[16px] md:text-[18px] text-white/90 max-w-[700px] leading-[28px] md:leading-[33px] font-medium mx-auto">
-          From ceramic and marble to bathroom remodeling and hardwood floors – we bring craftsmanship, reliability, and stunning results to residential and commercial clients within 50 miles of Houston.
+          From whole-home remodeling and custom framing to roofing, painting, and premium tile installations – we bring unmatched craftsmanship and reliability to residential and commercial clients within 50 miles of Houston.
         </p>
         <div className="mt-[25px] flex flex-wrap justify-center gap-4">
           <a href="#estimate" className="inline-flex items-center gap-2.5 bg-[#d62828] text-white rounded-full px-7 py-3 text-[15px] font-bold hover:brightness-110 transition-all shadow-[0_4px_14px_0_rgba(214,40,40,0.39)]">
@@ -29,7 +29,7 @@ export const Hero = () => (
           {[
             { i: Shield, t: "Licensed & Insured" },
             { i: Award, t: "Satisfaction Guaranteed" },
-            { i: HardHat, t: "Tile Specialists" },
+            { i: HardHat, t: "Remodeling Specialists" },
           ].map(({ i: Icon, t }) => (
             <div key={t} className="flex items-center text-left gap-2 md:gap-4 shrink-0">
               <Icon className="w-[20px] h-[20px] md:w-[30px] md:h-[30px] text-brand fill-brand" />

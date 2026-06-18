@@ -18,7 +18,7 @@ export const LocalExperts = () => (
           <div className="relative overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] z-10 rounded-tl-[80px] rounded-br-[80px] rounded-tr-[20px] rounded-bl-[20px]">
             <img 
               src={experts} 
-              alt="Premium tile installation" 
+              alt="Premium home remodeling and construction" 
               className="w-full h-auto aspect-[4/5] object-cover hover:scale-105 transition-transform duration-700" 
               loading="lazy" 
             />
@@ -70,15 +70,15 @@ export const LocalExperts = () => (
           </span>
           
           <h2 className="mt-[24px] font-sans text-[34px] lg:text-[42px] font-extrabold text-[#111827] leading-[1.15] tracking-[-0.02em]">
-            Where Every Tile Tells a Story of Quality.
+            Where Every Project Tells a Story of Premium Quality.
           </h2>
           
           <div className="mt-[24px] text-[16px] lg:text-[17px] text-[#4B5563] leading-[1.6] space-y-[16px]">
             <p>
-              We are a family-owned, locally trusted tile and flooring company—founded by Elibariki Gau—with over 15 years of hands-on experience across Houston.
+              We are a family-owned, locally trusted remodeling and construction company with over 15 years of hands-on experience across Houston.
             </p>
             <p>
-              Whether you’re updating a single bathroom, installing a marble floor, or remodeling an entire kitchen, we treat every project like it’s our own. No shortcuts. No mess left behind. Just beautiful, long-lasting results for your home or business.
+              Whether you’re updating a single room, constructing a new home from the ground up, replacing your roof, or painting your property, we treat every project like it’s our own. No shortcuts. No mess left behind. Just beautiful, structurally sound, and long-lasting results for your home or business.
             </p>
           </div>
 

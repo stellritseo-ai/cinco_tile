@@ -19,10 +19,10 @@ import { Footer } from "@/components/home/Footer";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Cinco Services — Houston, TX" },
-      { name: "description", content: "Expert tile installation in Houston. Over 15 years of experience bringing quality craftsmanship to your home. Free estimates." },
+      { title: "Cinco Services — Home Remodeling & Construction | Houston, TX" },
+      { name: "description", content: "Expert home remodeling and custom construction services in Houston. Over 15 years of experience bringing quality craftsmanship, remodeling, framing, and roofing to your home. Free estimates." },
       { property: "og:title", content: "Cinco Services" },
-      { property: "og:description", content: "Houston's trusted tile installation specialists." },
+      { property: "og:description", content: "Houston's trusted remodeling and construction specialists." },
     ],
   }),
   component: Index,

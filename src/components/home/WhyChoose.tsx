@@ -22,10 +22,10 @@ export const WhyChoose = () => {
               Benefits
             </span>
             <h2 className="mt-[24px] font-sans text-[30px] md:text-[35px] font-extrabold text-[#111827] leading-[1.2] tracking-tight">
-              Why Homeowners Choose Tile Installation
+              Why Choose Cinco Services for Remodeling & Construction
             </h2>
             <p className="mt-[16px] text-[16px] md:text-[18px] text-[#6B7280]">
-              Tile is the smart choice for style, durability, and value.
+              We combine decades of expertise, premium materials, and professional project management to elevate your home.
             </p>
           </div>
         </Reveal>
@@ -34,28 +34,28 @@ export const WhyChoose = () => {
         <div className="mt-[80px] grid md:grid-cols-3 gap-[40px] lg:gap-[60px] max-w-[1200px] mx-auto">
           {/* Benefit 1 */}
           <Reveal variant="reveal-bottom" className="stagger-1 text-center flex flex-col items-center">
-            <img src={benefit1} alt="Stylish & Versatile" className="w-[110px] lg:w-[130px] h-auto object-contain mb-[24px]" />
-            <h3 className="text-[#8b5a2b] font-bold text-[20px] mb-[16px]">Stylish & Versatile</h3>
+            <img src={benefit1} alt="Home Value & Equity" className="w-[110px] lg:w-[130px] h-auto object-contain mb-[24px]" />
+            <h3 className="text-[#8b5a2b] font-bold text-[20px] mb-[16px]">Home Value & Equity</h3>
             <p className="text-[#6B7280] text-[15px] leading-[1.6]">
-              Looks like hardwood, available in modern finishes and colors to match any home.
+              Professional renovations in kitchens, bathrooms, and roofing deliver massive return on investment and curb appeal.
             </p>
           </Reveal>
 
           {/* Benefit 2 */}
           <Reveal variant="reveal-bottom" className="stagger-2 text-center flex flex-col items-center">
-            <img src={benefit2} alt="Affordable Luxury" className="w-[110px] lg:w-[130px] h-auto object-contain mb-[24px]" />
-            <h3 className="text-[#8b5a2b] font-bold text-[20px] mb-[16px]">Affordable Luxury</h3>
+            <img src={benefit2} alt="Custom Design-Build" className="w-[110px] lg:w-[130px] h-auto object-contain mb-[24px]" />
+            <h3 className="text-[#8b5a2b] font-bold text-[20px] mb-[16px]">Custom Design-Build</h3>
             <p className="text-[#6B7280] text-[15px] leading-[1.6]">
-              Get lasting beauty and performance at a fraction of hardwood's cost.
+              From custom floorplans to specific paint colors and high-end tile, we customize every detail to match your lifestyle.
             </p>
           </Reveal>
 
           {/* Benefit 3 */}
           <Reveal variant="reveal-bottom" className="stagger-3 text-center flex flex-col items-center">
-            <img src={benefit3} alt="Durable & Easy to Maintain" className="w-[110px] lg:w-[130px] h-auto object-contain mb-[24px]" />
-            <h3 className="text-[#8b5a2b] font-bold text-[20px] mb-[16px]">Durable & Easy to Maintain</h3>
+            <img src={benefit3} alt="Structural Integrity" className="w-[110px] lg:w-[130px] h-auto object-contain mb-[24px]" />
+            <h3 className="text-[#8b5a2b] font-bold text-[20px] mb-[16px]">Structural Integrity</h3>
             <p className="text-[#6B7280] text-[15px] leading-[1.6]">
-              Scratch-resistant and waterproof options designed for busy families and pets.
+              Built to last. We focus on proper framing, foundation work, waterproofing, and roofing to secure your property.
             </p>
           </Reveal>
         </div>

@@ -33,7 +33,7 @@ export const EstimateCTA = () => (
               Book Your Free In-Home Estimate Today
             </h2>
             <p className="mt-[16px] text-[#E5E7EB] text-[16px] md:text-[18px] leading-[1.6] max-w-[650px]">
-              Upgrade your home with beautiful, durable tile floors—installed by licensed, <strong className="font-bold text-white">tile installation</strong> specialists.
+              Upgrade your home with premium remodeling and custom construction services—backed by licensed, local specialists.
             </p>
             <div className="mt-[32px] flex flex-col sm:flex-row items-center gap-[32px]">
               <a

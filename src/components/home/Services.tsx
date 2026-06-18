@@ -39,6 +39,27 @@ import kitchenBacksplash from "@/assets/kitchen_backsplash.png";
 export const Services = () => {
   const items = [
     {
+      icon: Hammer,
+      title: "Home Remodeling",
+      desc: "Full-scale home remodeling, kitchen conversions, basement finishes, and custom structural upgrades.",
+      tags: ["Kitchen Remodel", "Basement Finishes", "Additions", "Custom Layouts"],
+      img: "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      icon: Home,
+      title: "New Home Construction",
+      desc: "Custom new home construction, structural framing, foundation work, and complete turn-key residential builds.",
+      tags: ["Custom Builds", "Framing", "Foundations", "Turn-Key Design"],
+      img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      icon: Home,
+      title: "Roofing Services",
+      desc: "Professional roof inspections, leak repairs, shingle installations, and complete roof replacements.",
+      tags: ["Roof Repair", "Replacements", "Shingles", "Inspections"],
+      img: "https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&w=800&q=80",
+    },
+    {
       icon: Grid,
       title: "Floor Tile Installation",
       desc: "Premium stone and tile floor layouts built to endure.",
@@ -123,13 +144,6 @@ export const Services = () => {
       img: sStairs,
     },
     {
-      icon: Home,
-      title: "Roofing Services",
-      desc: "Professional roof inspections, leak repairs, shingle installations, and complete roof replacements.",
-      tags: ["Roof Repair", "Replacements", "Shingles", "Inspections"],
-      img: "https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&w=800&q=80",
-    },
-    {
       icon: Paintbrush,
       title: "Exterior Painting",
       desc: "Premium outdoor painting services for siding, decks, trim, and brick to protect and beautify your home.",
@@ -143,25 +157,11 @@ export const Services = () => {
       tags: ["Walls & Ceilings", "Trim & Doors", "Meticulous Prep", "Color Selection"],
       img: "https://images.unsplash.com/photo-1648475237029-7f853809ca14?auto=format&fit=crop&w=800&q=80",
     },
-    {
-      icon: Hammer,
-      title: "Home Remodeling",
-      desc: "Full-scale home remodeling, kitchen conversions, basement finishes, and custom structural upgrades.",
-      tags: ["Kitchen Remodel", "Basement Finishes", "Additions", "Custom Layouts"],
-      img: "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      icon: Home,
-      title: "New Home Construction",
-      desc: "Custom new home construction, structural framing, foundation work, and complete turn-key residential builds.",
-      tags: ["Custom Builds", "Framing", "Foundations", "Turn-Key Design"],
-      img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80",
-    },
   ];
 
   // First 3 items for the top row grid
   const topItems = items.slice(0, 3);
-  // Remaining 9 items for the second row slider
+  // Remaining items for the second row slider
   const slideItems = items.slice(3);
 
   return (
@@ -178,10 +178,10 @@ export const Services = () => {
                 Services
               </span>
               <h2 className="text-3xl md:text-[42px] leading-tight font-extrabold text-ink tracking-tight font-sans">
-                Everything Tile & Flooring,<br />All in One Place
+                Complete Remodeling &<br />Construction Services
               </h2>
               <p className="mt-5 text-muted-foreground text-sm leading-relaxed font-medium">
-                At Cinco Services, tile and flooring installations are our specialty — and we do it best. From flawless installations to expert repairs, waterproof upgrades, and custom layout transformations, our team brings precision and care to every project. Whatever your tiling or flooring need, we've got you covered.
+                At Cinco Services, we provide full-service home remodeling, custom new construction, and professional roofing alongside our premium custom tile and flooring specialties. From initial framing and foundations to the final paintbrush stroke and custom backsplash, our team brings precision, safety, and care to every project. Whatever your vision, we build it to last.
               </p>
               <div className="mt-7">
                 <a

@@ -37,10 +37,10 @@ export const Process = () => {
             Process
           </span>
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-ink font-sans mb-4">
-            How We Make Your Floors Beautiful
+            How We Build Your Vision
           </h2>
           <p className="text-ink-soft text-sm md:text-base font-semibold max-w-xl mx-auto font-sans">
-            Just three simple steps to your perfect tile floors.
+            Just three simple steps to complete your home remodeling or construction project.
           </p>
         </Reveal>
 

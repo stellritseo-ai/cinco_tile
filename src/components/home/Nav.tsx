@@ -3,14 +3,7 @@ import { useState, useEffect } from "react";
 import logoImg from "@/assets/cincologo.png";
 
 export const Nav = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     if (isOpen) {
@@ -25,29 +18,21 @@ export const Nav = () => {
 
   return (
     <>
-      <header className={`fixed left-0 right-0 z-[999] transition-all duration-300 ${isScrolled
-          ? "top-0 bg-white/90 backdrop-blur-lg border-b border-gray-200/50 py-3 shadow-md"
-          : "top-[50px] py-4 bg-transparent"
-        }`}>
+      <header className="absolute left-0 right-0 z-[999] top-[50px] py-4 bg-transparent">
         <div className="max-w-[1400px] mx-auto px-6">
           <div className="flex items-center justify-between">
             <a href="#" className="flex items-center">
               <img src={logoImg} alt="Cinco Services Logo" className="h-[65px] md:h-[85px] w-auto object-contain transition-transform duration-300 hover:scale-105" />
             </a>
 
-            <nav className={`hidden lg:flex items-center gap-7 px-8 py-3 text-[14px] font-bold tracking-widest transition-all duration-300 lg:ml-auto lg:mr-10 ${isScrolled
-                ? "text-black/70"
-                : "text-white bg-sky-500 rounded-full border border-sky-400"
-              }`}>
+            <nav className="hidden lg:flex items-center gap-7 px-8 py-3 text-[14px] font-bold tracking-widest transition-all duration-300 lg:ml-auto lg:mr-10 text-white bg-sky-500 rounded-full border border-sky-400">
               {["HOME", "ABOUT", "SERVICES", "RESIDENTIAL", "COMMERCIAL", "PROJECTS", "CONTACT"].map(l => (
                 <a
                   key={l}
                   href={`#${l.toLowerCase()}`}
                   className={`relative transition-colors duration-300 hover:text-brand ${l === "HOME"
                       ? "text-brand"
-                      : isScrolled
-                        ? "text-black/70"
-                        : "text-white"
+                      : "text-white"
                     }`}
                 >
                   {l}
@@ -69,15 +54,15 @@ export const Nav = () => {
               >
                 <span className={`w-6 h-[2px] rounded-full transition-all duration-300 origin-center ${isOpen
                     ? "rotate-45 translate-y-[8px] bg-white"
-                    : isScrolled ? "bg-black" : "bg-white"
+                    : "bg-white"
                   }`} />
                 <span className={`w-6 h-[2px] rounded-full transition-all duration-300 ${isOpen
                     ? "opacity-0 scale-x-0"
-                    : isScrolled ? "bg-black" : "bg-white"
+                    : "bg-white"
                   }`} />
                 <span className={`w-6 h-[2px] rounded-full transition-all duration-300 origin-center ${isOpen
                     ? "-rotate-45 -translate-y-[8px] bg-white"
-                    : isScrolled ? "bg-black" : "bg-white"
+                    : "bg-white"
                   }`} />
               </button>
             </div>

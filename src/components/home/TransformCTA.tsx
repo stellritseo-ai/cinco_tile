@@ -12,11 +12,11 @@ export const TransformCTA = () => {
           <Reveal variant="reveal-left">
             <div>
               <h2 className="font-sans text-[26px] lg:text-[25px] font-extrabold text-[#111827] leading-[1.2] tracking-[-0.02em]">
-                Transform Your Home with Expert Tile Installation
+                Transform Your Home with Professional Remodeling & Construction
               </h2>
 
               <p className="mt-[24px] text-[16px] lg:text-[17px] text-[#4B5563] leading-[1.6]">
-                From Houston to Katy, Sugar Land, and beyond, we bring precision, durability, and style to every floor we install. Backed by our satisfaction guarantee, we're ready when you are.
+                From Houston to Katy, Sugar Land, and beyond, we bring precision, quality, and style to every remodeling and construction project we handle. Backed by our satisfaction guarantee, we're ready when you are.
               </p>
 
               <ul className="mt-[32px] space-y-[20px]">
@@ -57,7 +57,7 @@ export const TransformCTA = () => {
             <div className="w-full h-full flex items-center">
               <img
                 src={transform}
-                alt="Beautiful living room with tile installation"
+                alt="Beautiful home remodeling transformation"
                 className="w-full h-[280px] lg:h-[340px] rounded-[12px] object-cover shadow-[0_8px_30px_rgb(0,0,0,0.08)]"
               />
             </div>

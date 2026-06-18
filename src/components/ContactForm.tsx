@@ -76,7 +76,7 @@ export function ContactForm() {
               </span>
 
               <h2 className="mt-[24px] font-sans text-[24px] md:text-[35px] font-extrabold text-[#111827] leading-[1.1] tracking-[-0.02em]">
-                Let's Talk About Your Tile Project
+                Let's Talk About Your Project
               </h2>
 
               <p className="mt-[20px] text-[16px] md:text-[17px] text-[#4B5563] leading-[1.6] max-w-[480px]">

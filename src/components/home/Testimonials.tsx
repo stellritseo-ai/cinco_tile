@@ -8,17 +8,17 @@ export const Testimonials = () => {
     {
       name: "Lisa M.",
       location: "Houston",
-      text: "“Cinco Services did our master bathroom remodel – from shower tile to new bathtub. Flawless work. Showed up on time, cleaned up every day. Highly recommend.”"
+      text: "“Cinco Services did our master bathroom remodel – from framing and plumbing to new bathtub and custom shower tile. Flawless work. Showed up on time, cleaned up every day. Highly recommend.”"
     },
     {
       name: "James R.",
       location: "Katy",
-      text: "“They installed porcelain tile throughout our first floor and a beautiful backsplash in the kitchen. Professional, fair price, and the quality is stunning.”"
+      text: "“They handled our entire home remodeling project – including wall removal, interior painting, and beautiful flooring. Professional, fair price, and the quality is stunning.”"
     },
     {
       name: "Carmen T.",
       location: "Sugar Land",
-      text: "“Elibariki and his team replaced our shower pan and retiled the shower. Fast, honest, and detail-oriented. Will use them again for our patio tiles.”"
+      text: "“The team replaced our roof and did exterior painting. Fast, honest, and detail-oriented. Will use them again for our kitchen remodel.”"
     }
   ];
 
@@ -40,7 +40,7 @@ export const Testimonials = () => {
               </h2>
               
               <p className="mt-[24px] text-[16px] lg:text-[17px] text-[#4B5563] leading-[1.6]">
-                Homeowners across Houston and nearby communities love their new tile floors.
+                Homeowners across Houston and nearby communities love our remodeling and construction services.
               </p>
               
               <div className="mt-[40px]">
