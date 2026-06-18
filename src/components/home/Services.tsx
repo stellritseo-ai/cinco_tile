@@ -150,6 +150,13 @@ export const Services = () => {
       tags: ["Kitchen Remodel", "Basement Finishes", "Additions", "Custom Layouts"],
       img: "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=800&q=80",
     },
+    {
+      icon: Home,
+      title: "New Home Construction",
+      desc: "Custom new home construction, structural framing, foundation work, and complete turn-key residential builds.",
+      tags: ["Custom Builds", "Framing", "Foundations", "Turn-Key Design"],
+      img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80",
+    },
   ];
 
   // First 3 items for the top row grid
