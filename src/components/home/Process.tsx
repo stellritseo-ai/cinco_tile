@@ -11,18 +11,21 @@ export const Process = () => {
       t: "Free Consultation & Estimate",
       d: "We measure your space and provide a clear, upfront quote",
       imgClass: "w-24 h-24 object-contain mx-auto",
+      href: "#contact"
     },
     {
       img: step2Icon,
       t: "Professional Installation",
       d: "Our licensed team handles prep and installs with precision.",
       imgClass: "w-36 h-36 object-contain mx-auto",
+      href: "/projects"
     },
     {
       img: step3Icon,
       t: "Satisfaction Guaranteed",
       d: "We review every detail to ensure you're 100% happy.",
       imgClass: "w-24 h-24 object-contain mx-auto",
+      href: "/about"
     },
   ];
 
@@ -47,7 +50,10 @@ export const Process = () => {
         <div className="grid md:grid-cols-3 gap-12 md:gap-16 mt-10">
           {steps.map((s, idx) => (
             <Reveal key={s.t} variant="reveal-scale" className={`stagger-${idx + 1}`}>
-              <div className="group flex flex-col items-center text-center p-6 rounded-3xl transition-all duration-300 hover:bg-white/45 hover:backdrop-blur-[2px] hover:shadow-xl border border-transparent hover:border-white/50 cursor-pointer hover:-translate-y-2">
+              <a 
+                href={s.href}
+                className="group block flex flex-col items-center text-center p-6 rounded-3xl transition-all duration-300 hover:bg-white/45 hover:backdrop-blur-[2px] hover:shadow-xl border border-transparent hover:border-white/50 cursor-pointer hover:-translate-y-2"
+              >
                 {/* Icon wrapper */}
                 <div className="mb-6 flex justify-center items-center h-24">
                   <img
@@ -66,7 +72,7 @@ export const Process = () => {
                 <p className="font-sans text-[14px] text-ink-soft leading-relaxed max-w-[280px] mx-auto font-semibold">
                   {s.d}
                 </p>
-              </div>
+              </a>
             </Reveal>
           ))}
         </div>

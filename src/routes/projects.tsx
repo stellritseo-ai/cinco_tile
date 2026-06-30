@@ -553,7 +553,7 @@ function ProjectsPage() {
                   </div>
 
                   {/* Card Content */}
-                  <div className="p-6 md:p-8 flex-grow flex flex-col justify-between space-y-6">
+                  <div className="p-6 md:p-8 flex-grow flex flex-col justify-between">
                     <div>
                       <span className="text-[12px] font-bold text-[#0077b6] uppercase tracking-wider block">
                         {project.categoryText}
@@ -561,41 +561,7 @@ function ProjectsPage() {
                       <h3 className="text-xl md:text-2xl font-bold text-gray-850 font-sans mt-1 leading-snug">
                         {project.title}
                       </h3>
-
-                      {/* Scope of Work */}
-                      <div className="mt-6 pt-5 border-t border-gray-100">
-                        <h4 className="text-[12px] font-bold uppercase tracking-wider text-gray-400 mb-3">
-                          Scope of Work:
-                        </h4>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                          {project.scope.map((item, itemIdx) => (
-                            <div key={itemIdx} className="flex items-start gap-2 text-[13px] text-gray-600 leading-snug">
-                              <Check className="w-3.5 h-3.5 text-[#0077b6] shrink-0 mt-0.5" strokeWidth={3} />
-                              <span>{item}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Results */}
-                      <div className="mt-5 p-4 bg-sky-50/50 rounded-xl border border-sky-100/50 text-[13.5px] leading-relaxed text-gray-700">
-                        <strong className="text-gray-850 font-bold block mb-1">Results:</strong>
-                        {project.results}
-                      </div>
                     </div>
-
-                    {/* Testimonial block if present */}
-                    {project.testimonial && (
-                      <div className="mt-6 pt-5 border-t border-gray-100 relative bg-gray-50 p-5 rounded-xl border border-gray-150">
-                        <Quote className="absolute top-3 right-4 w-7 h-7 text-sky-200/50" />
-                        <p className="text-[13px] text-gray-600 italic leading-relaxed pr-6">
-                          "{project.testimonial.quote}"
-                        </p>
-                        <strong className="text-[13px] font-bold text-gray-850 block mt-3 text-right">
-                          – {project.testimonial.author}
-                        </strong>
-                      </div>
-                    )}
                   </div>
                 </Reveal>
               ))}

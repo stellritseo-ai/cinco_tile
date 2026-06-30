@@ -32,10 +32,10 @@ import { Reveal } from "@/components/ui/Reveal";
 
 // Import images
 import heroBg from "@/assets/hero.jpg";
-import showroomImg from "@/assets/showroom.jpg";
-import expertsImg from "@/assets/experts.jpg";
-import tileImg from "@/assets/tile_installation.png";
-import bathroomImg from "@/assets/bathroom_remodel.png";
+import showroomImg from "@/assets/showroom_section.png";
+import expertsImg from "@/assets/experts_section.png";
+import tileImg from "@/assets/tile_installation_hero.png";
+import bathroomImg from "@/assets/bathroom_remodel_hero.png";
 
 export const Route = createFileRoute("/about")({
   head: () => ({

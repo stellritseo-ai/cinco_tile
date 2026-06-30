@@ -40,13 +40,13 @@ import { Reveal } from "@/components/ui/Reveal";
 
 // Import images
 import flooringInstallationHero from "@/assets/flooring_installation_hero.png";
-const expertsImg = flooringInstallationHero;
-const showroomImg = flooringInstallationHero;
-const transformImg = flooringInstallationHero;
-const bathroomImg = flooringInstallationHero;
-const kitchenImg = flooringInstallationHero;
-const tileImg = flooringInstallationHero;
-const estimateImg = flooringInstallationHero;
+import expertsImg from "@/assets/experts_section.png";
+import showroomImg from "@/assets/showroom_section.png";
+import transformImg from "@/assets/transform_section.png";
+import bathroomImg from "@/assets/bathroom_remodel_hero.png";
+import kitchenImg from "@/assets/kitchen_remodel_hero.png";
+import tileImg from "@/assets/tile_installation_hero.png";
+import estimateImg from "@/assets/estimate_section.png";
 
 export const Route = createFileRoute("/flooring-installation")({
   head: () => ({

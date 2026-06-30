@@ -40,13 +40,13 @@ import { Reveal } from "@/components/ui/Reveal";
 
 // Import images
 import homeRemodelingHero from "@/assets/home_remodeling_hero.png";
-const transformImg = homeRemodelingHero;
-const showroomImg = homeRemodelingHero;
-const expertsImg = homeRemodelingHero;
-const bathroomImg = homeRemodelingHero;
-const kitchenImg = homeRemodelingHero;
-const tileImg = homeRemodelingHero;
-const estimateImg = homeRemodelingHero;
+import transformImg from "@/assets/transform_section.png";
+import showroomImg from "@/assets/showroom_section.png";
+import expertsImg from "@/assets/experts_section.png";
+import bathroomImg from "@/assets/bathroom_remodel_hero.png";
+import kitchenImg from "@/assets/kitchen_remodel_hero.png";
+import tileImg from "@/assets/tile_installation_hero.png";
+import estimateImg from "@/assets/estimate_section.png";
 
 export const Route = createFileRoute("/home-remodeling")({
   head: () => ({

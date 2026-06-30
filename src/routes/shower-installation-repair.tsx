@@ -41,13 +41,13 @@ import { Reveal } from "@/components/ui/Reveal";
 
 // Import images
 import showerInstallationHero from "@/assets/shower_installation_hero.png";
-const expertsImg = showerInstallationHero;
-const showroomImg = showerInstallationHero;
-const transformImg = showerInstallationHero;
-const bathroomImg = showerInstallationHero;
-const kitchenImg = showerInstallationHero;
-const tileImg = showerInstallationHero;
-const estimateImg = showerInstallationHero;
+import expertsImg from "@/assets/experts_section.png";
+import showroomImg from "@/assets/showroom_section.png";
+import transformImg from "@/assets/transform_section.png";
+import bathroomImg from "@/assets/bathroom_remodel_hero.png";
+import kitchenImg from "@/assets/kitchen_remodel_hero.png";
+import tileImg from "@/assets/tile_installation_hero.png";
+import estimateImg from "@/assets/estimate_section.png";
 
 export const Route = createFileRoute("/shower-installation-repair")({
   head: () => ({

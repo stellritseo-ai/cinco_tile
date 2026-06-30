@@ -44,6 +44,7 @@ export const Services = () => {
       desc: "Full-scale home remodeling, kitchen conversions, basement finishes, and custom structural upgrades.",
       tags: ["Kitchen Remodel", "Basement Finishes", "Additions", "Custom Layouts"],
       img: "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=800&q=80",
+      href: "/home-remodeling"
     },
     {
       icon: Home,
@@ -51,6 +52,7 @@ export const Services = () => {
       desc: "Custom new home construction, structural framing, foundation work, and complete turn-key residential builds.",
       tags: ["Custom Builds", "Framing", "Foundations", "Turn-Key Design"],
       img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80",
+      href: "/new-home-construction"
     },
     {
       icon: Home,
@@ -58,6 +60,7 @@ export const Services = () => {
       desc: "Professional roof inspections, leak repairs, shingle installations, and complete roof replacements.",
       tags: ["Roof Repair", "Replacements", "Shingles", "Inspections"],
       img: "https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&w=800&q=80",
+      href: "/roofing-services"
     },
     {
       icon: Grid,
@@ -65,6 +68,7 @@ export const Services = () => {
       desc: "Premium stone and tile floor layouts built to endure.",
       tags: ["Ceramic", "Granite", "Marble", "Limestone", "Porcelain", "Slate", "Onyx", "Travertine"],
       img: tileInstallation,
+      href: "/tile-installation"
     },
     {
       icon: Bath,
@@ -72,6 +76,7 @@ export const Services = () => {
       desc: "Stunning, slip-resistant designs styled for wet environments.",
       tags: ["Waterproof", "Slip-Resistant", "Showers", "Walls", "Floors"],
       img: bathroomRemodel,
+      href: "/bathroom-remodeling"
     },
     {
       icon: Hammer,
@@ -79,6 +84,7 @@ export const Services = () => {
       desc: "Full layout conversions, modern updates, and high-end styling.",
       tags: ["Full Transformation", "Tile Work", "Fixtures", "Layouts"],
       img: bathroomRemodel,
+      href: "/bathroom-remodeling"
     },
     {
       icon: ShowerHead,
@@ -86,6 +92,7 @@ export const Services = () => {
       desc: "Tile surrounds, custom built-in niches, and secure backing.",
       tags: ["Custom Patterns", "Niches", "Waterproofing"],
       img: sTransform,
+      href: "/shower-installation-repair"
     },
     {
       icon: Wrench,
@@ -93,6 +100,7 @@ export const Services = () => {
       desc: "Engineered leak-free bases, proper slope, and replacements.",
       tags: ["Leak-Free Bases", "Sloped Mortar", "Replacements"],
       img: sExperts,
+      href: "/shower-installation-repair"
     },
     {
       icon: RefreshCw,
@@ -100,6 +108,7 @@ export const Services = () => {
       desc: "Premium tub installations complete with elegant tile surrounds.",
       tags: ["New Tubs", "Tub Surrounds", "Tile Framing"],
       img: sFAQ,
+      href: "/bathroom-remodeling"
     },
     {
       icon: Layers,
@@ -107,6 +116,7 @@ export const Services = () => {
       desc: "Meticulous installation of classic solid and engineered woods.",
       tags: ["Solid Wood", "Engineered", "Subfloor Prep"],
       img: sEstimate,
+      href: "/flooring-installation"
     },
     {
       icon: Ruler,
@@ -114,6 +124,7 @@ export const Services = () => {
       desc: "Budget-friendly, highly durable, and modern click-lock options.",
       tags: ["Affordable", "Durable", "Stylish Planks"],
       img: sShowroom,
+      href: "/flooring-installation"
     },
     {
       icon: LayoutGrid,
@@ -121,6 +132,7 @@ export const Services = () => {
       desc: "Detailed accent tiling for custom kitchens and bathrooms.",
       tags: ["Kitchen", "Bathroom", "Accent Walls"],
       img: kitchenBacksplash,
+      href: "/kitchen-remodeling"
     },
     {
       icon: Flame,
@@ -128,6 +140,7 @@ export const Services = () => {
       desc: "Heat-safe, elegant tile faces and decorative surrounds.",
       tags: ["Heat-Safe", "Stone & Tile", "Accents"],
       img: sHero,
+      href: "/tile-installation"
     },
     {
       icon: Sun,
@@ -135,6 +148,7 @@ export const Services = () => {
       desc: "Beautiful outdoor-rated, weather-resistant tile overlays.",
       tags: ["Outdoor-Rated", "Slip-Resistant", "Weatherproof"],
       img: sShowroom,
+      href: "/tile-installation"
     },
     {
       icon: Home,
@@ -142,6 +156,7 @@ export const Services = () => {
       desc: "Tailored tile and flooring for key high-traffic home spaces.",
       tags: ["Kitchen", "Entryway", "Basement", "Laundry Room"],
       img: sStairs,
+      href: "/tile-installation"
     },
     {
       icon: Paintbrush,
@@ -149,6 +164,7 @@ export const Services = () => {
       desc: "Premium outdoor painting services for siding, decks, trim, and brick to protect and beautify your home.",
       tags: ["Siding & Trim", "Decks & Fences", "Weatherproofing", "Brick Painting"],
       img: "https://images.unsplash.com/photo-1778342259272-142fa3f81859?auto=format&fit=crop&w=800&q=80",
+      href: "/exterior-painting"
     },
     {
       icon: Paintbrush,
@@ -156,6 +172,7 @@ export const Services = () => {
       desc: "Precise wall, ceiling, and trim painting with meticulous prep work, clean lines, and premium zero-VOC paints.",
       tags: ["Walls & Ceilings", "Trim & Doors", "Meticulous Prep", "Color Selection"],
       img: "https://images.unsplash.com/photo-1648475237029-7f853809ca14?auto=format&fit=crop&w=800&q=80",
+      href: "/interior-painting"
     },
   ];
 
@@ -198,7 +215,10 @@ export const Services = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
             {topItems.map((s, i) => (
               <Reveal key={s.title} variant="reveal-scale" className={`stagger-${i + 1} h-full`}>
-                <div className="group relative rounded-3xl overflow-hidden shadow-lg bg-ink h-[220px] sm:h-[300px] xl:h-[380px] border border-border/20 cursor-pointer">
+                <a 
+                  href={s.href}
+                  className="group block relative rounded-3xl overflow-hidden shadow-lg bg-ink h-[220px] sm:h-[300px] xl:h-[380px] border border-border/20 cursor-pointer"
+                >
                   {/* Background image */}
                   <img
                     src={s.img}
@@ -242,7 +262,7 @@ export const Services = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </a>
               </Reveal>
             ))}
           </div>
@@ -268,7 +288,10 @@ export const Services = () => {
               <CarouselContent className="-ml-5">
                 {slideItems.map((s, i) => (
                   <CarouselItem key={s.title} className="pl-4 sm:pl-5 basis-[80%] sm:basis-1/2 md:basis-1/3 lg:basis-1/5">
-                    <div className="group relative rounded-3xl overflow-hidden shadow-lg bg-ink h-[260px] sm:h-[300px] xl:h-[380px] border border-border/20 cursor-pointer">
+                    <a 
+                      href={s.href}
+                      className="group block relative rounded-3xl overflow-hidden shadow-lg bg-ink h-[260px] sm:h-[300px] xl:h-[380px] border border-border/20 cursor-pointer"
+                    >
                       {/* Background image */}
                       <img
                         src={s.img}
@@ -312,7 +335,7 @@ export const Services = () => {
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </a>
                   </CarouselItem>
                 ))}
               </CarouselContent>

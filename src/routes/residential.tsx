@@ -34,12 +34,12 @@ import { Reveal } from "@/components/ui/Reveal";
 // Import images
 import residentialHero from "@/assets/residential_hero.png";
 const expertsBg = residentialHero;
-const bathroomImg = residentialHero;
-const kitchenImg = residentialHero;
-const tileImg = residentialHero;
-const transformImg = residentialHero;
-const estimateImg = residentialHero;
-const showroomImg = residentialHero;
+import bathroomImg from "@/assets/bathroom_remodel_hero.png";
+import kitchenImg from "@/assets/kitchen_remodel_hero.png";
+import tileImg from "@/assets/tile_installation_hero.png";
+import transformImg from "@/assets/transform_section.png";
+import estimateImg from "@/assets/estimate_section.png";
+import showroomImg from "@/assets/showroom_section.png";
 
 export const Route = createFileRoute("/residential")({
   head: () => ({
