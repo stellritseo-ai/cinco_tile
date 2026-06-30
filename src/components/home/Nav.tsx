@@ -223,21 +223,21 @@ export const Nav = () => {
 
       {/* Mobile Navigation Drawer */}
       <div
-        className={`lg:hidden fixed inset-0 z-[1000] bg-black/50 transition-opacity duration-300 ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        className={`lg:hidden fixed inset-0 z-[1000] bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
           }`}
         onClick={() => setIsOpen(false)}
       >
         <div
-          className={`absolute right-0 top-0 bottom-0 w-[290px] bg-sky-500 border-l border-white/20 p-6 flex flex-col gap-6 shadow-2xl transition-transform duration-300 ease-out ${isOpen ? "translate-x-0" : "translate-x-full"
+          className={`absolute right-0 top-0 bottom-0 w-[300px] bg-slate-950/98 backdrop-blur-xl border-l border-slate-800/80 p-6 flex flex-col gap-6 shadow-2xl transition-transform duration-300 ease-out overflow-y-auto ${isOpen ? "translate-x-0" : "translate-x-full"
             }`}
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header area in drawer */}
-          <div className="flex items-center justify-between pb-5 border-b border-white/10 mt-14">
+          <div className="flex items-center justify-between pb-5 border-b border-slate-800/60 mt-14">
             <img src={logoImg} alt="Cinco Services Logo" className="h-[50px] w-auto object-contain" />
             <button
               onClick={() => setIsOpen(false)}
-              className="p-1 rounded-md text-white/70 hover:text-white hover:bg-white/10 transition-colors"
+              className="p-2 rounded-full text-slate-400 hover:text-white hover:bg-slate-900 transition-colors focus:outline-none focus:ring-0"
               aria-label="Close menu"
             >
               <X className="w-5 h-5" />
@@ -245,7 +245,7 @@ export const Nav = () => {
           </div>
 
           {/* Navigation Links inside drawer */}
-          <nav className="flex flex-col gap-1 mt-2">
+          <nav className="flex flex-col gap-1.5 mt-2">
             {["HOME", "ABOUT", "SERVICES", "RESIDENTIAL", "COMMERCIAL", "PROJECTS", "CONTACT"].map((l, i) => {
               const isLinkActive = 
                 l === "HOME" ? location.pathname === "/" : 
@@ -265,28 +265,32 @@ export const Nav = () => {
 
               if (l === "SERVICES") {
                 return (
-                  <div key={l} className="flex flex-col border-b border-white/5">
+                  <div key={l} className="flex flex-col">
                     <button
                       onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                      className="text-[16px] font-bold tracking-widest py-3.5 transition-all duration-300 flex items-center justify-between text-white/80 hover:text-white bg-transparent border-0 cursor-pointer p-0 w-full"
+                      className={`text-[14px] font-extrabold tracking-wider px-4 py-3 rounded-xl transition-all duration-300 flex items-center justify-between outline-none focus:outline-none focus:ring-0 ${
+                        mobileServicesOpen ? "text-sky-400 bg-slate-900" : "text-slate-300 hover:text-white hover:bg-slate-900/50"
+                      }`}
                     >
                       <span>{l}</span>
-                      <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${mobileServicesOpen ? "rotate-180 text-brand" : "text-white/60"}`} />
+                      <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${mobileServicesOpen ? "rotate-180 text-sky-400" : "text-slate-500"}`} />
                     </button>
-                    <div className={`overflow-hidden transition-all duration-300 ${mobileServicesOpen ? "max-h-[600px] pb-4" : "max-h-0"}`}>
-                      <div className="flex flex-col gap-1 pl-4 border-l border-white/10 mt-1">
+                    <div className={`overflow-hidden transition-all duration-300 ${mobileServicesOpen ? "max-h-[600px] my-2" : "max-h-0"}`}>
+                      <div className="flex flex-col gap-1 pl-4 border-l border-slate-800/80 ml-4 mt-1">
                         {servicesSubmenu.map((sub, sIdx) => {
                           const SubIcon = sub.icon;
+                          const isSubActive = location.pathname === sub.href;
                           return (
                             <a
                               key={sIdx}
                               href={sub.href}
                               onClick={() => setIsOpen(false)}
-                              className="text-[14px] font-semibold text-white/70 hover:text-white py-2.5 transition-all flex items-center gap-3.5 group"
+                              className={`text-[13px] font-semibold py-2.5 px-3 rounded-lg transition-all flex items-center gap-3 group ${
+                                isSubActive ? "text-sky-400 bg-sky-950/30" : "text-slate-400 hover:text-white hover:bg-slate-900/30"
+                              }`}
                             >
-                              <SubIcon className="w-4 h-4 text-white/50 group-hover:text-brand shrink-0" />
+                              <SubIcon className={`w-4 h-4 shrink-0 transition-colors ${isSubActive ? "text-sky-400" : "text-slate-500 group-hover:text-sky-400"}`} />
                               <span>{sub.label}</span>
-                              <span className="ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-brand font-black">&rarr;</span>
                             </a>
                           );
                         })}
@@ -301,24 +305,26 @@ export const Nav = () => {
                   key={l}
                   href={href}
                   onClick={() => setIsOpen(false)}
-                  className={`text-[16px] font-bold tracking-widest py-3.5 border-b border-white/5 transition-all duration-300 flex items-center justify-between hover:translate-x-2 group ${isLinkActive ? "text-brand font-black" : "text-white/80 hover:text-white"
-                    }`}
+                  className={`text-[14px] font-extrabold tracking-wider px-4 py-3 transition-all duration-300 flex items-center justify-between group ${
+                    isLinkActive 
+                      ? "text-sky-400 bg-sky-950/30 border-l-2 border-sky-400 rounded-r-xl" 
+                      : "text-slate-300 hover:text-white hover:bg-slate-900/50 rounded-xl"
+                  }`}
                   style={{ transitionDelay: `${i * 30}ms` }}
                 >
                   <span>{l}</span>
-                  <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-brand font-black">&rarr;</span>
                 </a>
               );
             })}
           </nav>
 
           {/* Call button inside drawer */}
-          <div className="mt-auto pt-6 border-t border-white/10 flex flex-col gap-4">
+          <div className="mt-auto pt-6 border-t border-slate-800/60 flex flex-col gap-4">
             <a
               href="tel:8324062716"
-              className="inline-flex items-center justify-center gap-2 bg-[#d62828] text-white rounded-full py-3.5 text-[15px] font-bold hover:bg-[#b52020] active:scale-[0.98] transition-all duration-300 shadow-[0_4px_14px_0_rgba(214,40,40,0.3)] w-full"
+              className="inline-flex items-center justify-center gap-2 bg-[#d62828] text-white rounded-full py-3.5 text-[14px] font-bold hover:bg-[#b52020] active:scale-[0.98] transition-all duration-300 shadow-[0_4px_14px_0_rgba(214,40,40,0.3)] w-full"
             >
-              <Phone className="w-[15px] h-[15px]" /> Call (832) 406-2716
+              <Phone className="w-[14px] h-[14px]" /> Call (832) 406-2716
             </a>
           </div>
         </div>
