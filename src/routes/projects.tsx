@@ -35,13 +35,18 @@ import { LiveChat } from "@/components/home/LiveChat";
 import { Reveal } from "@/components/ui/Reveal";
 
 // Import images
-import showroomImg from "@/assets/showroom.jpg";
-import expertsImg from "@/assets/experts.jpg";
-import bathroomImg from "@/assets/bathroom_remodel.png";
-import kitchenImg from "@/assets/kitchen_backsplash.png";
-import tileImg from "@/assets/tile_installation.png";
-import transformImg from "@/assets/transform.jpg";
-import estimateImg from "@/assets/estimate.jpg";
+import homeRemodelingHero from "@/assets/home_remodeling_hero.png";
+import newConstructionHero from "@/assets/new_construction_hero.png";
+import bathroomRemodelHero from "@/assets/bathroom_remodel_hero.png";
+import kitchenRemodelHero from "@/assets/kitchen_remodel_hero.png";
+import roofingServicesHero from "@/assets/roofing_services_hero.png";
+import exteriorPaintingHero from "@/assets/exterior_painting_hero.png";
+import showerInstallationHero from "@/assets/shower_installation_hero.png";
+import commercialRemodelHero from "@/assets/commercial_remodel_hero.png";
+import showroomImg from "@/assets/showroom_section.png";
+import expertsImg from "@/assets/experts_section.png";
+import transformImg from "@/assets/transform_section.png";
+import estimateImg from "@/assets/estimate_section.png";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
@@ -113,7 +118,7 @@ function ProjectsPage() {
       location: "Katy, TX",
       categoryText: "Residential | Full Home Remodeling",
       tags: ["residential", "kitchen", "bathroom", "construction", "tile"],
-      image: transformImg,
+      image: homeRemodelingHero,
       overview: "This Katy family wanted to completely transform their 1980s home into a modern, open-concept living space. We handled everything from wall removal and structural framing to new flooring, custom kitchen cabinets, and a luxurious master bathroom.",
       scope: [
         "Full interior demolition",
@@ -136,7 +141,7 @@ function ProjectsPage() {
       location: "Houston, TX",
       categoryText: "Residential | Bathroom Remodeling",
       tags: ["residential", "bathroom", "tile"],
-      image: bathroomImg,
+      image: bathroomRemodelHero,
       overview: "This Houston homeowner wanted a spa-like master bathroom retreat. We delivered a complete transformation featuring custom marble tile, a walk-in shower with a bench, and a freestanding soaking tub.",
       scope: [
         "Full bathroom demolition",
@@ -159,7 +164,7 @@ function ProjectsPage() {
       location: "Sugar Land, TX",
       categoryText: "Residential | Kitchen Remodeling",
       tags: ["residential", "kitchen", "tile"],
-      image: kitchenImg,
+      image: kitchenRemodelHero,
       overview: "This Sugar Land homeowner wanted to modernize their kitchen with custom cabinetry, premium countertops, and a stunning tile backsplash. We delivered a fresh, contemporary look that complements the home's open concept.",
       scope: [
         "Custom cabinetry installation",
@@ -181,7 +186,7 @@ function ProjectsPage() {
       location: "Cypress, TX",
       categoryText: "Residential | New Home Construction",
       tags: ["residential", "construction", "roofing", "painting", "tile"],
-      image: expertsImg,
+      image: newConstructionHero,
       overview: "This Cypress family entrusted us to build their dream home from the ground up. We managed everything from site preparation to final finishing, delivering a custom 3,500 sq. ft. home with premium materials and finishes.",
       scope: [
         "Site preparation and foundation",
@@ -204,7 +209,7 @@ function ProjectsPage() {
       location: "Richmond, TX",
       categoryText: "Residential | Tile & Flooring",
       tags: ["residential", "bathroom", "tile"],
-      image: tileImg,
+      image: showerInstallationHero,
       overview: "This Richmond homeowner needed a shower pan replacement and custom tile installation after a leak caused water damage. We provided a complete rebuild with proper waterproofing and stunning tile work.",
       scope: [
         "Shower pan removal and replacement",
@@ -220,7 +225,7 @@ function ProjectsPage() {
       location: "Pearland, TX",
       categoryText: "Residential | Roofing & Painting",
       tags: ["residential", "roofing", "painting"],
-      image: estimateImg,
+      image: exteriorPaintingHero,
       overview: "This Pearland homeowner wanted to refresh the exterior of their home with new paint and a roof replacement. We delivered a complete exterior transformation.",
       scope: [
         "Full roof replacement (asphalt shingles)",
@@ -238,7 +243,7 @@ function ProjectsPage() {
       location: "Houston, TX",
       categoryText: "Commercial | Restaurant Renovation",
       tags: ["commercial", "tile", "painting", "outdoor"],
-      image: tileImg, // Restaurant has high-traffic tile
+      image: commercialRemodelHero,
       overview: "This popular Houston restaurant needed a complete remodel to update its dining area and kitchen. We worked overnight shifts to minimize business disruption and delivered on time.",
       scope: [
         "Dining area renovation with custom tile flooring",
@@ -260,7 +265,7 @@ function ProjectsPage() {
       location: "Katy, TX",
       categoryText: "Commercial | Office Remodeling",
       tags: ["commercial", "tile", "painting"],
-      image: showroomImg, // Represents corporate interiors
+      image: showroomImg,
       overview: "This growing company needed to expand and modernize their office space. We delivered a complete renovation that included new walls, flooring, painting, and custom tile in the reception area.",
       scope: [
         "New wall framing and open office layout",
@@ -300,7 +305,7 @@ function ProjectsPage() {
       location: "Houston, TX",
       categoryText: "Commercial | Medical & Dental",
       tags: ["commercial", "tile", "painting"],
-      image: bathroomImg, // Focus on clean sterile tile installs
+      image: expertsImg,
       overview: "This medical practice wanted to update their waiting area and treatment rooms to create a calming, professional atmosphere. We delivered with premium finishes and minimal disruption.",
       scope: [
         "Waiting room renovation",
@@ -318,7 +323,7 @@ function ProjectsPage() {
       location: "Cypress, TX",
       categoryText: "Commercial | Roofing & Painting",
       tags: ["commercial", "roofing", "painting"],
-      image: estimateImg,
+      image: roofingServicesHero,
       overview: "This Cypress shopping center needed a new roof and exterior painting to refresh its appearance and protect the property. We delivered both with speed and professionalism.",
       scope: [
         "Full commercial roof replacement (TPO system)",
@@ -556,10 +561,6 @@ function ProjectsPage() {
                       <h3 className="text-xl md:text-2xl font-bold text-gray-850 font-sans mt-1 leading-snug">
                         {project.title}
                       </h3>
-
-                      <p className="text-[14px] text-gray-500 leading-relaxed mt-4">
-                        {project.overview}
-                      </p>
 
                       {/* Scope of Work */}
                       <div className="mt-6 pt-5 border-t border-gray-100">
