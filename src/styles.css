@@ -154,26 +154,17 @@
 .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
 .safe-top { padding-top: env(safe-area-inset-top); }
 
-/* Floating mobile CTA */
+/* Hide mobile sticky CTA and reset bottom padding */
+.mobile-sticky-cta {
+  display: none !important;
+}
+
 @media (max-width: 767px) {
-  .mobile-sticky-cta {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 9998;
-    padding: 12px 16px;
-    padding-bottom: max(12px, env(safe-area-inset-bottom));
-    background: linear-gradient(to top, rgba(17,24,39,1) 0%, rgba(17,24,39,0.95) 100%);
-    backdrop-filter: blur(8px);
-    border-top: 1px solid rgba(255,255,255,0.08);
-    display: flex;
-    gap: 10px;
+  .pb-\[68px\] {
+    padding-bottom: 0px !important;
   }
 }
-@media (min-width: 768px) {
-  .mobile-sticky-cta { display: none !important; }
-}
+
 
 /* Responsive table override */
 @media (max-width: 640px) {
