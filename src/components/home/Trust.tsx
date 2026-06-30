@@ -1,9 +1,10 @@
 import { ShieldCheck, Award, Store, MapPin, Building2, Sparkles, Banknote, Clock } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 
-import showroom from "@/assets/showroom.jpg";
-import sInstall from "@/assets/service-install.jpg";
-import faqImg from "@/assets/faq.jpg";
+import trust1 from "@/assets/gallery/gallery_1.jpeg";
+import trust2 from "@/assets/gallery/gallery_2.jpeg";
+import trust3 from "@/assets/gallery/gallery_3.jpeg";
+
 
 export const Trust = () => {
   const points = [
@@ -54,25 +55,32 @@ export const Trust = () => {
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 relative">
         <div className="grid lg:grid-cols-[48%_1fr] gap-[40px] lg:gap-[64px] items-start">
           
-          {/* Left Image Grid - Sticky */}
+          {/* Left Image - Sticky */}
           <div className="lg:sticky lg:top-[120px] h-fit self-start w-full">
             <Reveal variant="reveal-left">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px] sm:gap-[20px]">
-                <img 
-                  src={showroom} 
-                  alt="Tile showroom" 
-                  className="w-full h-[280px] sm:h-full lg:h-[620px] rounded-[16px] object-cover" 
-                />
-                <div className="flex flex-col gap-[16px] sm:gap-[20px]">
+              <div className="relative w-full h-[420px] sm:h-[550px] lg:h-[650px] select-none">
+                {/* Main large image */}
+                <div className="absolute top-0 left-0 w-[72%] h-[75%] rounded-[24px] overflow-hidden shadow-xl border-4 border-white hover:scale-[1.02] hover:z-30 transition-all duration-500 ease-out group">
                   <img 
-                    src={sInstall} 
-                    alt="Flooring installation" 
-                    className="w-full h-[180px] sm:h-[250px] lg:h-[300px] rounded-[16px] object-cover" 
+                    src={trust1} 
+                    alt="Cinco Services custom craftsmanship" 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                   />
+                </div>
+                {/* Secondary overlapping image (top-right) */}
+                <div className="absolute top-[8%] right-0 w-[52%] h-[50%] rounded-[24px] overflow-hidden shadow-2xl border-4 border-white z-10 hover:scale-[1.04] hover:z-30 transition-all duration-500 ease-out group">
                   <img 
-                    src={faqImg} 
-                    alt="Living room tile" 
-                    className="w-full h-[180px] sm:h-[250px] lg:h-[300px] rounded-[16px] object-cover" 
+                    src={trust2} 
+                    alt="Cinco Services premium remodeling" 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                  />
+                </div>
+                {/* Tertiary overlapping image (bottom-left/center) */}
+                <div className="absolute bottom-0 left-[18%] w-[58%] h-[42%] rounded-[24px] overflow-hidden shadow-2xl border-4 border-white z-20 hover:scale-[1.04] hover:z-30 transition-all duration-500 ease-out group">
+                  <img 
+                    src={trust3} 
+                    alt="Cinco Services construction detail" 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                   />
                 </div>
               </div>
