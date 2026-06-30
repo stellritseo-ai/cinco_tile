@@ -23,9 +23,9 @@ export const Testimonials = () => {
   ];
 
   return (
-    <section className="bg-[#F6F5F2] py-[60px] w-full overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
-        <div className="grid lg:grid-cols-[30%_70%] gap-[48px] lg:gap-[80px] items-center">
+    <section className="bg-[#F6F5F2] py-[50px] sm:py-[60px] w-full overflow-hidden">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
+        <div className="grid lg:grid-cols-[30%_70%] gap-[40px] lg:gap-[80px] items-center">
           
           {/* Left Content */}
           <Reveal variant="reveal-left">
@@ -61,9 +61,9 @@ export const Testimonials = () => {
               <div className="absolute inset-y-0 left-0 w-[40px] lg:w-[80px] bg-gradient-to-r from-[#F6F5F2] to-transparent z-10 pointer-events-none" />
               <div className="absolute inset-y-0 right-0 w-[40px] lg:w-[80px] bg-gradient-to-l from-[#F6F5F2] to-transparent z-10 pointer-events-none" />
               
-              <div className="w-full">
+              <div className="w-full overflow-hidden">
                 <motion.div 
-                  className="flex gap-[24px] w-fit"
+                  className="flex gap-[16px] sm:gap-[24px] w-fit"
                   animate={{ x: ["0%", "-50%"] }}
                   transition={{
                     repeat: Infinity,
@@ -74,7 +74,7 @@ export const Testimonials = () => {
                   {[...reviews, ...reviews, ...reviews, ...reviews, ...reviews, ...reviews].map((r, i) => (
                     <div 
                       key={i} 
-                      className="shrink-0 w-[320px] md:w-[380px] bg-white rounded-[16px] p-[32px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 flex flex-col"
+                      className="shrink-0 w-[280px] sm:w-[320px] md:w-[380px] bg-white rounded-[16px] p-[20px] sm:p-[32px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 flex flex-col"
                     >
                       {/* User Info */}
                       <div className="flex items-center gap-[16px] mb-[24px]">

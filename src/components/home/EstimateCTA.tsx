@@ -28,8 +28,8 @@ export const EstimateCTA = () => (
           </div>
 
           {/* Center Content */}
-          <div className="relative z-10 py-[80px] px-6 max-w-[800px] mx-auto text-center flex flex-col items-center">
-            <h2 className="text-[#d62828] md:text-[#0077b6] font-sans text-[20px] md:text-[35px] font-extrabold leading-[1.2] tracking-tight whitespace-normal md:whitespace-nowrap">
+          <div className="relative z-10 py-[60px] sm:py-[80px] px-4 sm:px-6 max-w-[800px] mx-auto text-center flex flex-col items-center">
+            <h2 className="text-[#d62828] md:text-[#0077b6] font-sans text-[22px] sm:text-[26px] md:text-[35px] font-extrabold leading-[1.2] tracking-tight">
               Book Your Free In-Home Estimate Today
             </h2>
             <p className="mt-[16px] text-[#E5E7EB] text-[16px] md:text-[18px] leading-[1.6] max-w-[650px]">

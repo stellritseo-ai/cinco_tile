@@ -6,7 +6,7 @@ import floating1 from "@/assets/bathroom_remodel.png";
 import floating2 from "@/assets/kitchen_backsplash.png";
 export const LocalExperts = () => (
   <section className="py-[60px] bg-white relative overflow-hidden" id="about">
-    <div className="max-w-[1440px] mx-auto px-6 lg:px-12 grid lg:grid-cols-[1fr_1.1fr] gap-[60px] lg:gap-[80px] items-center">
+    <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 grid lg:grid-cols-[1fr_1.1fr] gap-[48px] lg:gap-[80px] items-center">
       
       <Reveal variant="reveal-left">
         <div className="relative w-full max-w-[460px] mx-auto lg:ml-auto lg:mr-8 mt-[20px]">
@@ -28,7 +28,7 @@ export const LocalExperts = () => (
           <motion.div 
             animate={{ y: [0, -15, 0] }}
             transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-            className="absolute -top-6 -left-6 md:-left-12 lg:-left-16 w-[120px] md:w-[150px] rounded-full overflow-hidden shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] border-[5px] border-white z-20 hidden sm:block"
+            className="absolute -top-6 -left-4 sm:-left-6 md:-left-12 lg:-left-16 w-[90px] sm:w-[120px] md:w-[150px] rounded-full overflow-hidden shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] border-[4px] sm:border-[5px] border-white z-20 hidden xs:block sm:block"
           >
             <img 
               src={floating1} 
@@ -42,7 +42,7 @@ export const LocalExperts = () => (
           <motion.div 
             animate={{ y: [0, 15, 0] }}
             transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
-            className="absolute top-[45%] -left-4 md:-left-8 lg:-left-12 w-[100px] md:w-[130px] rounded-full overflow-hidden shadow-[0_20px_40px_-10px_rgba(0,0,0,0.25)] border-[5px] border-white z-20 hidden sm:block"
+            className="absolute top-[45%] -left-2 sm:-left-4 md:-left-8 lg:-left-12 w-[80px] sm:w-[100px] md:w-[130px] rounded-full overflow-hidden shadow-[0_20px_40px_-10px_rgba(0,0,0,0.25)] border-[4px] sm:border-[5px] border-white z-20 hidden sm:block"
           >
             <img 
               src={floating2} 
@@ -53,9 +53,9 @@ export const LocalExperts = () => (
           </motion.div>
           
           {/* Floating Experience Badge */}
-          <div className="absolute -bottom-6 -right-2 md:-right-6 bg-white p-[16px] md:p-[24px] rounded-[16px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)] border border-gray-100 flex items-center gap-[16px] z-30">
-            <div className="text-[#0077b6] font-sans text-[36px] md:text-[46px] font-extrabold leading-none tracking-tight">15+</div>
-            <div className="text-[11px] md:text-[12px] font-bold text-[#111827] uppercase tracking-[0.2em] leading-relaxed">
+          <div className="absolute -bottom-4 sm:-bottom-6 -right-2 md:-right-6 bg-white p-[12px] sm:p-[16px] md:p-[24px] rounded-[12px] sm:rounded-[16px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)] border border-gray-100 flex items-center gap-[10px] sm:gap-[16px] z-30">
+            <div className="text-[#0077b6] font-sans text-[28px] sm:text-[36px] md:text-[46px] font-extrabold leading-none tracking-tight">15+</div>
+            <div className="text-[10px] sm:text-[11px] md:text-[12px] font-bold text-[#111827] uppercase tracking-[0.2em] leading-relaxed">
               Years of<br/><span className="text-gray-500">Excellence</span>
             </div>
           </div>
@@ -69,7 +69,7 @@ export const LocalExperts = () => (
             Welcome to Cinco Services
           </span>
           
-          <h2 className="mt-[24px] font-sans text-[34px] lg:text-[42px] font-extrabold text-[#111827] leading-[1.15] tracking-[-0.02em]">
+          <h2 className="mt-[24px] font-sans text-[26px] sm:text-[32px] lg:text-[42px] font-extrabold text-[#111827] leading-[1.15] tracking-[-0.02em]">
             Where Every Project Tells a Story of Premium Quality.
           </h2>
           

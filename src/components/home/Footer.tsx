@@ -1,40 +1,53 @@
 import { Facebook, Instagram } from "lucide-react";
+import { useLocation } from "@tanstack/react-router";
 import logoImg from "@/assets/cincologo.png";
 
-export const Footer = () => (
-  <footer className="bg-[#333333] text-[#e5e7eb] py-[60px] font-sans w-full">
-    <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+export const Footer = () => {
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1.5fr_1.5fr_2fr] gap-[40px] lg:gap-[60px] mb-[60px]">
+  return (
+    <footer className="bg-[#333333] text-[#e5e7eb] py-[50px] sm:py-[60px] font-sans w-full">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
 
-        {/* Column 1: Logo & Socials */}
-        <div className="flex flex-col">
-          <a href="#" className="flex items-center">
-            <img src={logoImg} alt="Cinco Services Logo" className="h-[55px] md:h-[70px] w-auto object-contain" />
-          </a>
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[1.5fr_1fr_1.5fr_1.5fr_2fr] gap-[30px] sm:gap-[40px] lg:gap-[60px] mb-[50px] sm:mb-[60px]">
 
-          <p className="mt-[40px] text-[14px]">Follow us on</p>
-          <div className="flex items-center gap-[12px] mt-[12px]">
-            <a href="#" className="w-[36px] h-[36px] rounded-full border border-gray-500 flex items-center justify-center hover:bg-[#444] hover:text-white transition-colors">
-              <Facebook className="w-[16px] h-[16px] text-gray-300" />
+          {/* Column 1: Logo & Socials */}
+          <div className="flex flex-col col-span-2 sm:col-span-2 md:col-span-1 lg:col-span-1">
+            <a href="/" className="flex items-center">
+              <img src={logoImg} alt="Cinco Services Logo" className="h-[45px] sm:h-[55px] md:h-[70px] w-auto object-contain" />
             </a>
-            <a href="#" className="w-[36px] h-[36px] rounded-full border border-gray-500 flex items-center justify-center hover:bg-[#444] hover:text-white transition-colors">
-              <Instagram className="w-[16px] h-[16px] text-gray-300" />
-            </a>
+
+            <p className="mt-[40px] text-[14px]">Follow us on</p>
+            <div className="flex items-center gap-[12px] mt-[12px]">
+              <a href="#" className="w-[36px] h-[36px] rounded-full border border-gray-500 flex items-center justify-center hover:bg-[#444] hover:text-white transition-colors">
+                <Facebook className="w-[16px] h-[16px] text-gray-300" />
+              </a>
+              <a href="#" className="w-[36px] h-[36px] rounded-full border border-gray-500 flex items-center justify-center hover:bg-[#444] hover:text-white transition-colors">
+                <Instagram className="w-[16px] h-[16px] text-gray-300" />
+              </a>
+            </div>
           </div>
-        </div>
 
-        {/* Column 2: Quick Links */}
-        <div>
-          <h3 className="text-white font-bold text-[16px] pb-[12px] border-b border-gray-600 mb-[16px]">Quick Links</h3>
-          <ul className="space-y-[14px] text-[14px] text-gray-300">
-            {["Home", "Services", "About", "Contact", "Gallery", "Blog"].map(link => (
-              <li key={link}>
-                <a href={`#${link.toLowerCase()}`} className="hover:text-white transition-colors">{link}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
+          {/* Column 2: Quick Links */}
+          <div>
+            <h3 className="text-white font-bold text-[16px] pb-[12px] border-b border-gray-600 mb-[16px]">Quick Links</h3>
+            <ul className="space-y-[14px] text-[14px] text-gray-300">
+              {[
+                { label: "Home", href: "/" },
+                { label: "About", href: "/about" },
+                { label: "Services", href: isHome ? "#services" : "/#services" },
+                { label: "Residential", href: "/residential" },
+                { label: "Commercial", href: "/commercial" },
+                { label: "Projects", href: "/projects" },
+                { label: "Contact", href: "/contact" },
+              ].map(link => (
+                <li key={link.label}>
+                  <a href={link.href} className="hover:text-white transition-colors">{link.label}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
 
         {/* Column 3: Areas We Serve */}
         <div>
@@ -79,4 +92,5 @@ export const Footer = () => (
 
     </div>
   </footer>
-);
+  );
+};

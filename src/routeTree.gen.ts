@@ -9,8 +9,99 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TileInstallationRouteImport } from './routes/tile-installation'
+import { Route as ShowerInstallationRepairRouteImport } from './routes/shower-installation-repair'
+import { Route as RoofingServicesRouteImport } from './routes/roofing-services'
+import { Route as ResidentialRouteImport } from './routes/residential'
+import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as NewHomeConstructionRouteImport } from './routes/new-home-construction'
+import { Route as KitchenRemodelingRouteImport } from './routes/kitchen-remodeling'
+import { Route as InteriorPaintingRouteImport } from './routes/interior-painting'
+import { Route as HomeRemodelingRouteImport } from './routes/home-remodeling'
+import { Route as FlooringInstallationRouteImport } from './routes/flooring-installation'
+import { Route as ExteriorPaintingRouteImport } from './routes/exterior-painting'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CommercialRouteImport } from './routes/commercial'
+import { Route as BathroomRemodelingRouteImport } from './routes/bathroom-remodeling'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TileInstallationRoute = TileInstallationRouteImport.update({
+  id: '/tile-installation',
+  path: '/tile-installation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShowerInstallationRepairRoute =
+  ShowerInstallationRepairRouteImport.update({
+    id: '/shower-installation-repair',
+    path: '/shower-installation-repair',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const RoofingServicesRoute = RoofingServicesRouteImport.update({
+  id: '/roofing-services',
+  path: '/roofing-services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResidentialRoute = ResidentialRouteImport.update({
+  id: '/residential',
+  path: '/residential',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewHomeConstructionRoute = NewHomeConstructionRouteImport.update({
+  id: '/new-home-construction',
+  path: '/new-home-construction',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KitchenRemodelingRoute = KitchenRemodelingRouteImport.update({
+  id: '/kitchen-remodeling',
+  path: '/kitchen-remodeling',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InteriorPaintingRoute = InteriorPaintingRouteImport.update({
+  id: '/interior-painting',
+  path: '/interior-painting',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HomeRemodelingRoute = HomeRemodelingRouteImport.update({
+  id: '/home-remodeling',
+  path: '/home-remodeling',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FlooringInstallationRoute = FlooringInstallationRouteImport.update({
+  id: '/flooring-installation',
+  path: '/flooring-installation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExteriorPaintingRoute = ExteriorPaintingRouteImport.update({
+  id: '/exterior-painting',
+  path: '/exterior-painting',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommercialRoute = CommercialRouteImport.update({
+  id: '/commercial',
+  path: '/commercial',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BathroomRemodelingRoute = BathroomRemodelingRouteImport.update({
+  id: '/bathroom-remodeling',
+  path: '/bathroom-remodeling',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +110,242 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/bathroom-remodeling': typeof BathroomRemodelingRoute
+  '/commercial': typeof CommercialRoute
+  '/contact': typeof ContactRoute
+  '/exterior-painting': typeof ExteriorPaintingRoute
+  '/flooring-installation': typeof FlooringInstallationRoute
+  '/home-remodeling': typeof HomeRemodelingRoute
+  '/interior-painting': typeof InteriorPaintingRoute
+  '/kitchen-remodeling': typeof KitchenRemodelingRoute
+  '/new-home-construction': typeof NewHomeConstructionRoute
+  '/projects': typeof ProjectsRoute
+  '/residential': typeof ResidentialRoute
+  '/roofing-services': typeof RoofingServicesRoute
+  '/shower-installation-repair': typeof ShowerInstallationRepairRoute
+  '/tile-installation': typeof TileInstallationRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/bathroom-remodeling': typeof BathroomRemodelingRoute
+  '/commercial': typeof CommercialRoute
+  '/contact': typeof ContactRoute
+  '/exterior-painting': typeof ExteriorPaintingRoute
+  '/flooring-installation': typeof FlooringInstallationRoute
+  '/home-remodeling': typeof HomeRemodelingRoute
+  '/interior-painting': typeof InteriorPaintingRoute
+  '/kitchen-remodeling': typeof KitchenRemodelingRoute
+  '/new-home-construction': typeof NewHomeConstructionRoute
+  '/projects': typeof ProjectsRoute
+  '/residential': typeof ResidentialRoute
+  '/roofing-services': typeof RoofingServicesRoute
+  '/shower-installation-repair': typeof ShowerInstallationRepairRoute
+  '/tile-installation': typeof TileInstallationRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/bathroom-remodeling': typeof BathroomRemodelingRoute
+  '/commercial': typeof CommercialRoute
+  '/contact': typeof ContactRoute
+  '/exterior-painting': typeof ExteriorPaintingRoute
+  '/flooring-installation': typeof FlooringInstallationRoute
+  '/home-remodeling': typeof HomeRemodelingRoute
+  '/interior-painting': typeof InteriorPaintingRoute
+  '/kitchen-remodeling': typeof KitchenRemodelingRoute
+  '/new-home-construction': typeof NewHomeConstructionRoute
+  '/projects': typeof ProjectsRoute
+  '/residential': typeof ResidentialRoute
+  '/roofing-services': typeof RoofingServicesRoute
+  '/shower-installation-repair': typeof ShowerInstallationRepairRoute
+  '/tile-installation': typeof TileInstallationRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/bathroom-remodeling'
+    | '/commercial'
+    | '/contact'
+    | '/exterior-painting'
+    | '/flooring-installation'
+    | '/home-remodeling'
+    | '/interior-painting'
+    | '/kitchen-remodeling'
+    | '/new-home-construction'
+    | '/projects'
+    | '/residential'
+    | '/roofing-services'
+    | '/shower-installation-repair'
+    | '/tile-installation'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/bathroom-remodeling'
+    | '/commercial'
+    | '/contact'
+    | '/exterior-painting'
+    | '/flooring-installation'
+    | '/home-remodeling'
+    | '/interior-painting'
+    | '/kitchen-remodeling'
+    | '/new-home-construction'
+    | '/projects'
+    | '/residential'
+    | '/roofing-services'
+    | '/shower-installation-repair'
+    | '/tile-installation'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/bathroom-remodeling'
+    | '/commercial'
+    | '/contact'
+    | '/exterior-painting'
+    | '/flooring-installation'
+    | '/home-remodeling'
+    | '/interior-painting'
+    | '/kitchen-remodeling'
+    | '/new-home-construction'
+    | '/projects'
+    | '/residential'
+    | '/roofing-services'
+    | '/shower-installation-repair'
+    | '/tile-installation'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  BathroomRemodelingRoute: typeof BathroomRemodelingRoute
+  CommercialRoute: typeof CommercialRoute
+  ContactRoute: typeof ContactRoute
+  ExteriorPaintingRoute: typeof ExteriorPaintingRoute
+  FlooringInstallationRoute: typeof FlooringInstallationRoute
+  HomeRemodelingRoute: typeof HomeRemodelingRoute
+  InteriorPaintingRoute: typeof InteriorPaintingRoute
+  KitchenRemodelingRoute: typeof KitchenRemodelingRoute
+  NewHomeConstructionRoute: typeof NewHomeConstructionRoute
+  ProjectsRoute: typeof ProjectsRoute
+  ResidentialRoute: typeof ResidentialRoute
+  RoofingServicesRoute: typeof RoofingServicesRoute
+  ShowerInstallationRepairRoute: typeof ShowerInstallationRepairRoute
+  TileInstallationRoute: typeof TileInstallationRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/tile-installation': {
+      id: '/tile-installation'
+      path: '/tile-installation'
+      fullPath: '/tile-installation'
+      preLoaderRoute: typeof TileInstallationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shower-installation-repair': {
+      id: '/shower-installation-repair'
+      path: '/shower-installation-repair'
+      fullPath: '/shower-installation-repair'
+      preLoaderRoute: typeof ShowerInstallationRepairRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roofing-services': {
+      id: '/roofing-services'
+      path: '/roofing-services'
+      fullPath: '/roofing-services'
+      preLoaderRoute: typeof RoofingServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/residential': {
+      id: '/residential'
+      path: '/residential'
+      fullPath: '/residential'
+      preLoaderRoute: typeof ResidentialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new-home-construction': {
+      id: '/new-home-construction'
+      path: '/new-home-construction'
+      fullPath: '/new-home-construction'
+      preLoaderRoute: typeof NewHomeConstructionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kitchen-remodeling': {
+      id: '/kitchen-remodeling'
+      path: '/kitchen-remodeling'
+      fullPath: '/kitchen-remodeling'
+      preLoaderRoute: typeof KitchenRemodelingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/interior-painting': {
+      id: '/interior-painting'
+      path: '/interior-painting'
+      fullPath: '/interior-painting'
+      preLoaderRoute: typeof InteriorPaintingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/home-remodeling': {
+      id: '/home-remodeling'
+      path: '/home-remodeling'
+      fullPath: '/home-remodeling'
+      preLoaderRoute: typeof HomeRemodelingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/flooring-installation': {
+      id: '/flooring-installation'
+      path: '/flooring-installation'
+      fullPath: '/flooring-installation'
+      preLoaderRoute: typeof FlooringInstallationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/exterior-painting': {
+      id: '/exterior-painting'
+      path: '/exterior-painting'
+      fullPath: '/exterior-painting'
+      preLoaderRoute: typeof ExteriorPaintingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/commercial': {
+      id: '/commercial'
+      path: '/commercial'
+      fullPath: '/commercial'
+      preLoaderRoute: typeof CommercialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bathroom-remodeling': {
+      id: '/bathroom-remodeling'
+      path: '/bathroom-remodeling'
+      fullPath: '/bathroom-remodeling'
+      preLoaderRoute: typeof BathroomRemodelingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +358,21 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  BathroomRemodelingRoute: BathroomRemodelingRoute,
+  CommercialRoute: CommercialRoute,
+  ContactRoute: ContactRoute,
+  ExteriorPaintingRoute: ExteriorPaintingRoute,
+  FlooringInstallationRoute: FlooringInstallationRoute,
+  HomeRemodelingRoute: HomeRemodelingRoute,
+  InteriorPaintingRoute: InteriorPaintingRoute,
+  KitchenRemodelingRoute: KitchenRemodelingRoute,
+  NewHomeConstructionRoute: NewHomeConstructionRoute,
+  ProjectsRoute: ProjectsRoute,
+  ResidentialRoute: ResidentialRoute,
+  RoofingServicesRoute: RoofingServicesRoute,
+  ShowerInstallationRepairRoute: ShowerInstallationRepairRoute,
+  TileInstallationRoute: TileInstallationRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

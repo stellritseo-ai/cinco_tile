@@ -51,28 +51,28 @@ export const Trust = () => {
 
   return (
     <section className="bg-white py-[60px] w-full overflow-x-clip relative">
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-12 relative">
-        <div className="grid lg:grid-cols-[48%_1fr] gap-[48px] lg:gap-[64px] items-start">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 relative">
+        <div className="grid lg:grid-cols-[48%_1fr] gap-[40px] lg:gap-[64px] items-start">
           
           {/* Left Image Grid - Sticky */}
           <div className="lg:sticky lg:top-[120px] h-fit self-start w-full">
             <Reveal variant="reveal-left">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-[20px]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px] sm:gap-[20px]">
                 <img 
                   src={showroom} 
                   alt="Tile showroom" 
-                  className="w-full h-full lg:h-[620px] rounded-[16px] object-cover" 
+                  className="w-full h-[280px] sm:h-full lg:h-[620px] rounded-[16px] object-cover" 
                 />
-                <div className="flex flex-col gap-[20px]">
+                <div className="flex flex-col gap-[16px] sm:gap-[20px]">
                   <img 
                     src={sInstall} 
                     alt="Flooring installation" 
-                    className="w-full h-[250px] lg:h-[300px] rounded-[16px] object-cover" 
+                    className="w-full h-[180px] sm:h-[250px] lg:h-[300px] rounded-[16px] object-cover" 
                   />
                   <img 
                     src={faqImg} 
                     alt="Living room tile" 
-                    className="w-full h-[250px] lg:h-[300px] rounded-[16px] object-cover" 
+                    className="w-full h-[180px] sm:h-[250px] lg:h-[300px] rounded-[16px] object-cover" 
                   />
                 </div>
               </div>
@@ -91,7 +91,7 @@ export const Trust = () => {
                 </div>
                 
                 {/* Heading */}
-                <h2 className="mt-[20px] max-w-[650px] font-sans text-[24px] md:text-[36px] font-extrabold text-[#111827] leading-[43px] md:leading-[55px] tracking-[-0.02em] text-center md:text-left mx-auto">
+                <h2 className="mt-[20px] max-w-[650px] font-sans text-[22px] sm:text-[28px] md:text-[36px] font-extrabold text-[#111827] leading-[1.2] md:leading-[55px] tracking-[-0.02em] text-center md:text-left mx-auto">
                   Why Homeowners & Businesses Trust Cinco Services
                 </h2>
 

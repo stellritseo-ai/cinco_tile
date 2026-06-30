@@ -165,8 +165,8 @@ export const Services = () => {
   const slideItems = items.slice(3);
 
   return (
-    <section id="services" className="py-[60px] bg-cream overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-8 w-full flex flex-col justify-center">
+    <section id="services" className="py-[50px] sm:py-[60px] bg-cream overflow-hidden">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col justify-center">
 
         {/* Top Row Grid: Left Text Column + 3 Right Image Cards */}
         <div className="grid lg:grid-cols-[40%_1fr] gap-12 lg:gap-16 items-center">
@@ -195,10 +195,10 @@ export const Services = () => {
           </Reveal>
 
           {/* Top 3 Service Cards */}
-          <div className="grid sm:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
             {topItems.map((s, i) => (
               <Reveal key={s.title} variant="reveal-scale" className={`stagger-${i + 1} h-full`}>
-                <div className="group relative rounded-3xl overflow-hidden shadow-lg bg-ink h-[340px] xl:h-[380px] border border-border/20 cursor-pointer">
+                <div className="group relative rounded-3xl overflow-hidden shadow-lg bg-ink h-[220px] sm:h-[300px] xl:h-[380px] border border-border/20 cursor-pointer">
                   {/* Background image */}
                   <img
                     src={s.img}
@@ -249,7 +249,7 @@ export const Services = () => {
         </div>
 
         {/* Second Row Grid: Slider / Carousel */}
-        <div className="mt-6 relative px-2 pb-8">
+        <div className="mt-4 sm:mt-6 relative px-0 sm:px-2 pb-6 sm:pb-8">
           <Reveal>
             <Carousel
               opts={{
@@ -267,8 +267,8 @@ export const Services = () => {
             >
               <CarouselContent className="-ml-5">
                 {slideItems.map((s, i) => (
-                  <CarouselItem key={s.title} className="pl-5 sm:basis-1/2 md:basis-1/3 lg:basis-1/5">
-                    <div className="group relative rounded-3xl overflow-hidden shadow-lg bg-ink h-[340px] xl:h-[380px] border border-border/20 cursor-pointer">
+                  <CarouselItem key={s.title} className="pl-4 sm:pl-5 basis-[80%] sm:basis-1/2 md:basis-1/3 lg:basis-1/5">
+                    <div className="group relative rounded-3xl overflow-hidden shadow-lg bg-ink h-[260px] sm:h-[300px] xl:h-[380px] border border-border/20 cursor-pointer">
                       {/* Background image */}
                       <img
                         src={s.img}

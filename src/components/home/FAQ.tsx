@@ -30,9 +30,9 @@ export const FAQ = () => {
   ];
 
   return (
-    <section className="bg-white py-[60px] w-full" id="faq">
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
-        <div className="grid lg:grid-cols-[1fr_1fr] gap-[48px] lg:gap-[50px] items-start">
+    <section className="bg-white py-[50px] sm:py-[60px] w-full" id="faq">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
+        <div className="grid lg:grid-cols-[1fr_1fr] gap-[40px] lg:gap-[50px] items-start">
 
           {/* Left Column */}
           <Reveal variant="reveal-left">
@@ -41,7 +41,7 @@ export const FAQ = () => {
                 FAQs
               </span>
 
-              <h2 className="mt-[24px] font-sans text-[28px] lg:text-[35px] font-extrabold text-[#111827] leading-[1.2] tracking-[-0.02em]">
+              <h2 className="mt-[24px] font-sans text-[24px] sm:text-[28px] lg:text-[35px] font-extrabold text-[#111827] leading-[1.2] tracking-[-0.02em]">
                 Frequently Asked Questions
               </h2>
 
@@ -57,7 +57,7 @@ export const FAQ = () => {
 
           {/* Right Column: Accordion */}
           <Reveal variant="reveal-right">
-            <div className="bg-[#F8F9FA] rounded-[20px] p-[24px] lg:p-[40px] border border-gray-100">
+            <div className="bg-[#F8F9FA] rounded-[16px] sm:rounded-[20px] p-[16px] sm:p-[24px] lg:p-[40px] border border-gray-100">
               <div className="flex flex-col">
                 {faqs.map((faq, index) => {
                   const isOpen = openIndex === index;
