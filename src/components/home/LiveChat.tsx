@@ -215,15 +215,16 @@ export const LiveChat = () => {
       </AnimatePresence>
 
       {/* Floating Toggle Button */}
-      <div className="relative flex items-center justify-end">
+      <div className="flex items-center justify-end gap-3">
         {/* Pulsating Badge Tooltip */}
         <AnimatePresence>
           {showBadge && !isOpen && (
             <motion.div
-              initial={{ opacity: 0, x: 20, scale: 0.8 }}
+              initial={{ opacity: 0, x: 10, scale: 0.95 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
-              exit={{ opacity: 0, x: 20, scale: 0.8 }}
-              className="absolute right-16 bg-[#0077b6] text-white text-[12px] font-bold py-1.5 px-3.5 rounded-full shadow-lg whitespace-nowrap mr-2 flex items-center gap-1.5 border border-sky-400"
+              exit={{ opacity: 0, x: 10, scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+              className="bg-[#0077b6] text-white text-[13px] font-bold py-2 px-4 rounded-full shadow-lg whitespace-nowrap flex items-center gap-1.5 border border-sky-400"
             >
               <span>Need help? Chat now!</span>
               <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-ping" />
@@ -233,7 +234,7 @@ export const LiveChat = () => {
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`w-14 h-14 rounded-full flex items-center justify-center text-white shadow-2xl transition-all duration-300 hover:scale-110 active:scale-90 border border-white/10 ${
+          className={`w-14 h-14 rounded-full flex items-center justify-center text-white shadow-2xl transition-all duration-300 hover:scale-110 active:scale-90 border border-white/10 shrink-0 ${
             isOpen
               ? "bg-[#111827] rotate-90"
               : "bg-[#d62828] hover:bg-[#b52020]"
@@ -250,3 +251,4 @@ export const LiveChat = () => {
     </div>
   );
 };
+

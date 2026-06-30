@@ -141,7 +141,10 @@ export const Nav = () => {
                       </button>
 
                       {/* Dropdown panel */}
-                      <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 bg-white/95 backdrop-blur-md border border-gray-200/60 p-4 rounded-2xl shadow-2xl w-[540px] grid grid-cols-2 gap-x-4 gap-y-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-[opacity,transform] duration-300 transform scale-95 origin-top group-hover:scale-100 z-[9999] before:content-[''] before:absolute before:-top-5 before:left-0 before:right-0 before:h-5 before:bg-transparent">
+                      <div 
+                        className="absolute top-full left-1/2 -translate-x-1/2 mt-4 bg-white/95 backdrop-blur-md border border-gray-200/60 p-4 rounded-2xl shadow-2xl w-[540px] min-w-[540px] grid grid-cols-2 gap-x-4 gap-y-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-[opacity,transform] duration-300 transform scale-95 origin-top group-hover:scale-100 z-[9999] before:content-[''] before:absolute before:-top-5 before:left-0 before:right-0 before:h-5 before:bg-transparent"
+                        style={{ width: "540px", minWidth: "540px" }}
+                      >
                         
                         {/* Caret arrow */}
                         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-white border-t border-l border-gray-200/60 rotate-45 -translate-y-1.5 z-[-1]" />
