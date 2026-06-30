@@ -5,7 +5,6 @@ import trust1 from "@/assets/gallery/gallery_1.jpeg";
 import trust2 from "@/assets/gallery/gallery_2.jpeg";
 import trust3 from "@/assets/gallery/gallery_3.jpeg";
 
-
 export const Trust = () => {
   const points = [
     {
@@ -54,7 +53,7 @@ export const Trust = () => {
     <section className="bg-white py-[60px] w-full overflow-x-clip relative">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 relative">
         <div className="grid lg:grid-cols-[48%_1fr] gap-[40px] lg:gap-[64px] items-start">
-          
+
           {/* Left Image - Sticky */}
           <div className="lg:sticky lg:top-[120px] h-fit self-start w-full">
             <Reveal variant="reveal-left">
@@ -97,7 +96,7 @@ export const Trust = () => {
                     Why Choose Us
                   </span>
                 </div>
-                
+
                 {/* Heading */}
                 <h2 className="mt-[20px] max-w-[650px] font-sans text-[22px] sm:text-[28px] md:text-[36px] font-extrabold text-[#111827] leading-[1.2] md:leading-[55px] tracking-[-0.02em] text-center md:text-left mx-auto">
                   Why Homeowners & Businesses Trust Cinco Services
@@ -127,8 +126,8 @@ export const Trust = () => {
 
                 {/* CTA Button */}
                 <div className="mt-[48px] pb-[40px] lg:pb-0">
-                  <a 
-                    href="#contact" 
+                  <a
+                    href="#contact"
                     className="inline-flex items-center justify-center bg-[#d62828] text-white font-bold text-[15px] h-[48px] px-[28px] rounded-[10px] hover:bg-[#b52020] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 shadow-[0_4px_14px_0_rgba(214,40,40,0.3)]"
                   >
                     Get Started with a Free Estimate
