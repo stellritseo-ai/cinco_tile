@@ -1,23 +1,23 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock, 
-  Shield, 
-  Check, 
-  Award, 
-  HardHat, 
-  Calendar, 
-  ArrowRight, 
-  CheckCircle, 
-  FileText, 
-  Building2, 
-  Sparkles, 
-  Wrench, 
-  Heart, 
-  TrendingUp, 
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Shield,
+  Check,
+  Award,
+  HardHat,
+  Calendar,
+  ArrowRight,
+  CheckCircle,
+  FileText,
+  Building2,
+  Sparkles,
+  Wrench,
+  Heart,
+  TrendingUp,
   Map,
   Home,
   Hammer,
@@ -231,8 +231,8 @@ function ShowerInstallationRepairPage() {
   ];
 
   const cities = [
-    "Houston", "Katy", "Sugar Land", "Cypress", "Richmond", "Rosenberg", 
-    "Fulshear", "Missouri City", "Stafford", "Pearland", "Jersey Village", 
+    "Houston", "Katy", "Sugar Land", "Cypress", "Richmond", "Rosenberg",
+    "Fulshear", "Missouri City", "Stafford", "Pearland", "Jersey Village",
     "Tomball", "The Woodlands"
   ];
 
@@ -245,7 +245,7 @@ function ShowerInstallationRepairPage() {
         {/* ================= HERO SECTION ================= */}
         <section className="relative min-h-[60vh] sm:min-h-[55vh] flex items-center justify-center overflow-hidden bg-[#111827]">
           {/* Background image with overlay */}
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 mix-blend-overlay scale-105"
             style={{ backgroundImage: `url(${showerInstallationHero})` }}
           />
@@ -255,24 +255,24 @@ function ShowerInstallationRepairPage() {
             <span className="inline-block bg-[#d62828] text-white rounded-full px-5 py-1.5 text-[11px] md:text-[12px] font-bold uppercase tracking-[0.2em] mb-5 shadow-[0_4px_12px_rgba(214,40,40,0.3)]">
               Cinco Bathroom
             </span>
-            
+
             <h1 className="font-sans text-[26px] sm:text-[36px] md:text-[54px] font-extrabold leading-[1.15] tracking-tight max-w-4xl mx-auto mt-2">
               Shower Installation & Repair
             </h1>
-            
+
             <p className="mt-4 text-[16px] md:text-[19px] text-sky-200/90 max-w-2xl mx-auto font-medium leading-relaxed">
               Custom Showers Built to Last – Expert Installation, Repair & Replacement
             </p>
 
             {/* Quick buttons */}
             <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-3.5 max-w-3xl mx-auto">
-              <a 
+              <a
                 href="#contact"
                 className="bg-[#d62828] hover:brightness-110 rounded-full px-8 py-3.5 text-[14px] font-bold text-white transition-all shadow-[0_4px_12px_rgba(214,40,40,0.3)]"
               >
                 Get My Free Shower Estimate
               </a>
-              <a 
+              <a
                 href="tel:8324062716"
                 className="bg-white/10 hover:bg-white/15 border border-white/25 rounded-full px-8 py-3.5 text-[14px] font-bold text-white transition-all"
               >
@@ -296,14 +296,14 @@ function ShowerInstallationRepairPage() {
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_0.7fr] gap-12 lg:gap-16 items-start">
-              
+
               {/* Left Column: Intro */}
               <Reveal variant="reveal-left" className="space-y-6">
                 <h2 className="text-[28px] md:text-[38px] font-sans font-bold text-[#111827] leading-tight">
                   Expert Shower Installation & Repair <br />
                   <span className="text-[#0077b6]">Transform Your Bathroom into a Spa</span>
                 </h2>
-                
+
                 <div className="text-[16px] md:text-[17px] text-[#4B5563] leading-relaxed space-y-6">
                   <p className="font-semibold text-lg text-gray-800">
                     Your shower should be a place of relaxation and rejuvenation – not a source of leaks, mold, or frustration. At Cinco Services, we specialize in professional shower installation, repair, and replacement that combines stunning design with reliable waterproofing and durability.
@@ -314,8 +314,8 @@ function ShowerInstallationRepairPage() {
                 </div>
 
                 <div className="flex flex-wrap gap-4 pt-4">
-                  <a 
-                    href="#contact" 
+                  <a
+                    href="#contact"
                     className="inline-flex items-center gap-2 bg-[#d62828] text-white rounded-full px-8 py-3.5 text-[15px] font-bold hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] shadow-[0_4px_14px_rgba(214,40,40,0.3)] transition-all duration-300"
                   >
                     Schedule a Leak-Free Check
@@ -327,11 +327,11 @@ function ShowerInstallationRepairPage() {
               <Reveal variant="reveal-right">
                 <div className="bg-slate-900 text-white p-8 rounded-2xl shadow-xl relative overflow-hidden">
                   <div className="absolute top-0 left-0 right-0 h-[4px] bg-[#d62828]" />
-                  
+
                   <h3 className="text-lg font-bold uppercase tracking-wider text-sky-400 mb-6 font-sans">
                     At a Glance
                   </h3>
-                  
+
                   <div className="space-y-4">
                     {atAGlance.map((item, idx) => {
                       const Icon = item.icon;
@@ -356,7 +356,7 @@ function ShowerInstallationRepairPage() {
         {/* ================= WHY CHOOSE US ================= */}
         <section className="py-20 bg-gray-50 border-t border-gray-200/50">
           <div className="max-w-7xl mx-auto px-6">
-            
+
             <div className="text-center max-w-xl mx-auto mb-16">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 WATERPROOF STANDARDS
@@ -370,9 +370,9 @@ function ShowerInstallationRepairPage() {
               {whyChooseUs.map((item, idx) => {
                 const Icon = item.icon;
                 return (
-                  <Reveal 
-                    key={idx} 
-                    variant="reveal-scale" 
+                  <Reveal
+                    key={idx}
+                    variant="reveal-scale"
                     className="bg-white p-8 rounded-2xl border border-gray-150 shadow-sm hover:shadow-lg transition-shadow"
                   >
                     <div className="w-12 h-12 rounded-xl bg-sky-50 text-[#0077b6] flex items-center justify-center mb-6">
@@ -391,7 +391,7 @@ function ShowerInstallationRepairPage() {
         {/* ================= DETAILED SERVICE BLOCKS ================= */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-6 space-y-24">
-            
+
             <div className="text-center max-w-xl mx-auto mb-16">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 SERVICES
@@ -471,7 +471,7 @@ function ShowerInstallationRepairPage() {
 
             {/* Shower Repair & Conversions */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-              
+
               {/* Repairs */}
               <Reveal variant="reveal-left" className="space-y-6 bg-gray-50 p-8 rounded-2xl border border-gray-150/50">
                 <div className="w-12 h-12 rounded-xl bg-sky-50 text-[#0077b6] flex items-center justify-center">
@@ -517,7 +517,7 @@ function ShowerInstallationRepairPage() {
         {/* ================= COMPARISON TABLES ================= */}
         <section className="py-20 bg-gray-50 border-t border-gray-200/50">
           <div className="max-w-5xl mx-auto px-6 space-y-16">
-            
+
             <div className="text-center max-w-xl mx-auto">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 COMPREHENSIVE SPECS
@@ -606,7 +606,7 @@ function ShowerInstallationRepairPage() {
         {/* ================= PROCESS ================= */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-6">
-            
+
             <div className="text-center max-w-xl mx-auto mb-16">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 OUR WORKFLOW
@@ -621,9 +621,9 @@ function ShowerInstallationRepairPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 font-sans">
               {processSteps.map((step, idx) => (
-                <Reveal 
-                  key={idx} 
-                  variant="reveal-scale" 
+                <Reveal
+                  key={idx}
+                  variant="reveal-scale"
                   className="bg-white p-5 rounded-2xl border border-gray-150 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative"
                 >
                   <span className="absolute top-4 right-4 bg-[#d62828] text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
@@ -647,7 +647,7 @@ function ShowerInstallationRepairPage() {
         {/* ================= GALLERY PLACEHOLDER ================= */}
         <section className="py-20 bg-white border-t border-gray-200/50">
           <div className="max-w-7xl mx-auto px-6">
-            
+
             <div className="text-center max-w-xl mx-auto mb-16">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 COMPLETED WORK
@@ -666,9 +666,9 @@ function ShowerInstallationRepairPage() {
                 { img: estimateImg, title: "Custom mortar sloped shower pan" },
                 { img: showroomImg, title: "Luxury Steam shower layout" }
               ].map((item, idx) => (
-                <Reveal 
-                  key={idx} 
-                  variant="reveal-scale" 
+                <Reveal
+                  key={idx}
+                  variant="reveal-scale"
                   className="group relative rounded-2xl overflow-hidden shadow-sm aspect-[4/3] border border-gray-150"
                 >
                   <img src={item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
@@ -685,7 +685,7 @@ function ShowerInstallationRepairPage() {
         {/* ================= TESTIMONIALS ================= */}
         <section className="py-20 bg-gray-50 border-t border-gray-200/50">
           <div className="max-w-7xl mx-auto px-6">
-            
+
             <div className="text-center max-w-xl mx-auto mb-16">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 REVIEWS
@@ -697,9 +697,9 @@ function ShowerInstallationRepairPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {testimonials.map((t, idx) => (
-                <Reveal 
-                  key={idx} 
-                  variant="reveal-scale" 
+                <Reveal
+                  key={idx}
+                  variant="reveal-scale"
                   className="bg-white p-8 rounded-2xl border border-gray-150 shadow-sm flex flex-col justify-between relative"
                 >
                   <Quote className="absolute top-4 right-6 w-8 h-8 text-sky-100" />
@@ -726,7 +726,7 @@ function ShowerInstallationRepairPage() {
         {/* ================= FAQs ================= */}
         <section className="py-20 bg-white">
           <div className="max-w-4xl mx-auto px-6">
-            
+
             <div className="text-center max-w-xl mx-auto mb-16">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 FAQ
@@ -771,8 +771,8 @@ function ShowerInstallationRepairPage() {
 
             <div className="flex flex-wrap items-center justify-center gap-2 max-w-4xl mx-auto">
               {cities.map((city, idx) => (
-                <span 
-                  key={idx} 
+                <span
+                  key={idx}
                   className="bg-white text-gray-700 px-4 py-2 rounded-full text-[13.5px] font-bold border border-gray-200"
                 >
                   {city}
@@ -797,20 +797,20 @@ function ShowerInstallationRepairPage() {
               <h2 className="text-3xl md:text-4xl font-sans font-bold text-white mb-4">
                 Ready for a Beautiful, Leak-Free Shower?
               </h2>
-              
+
               <p className="text-[15px] md:text-[17px] text-gray-300 max-w-2xl mx-auto leading-relaxed mb-10">
                 Whether you're building a custom spa shower, converting a tub, or repairing a leak, Cinco Services delivers exceptional craftsmanship and lasting results. Contact us today for a free estimate.
               </p>
 
               <div className="flex flex-wrap justify-center gap-4">
-                <a 
-                  href="#contact" 
+                <a
+                  href="#contact"
                   className="inline-flex items-center gap-2 bg-[#d62828] text-white rounded-full px-8 py-4 text-[15px] font-bold hover:brightness-110 hover:scale-[1.03] active:scale-[0.97] shadow-[0_4px_14px_rgba(214,40,40,0.4)] transition-all duration-300"
                 >
                   Get My Free Shower Estimate
                 </a>
-                <a 
-                  href="tel:8324062716" 
+                <a
+                  href="tel:8324062716"
                   className="inline-flex items-center gap-2.5 bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 text-white rounded-full px-8 py-4 text-[15px] font-bold hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
                 >
                   <Phone className="w-[16px] h-[16px]" /> Call (832) 406-2716

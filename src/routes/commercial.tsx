@@ -42,6 +42,12 @@ import tileImg from "@/assets/tile_installation_hero.png";
 import transformImg from "@/assets/transform_section.png";
 import estimateImg from "@/assets/estimate_section.png";
 
+// Dynamically import all images in the gallery folder
+const galleryModules = import.meta.glob("../assets/gallery/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true });
+const galleryImages = Object.values(galleryModules)
+  .map((mod: any) => (mod && typeof mod === "object" && "default" in mod ? (mod.default as string) : null))
+  .filter((url): url is string => typeof url === "string");
+
 export const Route = createFileRoute("/commercial")({
   head: () => ({
     meta: [
@@ -700,7 +706,7 @@ function CommercialPage() {
                 >
                   <div className="aspect-[4/3] overflow-hidden">
                     <img 
-                      src={proj.img} 
+                      src={galleryImages[(2 + idx) % galleryImages.length] || proj.img} 
                       alt={proj.title} 
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                     />

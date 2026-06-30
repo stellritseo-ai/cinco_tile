@@ -1,23 +1,23 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock, 
-  Shield, 
-  Check, 
-  Award, 
-  HardHat, 
-  Calendar, 
-  ArrowRight, 
-  CheckCircle, 
-  FileText, 
-  Building2, 
-  Sparkles, 
-  Wrench, 
-  Heart, 
-  TrendingUp, 
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Shield,
+  Check,
+  Award,
+  HardHat,
+  Calendar,
+  ArrowRight,
+  CheckCircle,
+  FileText,
+  Building2,
+  Sparkles,
+  Wrench,
+  Heart,
+  TrendingUp,
   Map,
   Hammer,
   Paintbrush,
@@ -35,16 +35,11 @@ import { LiveChat } from "@/components/home/LiveChat";
 import { Reveal } from "@/components/ui/Reveal";
 
 // Import images
-import homeRemodelingHero from "@/assets/home_remodeling_hero.png";
-import newConstructionHero from "@/assets/new_construction_hero.png";
-import bathroomRemodelHero from "@/assets/bathroom_remodel_hero.png";
-import kitchenRemodelHero from "@/assets/kitchen_remodel_hero.png";
-import roofingServicesHero from "@/assets/roofing_services_hero.png";
-import exteriorPaintingHero from "@/assets/exterior_painting_hero.png";
-import showerInstallationHero from "@/assets/shower_installation_hero.png";
-import commercialRemodelHero from "@/assets/commercial_remodel_hero.png";
 import showroomImg from "@/assets/showroom_section.png";
 import expertsImg from "@/assets/experts_section.png";
+import bathroomImg from "@/assets/bathroom_remodel_hero.png";
+import kitchenImg from "@/assets/kitchen_remodel_hero.png";
+import tileImg from "@/assets/tile_installation_hero.png";
 import transformImg from "@/assets/transform_section.png";
 import estimateImg from "@/assets/estimate_section.png";
 
@@ -118,7 +113,7 @@ function ProjectsPage() {
       location: "Katy, TX",
       categoryText: "Residential | Full Home Remodeling",
       tags: ["residential", "kitchen", "bathroom", "construction", "tile"],
-      image: homeRemodelingHero,
+      image: transformImg,
       overview: "This Katy family wanted to completely transform their 1980s home into a modern, open-concept living space. We handled everything from wall removal and structural framing to new flooring, custom kitchen cabinets, and a luxurious master bathroom.",
       scope: [
         "Full interior demolition",
@@ -141,7 +136,7 @@ function ProjectsPage() {
       location: "Houston, TX",
       categoryText: "Residential | Bathroom Remodeling",
       tags: ["residential", "bathroom", "tile"],
-      image: bathroomRemodelHero,
+      image: bathroomImg,
       overview: "This Houston homeowner wanted a spa-like master bathroom retreat. We delivered a complete transformation featuring custom marble tile, a walk-in shower with a bench, and a freestanding soaking tub.",
       scope: [
         "Full bathroom demolition",
@@ -164,7 +159,7 @@ function ProjectsPage() {
       location: "Sugar Land, TX",
       categoryText: "Residential | Kitchen Remodeling",
       tags: ["residential", "kitchen", "tile"],
-      image: kitchenRemodelHero,
+      image: kitchenImg,
       overview: "This Sugar Land homeowner wanted to modernize their kitchen with custom cabinetry, premium countertops, and a stunning tile backsplash. We delivered a fresh, contemporary look that complements the home's open concept.",
       scope: [
         "Custom cabinetry installation",
@@ -186,7 +181,7 @@ function ProjectsPage() {
       location: "Cypress, TX",
       categoryText: "Residential | New Home Construction",
       tags: ["residential", "construction", "roofing", "painting", "tile"],
-      image: newConstructionHero,
+      image: expertsImg,
       overview: "This Cypress family entrusted us to build their dream home from the ground up. We managed everything from site preparation to final finishing, delivering a custom 3,500 sq. ft. home with premium materials and finishes.",
       scope: [
         "Site preparation and foundation",
@@ -209,7 +204,7 @@ function ProjectsPage() {
       location: "Richmond, TX",
       categoryText: "Residential | Tile & Flooring",
       tags: ["residential", "bathroom", "tile"],
-      image: showerInstallationHero,
+      image: tileImg,
       overview: "This Richmond homeowner needed a shower pan replacement and custom tile installation after a leak caused water damage. We provided a complete rebuild with proper waterproofing and stunning tile work.",
       scope: [
         "Shower pan removal and replacement",
@@ -225,7 +220,7 @@ function ProjectsPage() {
       location: "Pearland, TX",
       categoryText: "Residential | Roofing & Painting",
       tags: ["residential", "roofing", "painting"],
-      image: exteriorPaintingHero,
+      image: estimateImg,
       overview: "This Pearland homeowner wanted to refresh the exterior of their home with new paint and a roof replacement. We delivered a complete exterior transformation.",
       scope: [
         "Full roof replacement (asphalt shingles)",
@@ -235,7 +230,7 @@ function ProjectsPage() {
       ],
       results: "A home that looks brand new with improved curb appeal and protection."
     },
-    
+
     // Commercial Projects
     {
       id: "com-1",
@@ -243,7 +238,7 @@ function ProjectsPage() {
       location: "Houston, TX",
       categoryText: "Commercial | Restaurant Renovation",
       tags: ["commercial", "tile", "painting", "outdoor"],
-      image: commercialRemodelHero,
+      image: tileImg, // Restaurant has high-traffic tile
       overview: "This popular Houston restaurant needed a complete remodel to update its dining area and kitchen. We worked overnight shifts to minimize business disruption and delivered on time.",
       scope: [
         "Dining area renovation with custom tile flooring",
@@ -265,7 +260,7 @@ function ProjectsPage() {
       location: "Katy, TX",
       categoryText: "Commercial | Office Remodeling",
       tags: ["commercial", "tile", "painting"],
-      image: showroomImg,
+      image: showroomImg, // Represents corporate interiors
       overview: "This growing company needed to expand and modernize their office space. We delivered a complete renovation that included new walls, flooring, painting, and custom tile in the reception area.",
       scope: [
         "New wall framing and open office layout",
@@ -305,7 +300,7 @@ function ProjectsPage() {
       location: "Houston, TX",
       categoryText: "Commercial | Medical & Dental",
       tags: ["commercial", "tile", "painting"],
-      image: expertsImg,
+      image: bathroomImg, // Focus on clean sterile tile installs
       overview: "This medical practice wanted to update their waiting area and treatment rooms to create a calming, professional atmosphere. We delivered with premium finishes and minimal disruption.",
       scope: [
         "Waiting room renovation",
@@ -323,7 +318,7 @@ function ProjectsPage() {
       location: "Cypress, TX",
       categoryText: "Commercial | Roofing & Painting",
       tags: ["commercial", "roofing", "painting"],
-      image: roofingServicesHero,
+      image: estimateImg,
       overview: "This Cypress shopping center needed a new roof and exterior painting to refresh its appearance and protect the property. We delivered both with speed and professionalism.",
       scope: [
         "Full commercial roof replacement (TPO system)",
@@ -375,8 +370,8 @@ function ProjectsPage() {
   ];
 
   // Filtering Logic
-  const filteredProjects = activeFilter === "all" 
-    ? projects 
+  const filteredProjects = activeFilter === "all"
+    ? projects
     : projects.filter(proj => proj.tags.includes(activeFilter));
 
   return (
@@ -388,7 +383,7 @@ function ProjectsPage() {
         {/* ================= HERO SECTION ================= */}
         <section className="relative min-h-[60vh] sm:min-h-[50vh] md:min-h-[55vh] flex items-center justify-center overflow-hidden bg-[#111827]">
           {/* Background image with overlay */}
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 mix-blend-overlay scale-105"
             style={{ backgroundImage: `url(${showroomImg})` }}
           />
@@ -398,24 +393,24 @@ function ProjectsPage() {
             <span className="inline-block bg-[#d62828] text-white rounded-full px-5 py-1.5 text-[11px] md:text-[12px] font-bold uppercase tracking-[0.2em] mb-5 shadow-[0_4px_12px_rgba(214,40,40,0.3)]">
               Cinco Portfolio
             </span>
-            
+
             <h1 className="font-sans text-[26px] sm:text-[36px] md:text-[54px] font-extrabold leading-[1.15] tracking-tight max-w-4xl mx-auto mt-2">
               Our Projects
             </h1>
-            
+
             <p className="mt-4 text-[16px] md:text-[19px] text-sky-200/90 max-w-2xl mx-auto font-medium leading-relaxed">
               Showcasing Our Craftsmanship – Real Results for Real Clients
             </p>
 
             {/* Quick buttons */}
             <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-3.5 max-w-3xl mx-auto">
-              <button 
+              <button
                 onClick={() => setActiveFilter("residential")}
                 className="bg-white/10 hover:bg-white/15 border border-white/25 rounded-full px-6 py-2.5 text-[13px] md:text-[14px] font-bold text-white transition-all cursor-pointer"
               >
                 View Residential Projects
               </button>
-              <button 
+              <button
                 onClick={() => setActiveFilter("commercial")}
                 className="bg-white/10 hover:bg-white/15 border border-white/25 rounded-full px-6 py-2.5 text-[13px] md:text-[14px] font-bold text-white transition-all cursor-pointer"
               >
@@ -429,14 +424,14 @@ function ProjectsPage() {
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_0.75fr] gap-12 lg:gap-16 items-start">
-              
+
               {/* Left Column: Intro */}
               <Reveal variant="reveal-left" className="space-y-6">
                 <h2 className="text-[28px] md:text-[38px] font-sans font-bold text-[#111827] leading-tight">
                   See What We've Built <br />
                   <span className="text-[#0077b6]">for Houston Homes & Businesses</span>
                 </h2>
-                
+
                 <div className="text-[16px] md:text-[17px] text-[#4B5563] leading-relaxed space-y-6">
                   <p className="font-semibold text-lg text-gray-800">
                     At Cinco Services, we take pride in every project we complete. From whole-home remodels and custom new construction to commercial renovations, roofing replacements, and luxury tile installations – each project reflects our commitment to quality, precision, and client satisfaction.
@@ -447,8 +442,8 @@ function ProjectsPage() {
                 </div>
 
                 <div className="flex flex-wrap gap-4 pt-4">
-                  <a 
-                    href="#contact" 
+                  <a
+                    href="#contact"
                     className="inline-flex items-center gap-2 bg-[#d62828] text-white rounded-full px-8 py-3.5 text-[15px] font-bold hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] shadow-[0_4px_14px_rgba(214,40,40,0.3)] transition-all duration-300"
                   >
                     Start Your Project Today
@@ -470,11 +465,11 @@ function ProjectsPage() {
               <Reveal variant="reveal-right">
                 <div className="bg-slate-900 text-white p-8 rounded-2xl shadow-xl relative overflow-hidden">
                   <div className="absolute top-0 left-0 right-0 h-[4px] bg-[#d62828]" />
-                  
+
                   <h3 className="text-lg font-bold uppercase tracking-wider text-sky-400 mb-6 font-sans">
                     At a Glance
                   </h3>
-                  
+
                   <div className="space-y-4">
                     {atAGlance.map((item, idx) => {
                       const Icon = item.icon;
@@ -499,7 +494,7 @@ function ProjectsPage() {
         {/* ================= PROJECT FILTER TABS ================= */}
         <section className="py-12 bg-gray-50 border-y border-gray-200/50">
           <div className="max-w-7xl mx-auto px-6">
-            
+
             <div className="max-w-xl mb-8">
               <h2 className="text-[24px] md:text-[28px] font-sans font-bold text-[#111827]">
                 Filter Our Portfolio
@@ -515,11 +510,10 @@ function ProjectsPage() {
                 <button
                   key={btn.id}
                   onClick={() => setActiveFilter(btn.id)}
-                  className={`px-5 py-2.5 rounded-full text-[13px] md:text-[14px] font-bold transition-all cursor-pointer border ${
-                    activeFilter === btn.id 
-                      ? "bg-[#d62828] text-white border-[#d62828] shadow-[0_3px_10px_rgba(214,40,40,0.3)]" 
+                  className={`px-5 py-2.5 rounded-full text-[13px] md:text-[14px] font-bold transition-all cursor-pointer border ${activeFilter === btn.id
+                      ? "bg-[#d62828] text-white border-[#d62828] shadow-[0_3px_10px_rgba(214,40,40,0.3)]"
                       : "bg-white text-gray-700 border-gray-200 hover:border-sky-400 hover:text-[#0077b6]"
-                  }`}
+                    }`}
                 >
                   {btn.label}
                 </button>
@@ -532,20 +526,20 @@ function ProjectsPage() {
         {/* ================= PORTFOLIO CARDS GRID ================= */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-6">
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12">
               {filteredProjects.map((project, idx) => (
-                <Reveal 
-                  key={project.id} 
+                <Reveal
+                  key={project.id}
                   variant="reveal-scale"
                   className="bg-white rounded-2xl overflow-hidden border border-gray-150 shadow-sm flex flex-col hover:shadow-xl hover:border-sky-100 transition-all duration-300"
                 >
                   {/* Photo area */}
                   <div className="aspect-[16/10] overflow-hidden relative">
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
-                      className="w-full h-full object-cover" 
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover"
                     />
                     <div className="absolute top-4 left-4 bg-slate-900/90 text-white rounded-full px-4 py-1 text-[11px] font-bold uppercase tracking-wider">
                       {project.location}
@@ -553,7 +547,7 @@ function ProjectsPage() {
                   </div>
 
                   {/* Card Content */}
-                  <div className="p-6 md:p-8 flex-grow flex flex-col justify-between">
+                  <div className="p-6 md:p-8 flex-grow flex flex-col justify-between space-y-6">
                     <div>
                       <span className="text-[12px] font-bold text-[#0077b6] uppercase tracking-wider block">
                         {project.categoryText}
@@ -561,7 +555,45 @@ function ProjectsPage() {
                       <h3 className="text-xl md:text-2xl font-bold text-gray-850 font-sans mt-1 leading-snug">
                         {project.title}
                       </h3>
+
+                      <p className="text-[14px] text-gray-500 leading-relaxed mt-4">
+                        {project.overview}
+                      </p>
+
+                      {/* Scope of Work */}
+                      <div className="mt-6 pt-5 border-t border-gray-100">
+                        <h4 className="text-[12px] font-bold uppercase tracking-wider text-gray-400 mb-3">
+                          Scope of Work:
+                        </h4>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                          {project.scope.map((item, itemIdx) => (
+                            <div key={itemIdx} className="flex items-start gap-2 text-[13px] text-gray-600 leading-snug">
+                              <Check className="w-3.5 h-3.5 text-[#0077b6] shrink-0 mt-0.5" strokeWidth={3} />
+                              <span>{item}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Results */}
+                      <div className="mt-5 p-4 bg-sky-50/50 rounded-xl border border-sky-100/50 text-[13.5px] leading-relaxed text-gray-700">
+                        <strong className="text-gray-850 font-bold block mb-1">Results:</strong>
+                        {project.results}
+                      </div>
                     </div>
+
+                    {/* Testimonial block if present */}
+                    {project.testimonial && (
+                      <div className="mt-6 pt-5 border-t border-gray-100 relative bg-gray-50 p-5 rounded-xl border border-gray-150">
+                        <Quote className="absolute top-3 right-4 w-7 h-7 text-sky-200/50" />
+                        <p className="text-[13px] text-gray-600 italic leading-relaxed pr-6">
+                          "{project.testimonial.quote}"
+                        </p>
+                        <strong className="text-[13px] font-bold text-gray-850 block mt-3 text-right">
+                          – {project.testimonial.author}
+                        </strong>
+                      </div>
+                    )}
                   </div>
                 </Reveal>
               ))}
@@ -570,7 +602,7 @@ function ProjectsPage() {
             {filteredProjects.length === 0 && (
               <div className="text-center py-20 border border-dashed border-gray-200 rounded-3xl">
                 <span className="text-gray-400 block text-lg font-semibold">No featured projects found in this category.</span>
-                <button 
+                <button
                   onClick={() => setActiveFilter("all")}
                   className="text-[#0077b6] font-bold text-[14px] mt-2 hover:underline cursor-pointer"
                 >
@@ -585,7 +617,7 @@ function ProjectsPage() {
         {/* ================= BEFORE & AFTER GALLERY ================= */}
         <section className="py-20 bg-gray-50 border-t border-gray-200/50">
           <div className="max-w-7xl mx-auto px-6">
-            
+
             <div className="text-center max-w-xl mx-auto mb-16">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 TRANSFORMATIONS
@@ -600,9 +632,9 @@ function ProjectsPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {beforeAfterTransformations.map((item, idx) => (
-                <Reveal 
-                  key={idx} 
-                  variant="reveal-scale" 
+                <Reveal
+                  key={idx}
+                  variant="reveal-scale"
                   className="bg-white p-6 rounded-2xl shadow-sm border border-gray-150 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
                 >
                   <div>
@@ -627,7 +659,7 @@ function ProjectsPage() {
         {/* ================= STATS SECTION ================= */}
         <section className="py-20 bg-[#111827] text-white">
           <div className="max-w-7xl mx-auto px-6">
-            
+
             <div className="text-center max-w-xl mx-auto mb-16">
               <span className="text-[13px] font-bold text-sky-400 uppercase tracking-[0.25em] block">
                 CINCO IMPACT
@@ -642,9 +674,9 @@ function ProjectsPage() {
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
               {stats.map((stat, idx) => (
-                <Reveal 
-                  key={idx} 
-                  variant="reveal-scale" 
+                <Reveal
+                  key={idx}
+                  variant="reveal-scale"
                   className="text-center p-6 bg-slate-800/50 border border-slate-700/30 rounded-2xl hover:border-[#0077b6] transition-all"
                 >
                   <span className="text-4xl md:text-5xl font-extrabold text-[#0077b6] block leading-none">
@@ -663,7 +695,7 @@ function ProjectsPage() {
         {/* ================= CATEGORIES TABLE SECTION ================= */}
         <section className="py-20 bg-white">
           <div className="max-w-5xl mx-auto px-6">
-            
+
             <div className="text-center max-w-xl mx-auto mb-16">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 WHAT WE DO
@@ -708,20 +740,20 @@ function ProjectsPage() {
               <h2 className="text-3xl md:text-4xl font-sans font-bold text-white mb-4">
                 Ready to Start Your Own Project?
               </h2>
-              
+
               <p className="text-[15px] md:text-[17px] text-gray-300 max-w-2xl mx-auto leading-relaxed mb-10">
                 Inspired by what you've seen? Let's create something beautiful together. Whether you're planning a home remodel, a commercial renovation, or new construction, Cinco Services is ready to bring your vision to life.
               </p>
 
               <div className="flex flex-wrap justify-center gap-4">
-                <a 
-                  href="#contact" 
+                <a
+                  href="#contact"
                   className="inline-flex items-center gap-2 bg-[#d62828] text-white rounded-full px-8 py-4 text-[15px] font-bold hover:brightness-110 hover:scale-[1.03] active:scale-[0.97] shadow-[0_4px_14px_rgba(214,40,40,0.4)] transition-all duration-300"
                 >
                   Book My Free Estimate
                 </a>
-                <a 
-                  href="tel:8324062716" 
+                <a
+                  href="tel:8324062716"
                   className="inline-flex items-center gap-2.5 bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 text-white rounded-full px-8 py-4 text-[15px] font-bold hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
                 >
                   <Phone className="w-[16px] h-[16px]" /> Call (832) 406-2716

@@ -48,6 +48,12 @@ import kitchenImg from "@/assets/kitchen_remodel_hero.png";
 import tileImg from "@/assets/tile_installation_hero.png";
 import estimateImg from "@/assets/estimate_section.png";
 
+// Dynamically import all images in the gallery folder
+const galleryModules = import.meta.glob("../assets/gallery/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true });
+const galleryImages = Object.values(galleryModules)
+  .map((mod: any) => (mod && typeof mod === "object" && "default" in mod ? (mod.default as string) : null))
+  .filter((url): url is string => typeof url === "string");
+
 export const Route = createFileRoute("/bathroom-remodeling")({
   head: () => ({
     meta: [
@@ -668,7 +674,7 @@ function BathroomRemodelingPage() {
                   variant="reveal-scale" 
                   className="group relative rounded-2xl overflow-hidden shadow-sm aspect-[4/3] border border-gray-150"
                 >
-                  <img src={item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+                  <img src={galleryImages[(14 + idx) % galleryImages.length] || item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-5">
                     <span className="text-white font-bold text-[15px]">{item.title}</span>
                   </div>
