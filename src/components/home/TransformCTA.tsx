@@ -1,8 +1,10 @@
 import { Layers, Calendar, Phone } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
+import { useEstimateModal } from "@/context/EstimateModalContext";
 import transform from "@/assets/transform.jpg";
 
 export const TransformCTA = () => {
+  const { openModal } = useEstimateModal();
   return (
     <section className="bg-white py-[60px] w-full">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
@@ -33,17 +35,17 @@ export const TransformCTA = () => {
               </ul>
 
               <div className="mt-[48px] flex flex-wrap items-center gap-[24px]">
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-[10px] bg-[#d62828] text-white rounded-[8px] px-[24px] py-[14px] font-bold text-[15px] hover:bg-[#b52020] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 shadow-[0_4px_14px_0_rgba(214,40,40,0.3)]"
+                <button
+                  onClick={openModal}
+                  className="inline-flex items-center gap-[10px] bg-[#d62828] text-white rounded-[8px] px-[24px] py-[14px] font-bold text-[15px] hover:bg-[#b52020] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 shadow-[0_4px_14px_0_rgba(214,40,40,0.3)] cursor-pointer border-none outline-none"
                 >
                   <Calendar className="w-[18px] h-[18px]" />
                   Book My Free Estimate
-                </a>
+                </button>
 
                 <a
                   href="tel:8324062716"
-                  className="inline-flex items-center gap-[10px] text-[#4B5563] font-semibold text-[16px] hover:text-[#111827] transition-colors"
+                  className="inline-flex items-center justify-center gap-[10px] bg-[#00bcff] text-white rounded-[8px] px-[24px] py-[14px] font-bold text-[15px] hover:brightness-110 hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 shadow-[0_4px_14px_0_rgba(0,188,255,0.3)]"
                 >
                   <Phone className="w-[18px] h-[18px]" strokeWidth={2.5} />
                   Call (832) 406-2716

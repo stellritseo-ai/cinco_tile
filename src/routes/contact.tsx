@@ -186,7 +186,7 @@ function ContactPage() {
                 Call (832) 406-2716
               </a>
               <a 
-                href="mailto:eli@cincoservicesllc.com"
+                href="mailto:info@cincoservicesllc.com"
                 className="bg-white/10 hover:bg-white/15 border border-white/25 rounded-full px-8 py-3 text-[14px] font-bold text-white transition-all"
               >
                 Email Us
@@ -231,7 +231,7 @@ function ContactPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     {[
                       { icon: Phone, title: "Phone", details: "(832) 406-2716", sub: "Available during business hours – or leave a voicemail.", href: "tel:8324062716" },
-                      { icon: Mail, title: "Email", details: "eli@cincoservicesllc.com", sub: "We respond to all emails within one business day.", href: "mailto:eli@cincoservicesllc.com" },
+                      { icon: Mail, title: "Email", details: "info@cincoservicesllc.com", sub: "We respond to all emails within one business day.", href: "mailto:info@cincoservicesllc.com" },
                       { icon: MapPin, title: "Address", details: "1400 Broadfield Blvd, Houston, TX 77084", sub: "Centrally located to serve the greater Houston area.", href: "https://www.google.com/maps/place/1400+Broadfield+Blvd,+Houston,+TX+77084" },
                       { icon: Clock, title: "Business Hours", details: "Mon–Fri: 7am–7pm | Sat: 8am–7pm", sub: "Appointments available outside regular hours upon request." },
                     ].map((info, idx) => {
@@ -514,7 +514,7 @@ function ContactPage() {
                         <Mail className="w-5 h-5 text-sky-400 shrink-0 mt-0.5" />
                         <div>
                           <span className="text-[11px] font-bold text-gray-500 block uppercase">Email</span>
-                          <a href="mailto:eli@cincoservicesllc.com" className="hover:underline text-white text-[15px]">eli@cincoservicesllc.com</a>
+                          <a href="mailto:info@cincoservicesllc.com" className="hover:underline text-white text-[15px]">info@cincoservicesllc.com</a>
                         </div>
                       </p>
 
@@ -774,7 +774,7 @@ function ContactPage() {
                   Call (832) 406-2716
                 </a>
                 <a 
-                  href="mailto:eli@cincoservicesllc.com" 
+                  href="mailto:info@cincoservicesllc.com" 
                   className="inline-flex items-center gap-2.5 bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 text-white rounded-full px-8 py-4 text-[15px] font-bold hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
                 >
                   <Mail className="w-[16px] h-[16px]" /> Email Us

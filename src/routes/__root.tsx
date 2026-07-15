@@ -8,6 +8,8 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { EstimateModalProvider, useEstimateModal } from "@/context/EstimateModalContext";
+import { EstimateModal } from "@/components/EstimateModal";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -86,10 +88,20 @@ function RootShell({ children }: { children: ReactNode }) {
 }
 
 function RootComponent() {
+  return (
+    <EstimateModalProvider>
+      <RootContent />
+    </EstimateModalProvider>
+  );
+}
+
+function RootContent() {
   const { queryClient } = Route.useRouteContext();
+  const { isOpen, closeModal } = useEstimateModal();
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
+      <EstimateModal isOpen={isOpen} onClose={closeModal} />
     </QueryClientProvider>
   );
 }

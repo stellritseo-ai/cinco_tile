@@ -202,7 +202,7 @@ export const Services = () => {
               </p>
               <div className="mt-7">
                 <a
-                  href="#contact"
+                  href="/residential"
                   className="inline-flex items-center gap-2.5 bg-[#d62828] text-white rounded-full px-7 py-3 text-[14px] font-bold shadow-[0_4px_14px_0_rgba(214,40,40,0.3)] hover:bg-[#b52020] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
                 >
                   <span className="text-base">👉</span> View All Services

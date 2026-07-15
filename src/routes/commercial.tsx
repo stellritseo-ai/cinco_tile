@@ -419,7 +419,7 @@ function CommercialPage() {
                     </p>
                     <p className="flex items-center gap-3">
                       <Mail className="w-4 h-4 text-sky-400" />
-                      <a href="mailto:eli@cincoservicesllc.com" className="hover:underline">eli@cincoservicesllc.com</a>
+                      <a href="mailto:info@cincoservicesllc.com" className="hover:underline">info@cincoservicesllc.com</a>
                     </p>
                     <p className="flex items-center gap-3 items-start">
                       <MapPin className="w-4 h-4 text-sky-400 mt-0.5 shrink-0" />

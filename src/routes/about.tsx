@@ -54,7 +54,7 @@ function AboutPage() {
     { icon: Award, label: "Experience", value: "15+ Years" },
     { icon: MapPin, label: "Location", value: "1400 Broadfield Blvd, Houston, TX 77084" },
     { icon: Phone, label: "Phone", value: "(832) 406-2716" },
-    { icon: Mail, label: "Email", value: "eli@cincoservicesllc.com" },
+    { icon: Mail, label: "Email", value: "info@cincoservicesllc.com" },
     { icon: Map, label: "Service Radius", value: "50 Miles" },
     { icon: Clock, label: "Hours", value: "Mon–Fri: 7am–7pm | Sat: 8am–7pm" },
     { icon: Wrench, label: "Services", value: "Remodeling, Construction, Roofing, Painting, Tile" },

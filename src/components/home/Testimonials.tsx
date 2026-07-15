@@ -1,8 +1,10 @@
 import { Star, User } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { motion } from "framer-motion";
+import { useEstimateModal } from "@/context/EstimateModalContext";
 
 export const Testimonials = () => {
+  const { openModal } = useEstimateModal();
 
   const reviews = [
     {
@@ -44,12 +46,12 @@ export const Testimonials = () => {
               </p>
               
               <div className="mt-[40px]">
-                <a 
-                  href="#contact" 
-                  className="inline-flex items-center justify-center bg-[#d62828] text-white font-bold text-[15px] h-[48px] px-[28px] rounded-[6px] hover:bg-[#b52020] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 shadow-[0_4px_14px_0_rgba(214,40,40,0.3)]"
+                <button
+                  onClick={openModal}
+                  className="inline-flex items-center justify-center bg-[#d62828] text-white font-bold text-[15px] h-[48px] px-[28px] rounded-[6px] hover:bg-[#b52020] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 shadow-[0_4px_14px_0_rgba(214,40,40,0.3)] cursor-pointer border-none outline-none"
                 >
                   Schedule Your Free Estimate Today
-                </a>
+                </button>
               </div>
             </div>
           </Reveal>

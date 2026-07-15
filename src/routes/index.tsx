@@ -17,6 +17,7 @@ import { TransformCTA } from "@/components/home/TransformCTA";
 import { Footer } from "@/components/home/Footer";
 import { LiveChat } from "@/components/home/LiveChat";
 import { Phone, SlidersHorizontal } from "lucide-react";
+import { useEstimateModal } from "@/context/EstimateModalContext";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,6 +32,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const { openModal } = useEstimateModal();
   return (
     <div className="bg-background text-foreground">
       <TopBar />
@@ -60,12 +62,12 @@ function Index() {
         >
           <Phone className="w-[16px] h-[16px] shrink-0" /> Call Now
         </a>
-        <a
-          href="#contact"
-          className="flex-1 inline-flex items-center justify-center gap-2 bg-[#d62828] text-white rounded-xl py-3 text-[14px] font-bold active:scale-[0.97] transition-all shadow-[0_4px_14px_0_rgba(214,40,40,0.3)]"
+        <button
+          onClick={openModal}
+          className="flex-1 inline-flex items-center justify-center gap-2 bg-[#d62828] text-white rounded-xl py-3 text-[14px] font-bold active:scale-[0.97] transition-all shadow-[0_4px_14px_0_rgba(214,40,40,0.3)] border-none outline-none cursor-pointer"
         >
           <SlidersHorizontal className="w-[16px] h-[16px] shrink-0" /> Free Estimate
-        </a>
+        </button>
       </div>
     </div>
   );

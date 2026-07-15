@@ -1,11 +1,13 @@
 import { ShieldCheck, Award, Store, MapPin, Building2, Sparkles, Banknote, Clock } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
+import { useEstimateModal } from "@/context/EstimateModalContext";
 
 import trust1 from "@/assets/gallery/gallery_1.jpeg";
 import trust2 from "@/assets/gallery/gallery_2.jpeg";
 import trust3 from "@/assets/gallery/gallery_3.jpeg";
 
 export const Trust = () => {
+  const { openModal } = useEstimateModal();
   const points = [
     {
       Icon: Award,
@@ -126,12 +128,12 @@ export const Trust = () => {
 
                 {/* CTA Button */}
                 <div className="mt-[48px] pb-[40px] lg:pb-0">
-                  <a
-                    href="#contact"
-                    className="inline-flex items-center justify-center bg-[#d62828] text-white font-bold text-[15px] h-[48px] px-[28px] rounded-[10px] hover:bg-[#b52020] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 shadow-[0_4px_14px_0_rgba(214,40,40,0.3)]"
+                  <button
+                    onClick={openModal}
+                    className="inline-flex items-center justify-center bg-[#d62828] text-white font-bold text-[15px] h-[48px] px-[28px] rounded-[10px] hover:bg-[#b52020] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 shadow-[0_4px_14px_0_rgba(214,40,40,0.3)] cursor-pointer border-none outline-none"
                   >
                     Get Started with a Free Estimate
-                  </a>
+                  </button>
                 </div>
               </div>
             </Reveal>
