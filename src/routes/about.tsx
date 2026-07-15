@@ -29,6 +29,7 @@ import { Nav } from "@/components/home/Nav";
 import { Footer } from "@/components/home/Footer";
 import { LiveChat } from "@/components/home/LiveChat";
 import { Reveal } from "@/components/ui/Reveal";
+import { useEstimateModal } from "@/context/EstimateModalContext";
 
 // Import images
 import heroBg from "@/assets/hero.jpg";
@@ -50,6 +51,7 @@ export const Route = createFileRoute("/about")({
 });
 
 function AboutPage() {
+  const { openModal } = useEstimateModal();
   const atAGlance = [
     { icon: Award, label: "Experience", value: "15+ Years" },
     { icon: MapPin, label: "Location", value: "1400 Broadfield Blvd, Houston, TX 77084" },
@@ -561,12 +563,12 @@ function AboutPage() {
               </p>
 
               <div className="flex flex-wrap justify-center gap-4">
-                <a 
-                  href="#contact" 
-                  className="inline-flex items-center gap-2 bg-[#d62828] text-white rounded-full px-8 py-4 text-[15px] font-bold hover:brightness-110 hover:scale-[1.03] active:scale-[0.97] shadow-[0_4px_14px_rgba(214,40,40,0.4)] transition-all duration-300"
+                <button 
+                  onClick={openModal} 
+                  className="inline-flex items-center gap-2 bg-[#d62828] text-white rounded-full px-8 py-4 text-[15px] font-bold hover:brightness-110 hover:scale-[1.03] active:scale-[0.97] shadow-[0_4px_14px_rgba(214,40,40,0.4)] transition-all duration-300 cursor-pointer border-none outline-none"
                 >
                   Book My Free Estimate
-                </a>
+                </button>
                 <a 
                   href="tel:8324062716" 
                   className="inline-flex items-center gap-2.5 bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 text-white rounded-full px-8 py-4 text-[15px] font-bold hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"

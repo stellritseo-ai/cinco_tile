@@ -97,7 +97,35 @@ function RootComponent() {
 
 function RootContent() {
   const { queryClient } = Route.useRouteContext();
-  const { isOpen, closeModal } = useEstimateModal();
+  const { isOpen, closeModal, openModal } = useEstimateModal();
+
+  useEffect(() => {
+    const handleGlobalClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest("a");
+      if (!anchor) return;
+
+      const href = anchor.getAttribute("href");
+      const text = anchor.textContent || "";
+
+      // Intercept clicks on non-landing pages pointing to #contact or #estimate
+      if (
+        window.location.pathname !== "/" &&
+        href &&
+        (href === "#contact" ||
+          href === "#estimate" ||
+          href.endsWith("#contact") ||
+          href.endsWith("#estimate"))
+      ) {
+        e.preventDefault();
+        openModal();
+      }
+    };
+
+    document.addEventListener("click", handleGlobalClick, { capture: true });
+    return () => document.removeEventListener("click", handleGlobalClick, { capture: true });
+  }, [openModal]);
+
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />

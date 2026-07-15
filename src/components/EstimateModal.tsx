@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { z } from "zod";
 import { X, Loader2, CheckCircle2 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 const schema = z.object({
@@ -86,34 +85,47 @@ Message:
 ${parsed.data.message}
 `.trim();
 
-    const { error } = await supabase.from("contact_messages").insert({
-      name: parsed.data.name,
-      email: parsed.data.email,
-      phone: parsed.data.phone ? parsed.data.phone : null,
-      message: messageDetails,
-    });
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/jack@stellrit.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          _subject: `New Free Estimate Request - ${parsed.data.name}`,
+          name: parsed.data.name,
+          email: parsed.data.email,
+          phone: parsed.data.phone || "Not provided",
+          message: messageDetails,
+        }),
+      });
 
-    if (error) {
+      const data = await res.json();
+      if (!res.ok || data.success === "false") {
+        throw new Error(data.message || "Submission failed");
+      }
+
+      setStatus("success");
+      // Reset form
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        serviceNeeded: "",
+        propertyType: "",
+        timeline: "",
+        preferredContact: "",
+        bestTimeToCall: "",
+        approxSqFootage: "",
+        message: "",
+        agreeToContact: false,
+      });
+    } catch (error: any) {
+      console.error(error);
       setStatus("error");
       setErrorMsg("Something went wrong. Please try again or call us directly.");
-      return;
     }
-
-    setStatus("success");
-    // Reset form
-    setForm({
-      name: "",
-      email: "",
-      phone: "",
-      serviceNeeded: "",
-      propertyType: "",
-      timeline: "",
-      preferredContact: "",
-      bestTimeToCall: "",
-      approxSqFootage: "",
-      message: "",
-      agreeToContact: false,
-    });
   };
 
   const Field = ({

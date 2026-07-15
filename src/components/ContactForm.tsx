@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { z } from "zod";
 import { Send, Phone, Mail, MapPin, CheckCircle2, Loader2 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import { Reveal } from "@/components/ui/Reveal";
 
 const schema = z.object({
@@ -38,19 +37,35 @@ export function ContactForm() {
     }
     setStatus("loading");
     setErrorMsg("");
-    const { error } = await supabase.from("contact_messages").insert({
-      name: parsed.data.name,
-      email: parsed.data.email,
-      phone: parsed.data.phone ? parsed.data.phone : null,
-      message: parsed.data.message,
-    });
-    if (error) {
+
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/jack@stellrit.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          _subject: `New Contact Form Submission - ${parsed.data.name}`,
+          name: parsed.data.name,
+          email: parsed.data.email,
+          phone: parsed.data.phone || "Not provided",
+          message: parsed.data.message,
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok || data.success === "false") {
+        throw new Error(data.message || "Submission failed");
+      }
+
+      setStatus("success");
+      setForm({ name: "", email: "", phone: "", message: "" });
+    } catch (error: any) {
+      console.error(error);
       setStatus("error");
       setErrorMsg("Something went wrong. Please try again or call us directly.");
-      return;
     }
-    setStatus("success");
-    setForm({ name: "", email: "", phone: "", message: "" });
   };
 
   const Field = ({ label, name, children }: { label: string; name: keyof FormState; children: React.ReactNode }) => (

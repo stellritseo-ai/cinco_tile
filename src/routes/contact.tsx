@@ -1,23 +1,23 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock, 
-  Shield, 
-  Check, 
-  Award, 
-  HardHat, 
-  Calendar, 
-  ArrowRight, 
-  CheckCircle, 
-  FileText, 
-  Building2, 
-  Sparkles, 
-  Wrench, 
-  Heart, 
-  TrendingUp, 
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Shield,
+  Check,
+  Award,
+  HardHat,
+  Calendar,
+  ArrowRight,
+  CheckCircle,
+  FileText,
+  Building2,
+  Sparkles,
+  Wrench,
+  Heart,
+  TrendingUp,
   Map,
   Facebook,
   Instagram,
@@ -66,8 +66,9 @@ function ContactPage() {
   // Status States
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage("");
 
@@ -79,8 +80,49 @@ function ContactPage() {
     if (!message.trim()) return setErrorMessage("Please describe how we can help you.");
     if (!consent) return setErrorMessage("You must agree to the privacy consent to send a message.");
 
-    // Simulate form submission
-    setIsSubmitted(true);
+    setLoading(true);
+
+    const messageDetails = `
+Service Needed: ${service}
+Property Type: ${propertyType}
+Timeline: ${timeline || "Not specified"}
+Preferred Contact: ${contactMethod || "Not specified"}
+Best Time to Call: ${bestTime || "Not specified"}
+Approx. Sq. Footage: ${sqFootage || "Not specified"}
+Privacy Consent: ${consent ? "Yes" : "No"}
+
+Message:
+${message}
+`.trim();
+
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/jack@stellrit.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          _subject: `New Contact Submission - ${fullName.trim()}`,
+          name: fullName.trim(),
+          email: email.trim(),
+          phone: phone.trim() || "Not provided",
+          message: messageDetails,
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok || data.success === "false") {
+        throw new Error(data.message || "Submission failed");
+      }
+
+      setLoading(false);
+      setIsSubmitted(true);
+    } catch (error: any) {
+      console.error(error);
+      setLoading(false);
+      setErrorMessage("Something went wrong. Please try again or call us directly.");
+    }
   };
 
   const trustBadges = [
@@ -113,8 +155,8 @@ function ContactPage() {
   ];
 
   const serviceAreas = [
-    "Houston", "Katy", "Sugar Land", "Cypress", "Richmond", "Rosenberg", 
-    "Fulshear", "Missouri City", "Stafford", "Pearland", "Jersey Village", 
+    "Houston", "Katy", "Sugar Land", "Cypress", "Richmond", "Rosenberg",
+    "Fulshear", "Missouri City", "Stafford", "Pearland", "Jersey Village",
     "Tomball", "The Woodlands"
   ];
 
@@ -158,7 +200,7 @@ function ContactPage() {
         {/* ================= HERO SECTION ================= */}
         <section className="relative min-h-[60vh] sm:min-h-[50vh] md:min-h-[55vh] flex items-center justify-center overflow-hidden bg-[#111827]">
           {/* Background image with overlay */}
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 mix-blend-overlay scale-105"
             style={{ backgroundImage: `url(${estimateBg})` }}
           />
@@ -168,24 +210,24 @@ function ContactPage() {
             <span className="inline-block bg-[#d62828] text-white rounded-full px-5 py-1.5 text-[11px] md:text-[12px] font-bold uppercase tracking-[0.2em] mb-5 shadow-[0_4px_12px_rgba(214,40,40,0.3)]">
               Contact Cinco Services
             </span>
-            
+
             <h1 className="font-sans text-[26px] sm:text-[36px] md:text-[54px] font-extrabold leading-[1.15] tracking-tight max-w-4xl mx-auto mt-2">
               Contact Us
             </h1>
-            
+
             <p className="mt-4 text-[16px] md:text-[19px] text-sky-200/90 max-w-2xl mx-auto font-medium leading-relaxed">
               We're Here to Help – Reach Out Today
             </p>
 
             {/* Quick buttons */}
             <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-3.5 max-w-3xl mx-auto">
-              <a 
+              <a
                 href="tel:8324062716"
                 className="bg-[#d62828] hover:brightness-110 rounded-full px-8 py-3 text-[14px] font-bold text-white transition-all shadow-[0_4px_12px_rgba(214,40,40,0.3)]"
               >
                 Call (832) 406-2716
               </a>
-              <a 
+              <a
                 href="mailto:info@cincoservicesllc.com"
                 className="bg-white/10 hover:bg-white/15 border border-white/25 rounded-full px-8 py-3 text-[14px] font-bold text-white transition-all"
               >
@@ -209,10 +251,10 @@ function ContactPage() {
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_0.7fr] gap-12 lg:gap-16 items-start">
-              
+
               {/* Left Column: Headline, Info Cards & Intake Form */}
               <div className="space-y-12">
-                
+
                 {/* Intro text */}
                 <Reveal variant="reveal-left" className="space-y-6">
                   <h2 className="text-[28px] md:text-[38px] font-sans font-bold text-[#111827] leading-tight">
@@ -274,7 +316,7 @@ function ContactPage() {
                       <p className="text-[15px] text-emerald-700 leading-relaxed max-w-md mx-auto">
                         Thank you, <strong>{fullName}</strong>! We have received your request regarding <strong>{service}</strong> services. A member of the Cinco Services team will reach out to you within one business day.
                       </p>
-                      <button 
+                      <button
                         onClick={() => {
                           setIsSubmitted(false);
                           setFullName("");
@@ -296,7 +338,7 @@ function ContactPage() {
                     </div>
                   ) : (
                     <form onSubmit={handleSubmit} className="space-y-6">
-                      
+
                       {errorMessage && (
                         <div className="bg-rose-50 border border-rose-200 text-rose-700 px-4 py-3 rounded-xl text-[14px] flex items-center gap-2">
                           <AlertTriangle className="w-4 h-4 shrink-0" />
@@ -308,8 +350,8 @@ function ContactPage() {
                         {/* Name */}
                         <div className="space-y-1.5">
                           <label className="text-[13px] font-bold text-gray-700 block">Full Name <span className="text-rose-500">*</span></label>
-                          <input 
-                            type="text" 
+                          <input
+                            type="text"
                             value={fullName}
                             onChange={(e) => setFullName(e.target.value)}
                             className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-[14px] focus:outline-none focus:border-[#0077b6] transition-colors"
@@ -320,8 +362,8 @@ function ContactPage() {
                         {/* Email */}
                         <div className="space-y-1.5">
                           <label className="text-[13px] font-bold text-gray-700 block">Email Address <span className="text-rose-500">*</span></label>
-                          <input 
-                            type="email" 
+                          <input
+                            type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-[14px] focus:outline-none focus:border-[#0077b6] transition-colors"
@@ -334,8 +376,8 @@ function ContactPage() {
                         {/* Phone */}
                         <div className="space-y-1.5">
                           <label className="text-[13px] font-bold text-gray-700 block">Phone Number <span className="text-gray-400 font-normal">(Optional)</span></label>
-                          <input 
-                            type="tel" 
+                          <input
+                            type="tel"
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
                             className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-[14px] focus:outline-none focus:border-[#0077b6] transition-colors"
@@ -346,7 +388,7 @@ function ContactPage() {
                         {/* Service dropdown */}
                         <div className="space-y-1.5">
                           <label className="text-[13px] font-bold text-gray-700 block">Service Needed <span className="text-rose-500">*</span></label>
-                          <select 
+                          <select
                             value={service}
                             onChange={(e) => setService(e.target.value)}
                             className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-[14px] focus:outline-none focus:border-[#0077b6] transition-colors cursor-pointer"
@@ -363,7 +405,7 @@ function ContactPage() {
                         {/* Property type dropdown */}
                         <div className="space-y-1.5">
                           <label className="text-[13px] font-bold text-gray-700 block">Property Type <span className="text-rose-500">*</span></label>
-                          <select 
+                          <select
                             value={propertyType}
                             onChange={(e) => setPropertyType(e.target.value)}
                             className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-[14px] focus:outline-none focus:border-[#0077b6] transition-colors cursor-pointer"
@@ -377,7 +419,7 @@ function ContactPage() {
                         {/* Timeline */}
                         <div className="space-y-1.5">
                           <label className="text-[13px] font-bold text-gray-700 block">Timeline <span className="text-gray-400 font-normal">(Optional)</span></label>
-                          <select 
+                          <select
                             value={timeline}
                             onChange={(e) => setTimeline(e.target.value)}
                             className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-[14px] focus:outline-none focus:border-[#0077b6] transition-colors cursor-pointer"
@@ -396,9 +438,9 @@ function ContactPage() {
                           <label className="text-[13px] font-bold text-gray-700 block">Preferred Contact <span className="text-gray-400 font-normal">(Optional)</span></label>
                           <div className="flex gap-4 py-2">
                             <label className="flex items-center gap-2 text-[14px] text-gray-700 cursor-pointer">
-                              <input 
-                                type="radio" 
-                                name="contactMethod" 
+                              <input
+                                type="radio"
+                                name="contactMethod"
                                 value="Phone"
                                 checked={contactMethod === "Phone"}
                                 onChange={() => setContactMethod("Phone")}
@@ -406,9 +448,9 @@ function ContactPage() {
                               /> Phone
                             </label>
                             <label className="flex items-center gap-2 text-[14px] text-gray-700 cursor-pointer">
-                              <input 
-                                type="radio" 
-                                name="contactMethod" 
+                              <input
+                                type="radio"
+                                name="contactMethod"
                                 value="Email"
                                 checked={contactMethod === "Email"}
                                 onChange={() => setContactMethod("Email")}
@@ -421,7 +463,7 @@ function ContactPage() {
                         {/* Best Time to Contact */}
                         <div className="space-y-1.5 sm:col-span-1">
                           <label className="text-[13px] font-bold text-gray-700 block">Best Time to Call <span className="text-gray-400 font-normal">(Optional)</span></label>
-                          <select 
+                          <select
                             value={bestTime}
                             onChange={(e) => setBestTime(e.target.value)}
                             className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-[14px] focus:outline-none focus:border-[#0077b6] transition-colors cursor-pointer"
@@ -436,8 +478,8 @@ function ContactPage() {
                         {/* Square Footage */}
                         <div className="space-y-1.5 sm:col-span-1">
                           <label className="text-[13px] font-bold text-gray-700 block">Approx. Sq. Footage <span className="text-gray-400 font-normal">(Optional)</span></label>
-                          <input 
-                            type="text" 
+                          <input
+                            type="text"
                             value={sqFootage}
                             onChange={(e) => setSqFootage(e.target.value)}
                             className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-[14px] focus:outline-none focus:border-[#0077b6] transition-colors"
@@ -449,7 +491,7 @@ function ContactPage() {
                       {/* Message */}
                       <div className="space-y-1.5">
                         <label className="text-[13px] font-bold text-gray-700 block">How Can We Help? <span className="text-rose-500">*</span></label>
-                        <textarea 
+                        <textarea
                           rows={4}
                           value={message}
                           onChange={(e) => setMessage(e.target.value)}
@@ -461,7 +503,7 @@ function ContactPage() {
                       {/* Consent Checkbox */}
                       <div className="pt-2">
                         <label className="flex items-start gap-3 cursor-pointer group">
-                          <input 
+                          <input
                             type="checkbox"
                             checked={consent}
                             onChange={(e) => setConsent(e.target.checked)}
@@ -475,11 +517,12 @@ function ContactPage() {
 
                       {/* Submit */}
                       <div>
-                        <button 
+                        <button
                           type="submit"
-                          className="w-full bg-[#d62828] hover:brightness-110 text-white rounded-full py-4 text-[15px] font-bold shadow-[0_4px_14px_rgba(214,40,40,0.3)] transition-all duration-300 cursor-pointer"
+                          disabled={loading}
+                          className="w-full bg-[#d62828] hover:brightness-110 text-white rounded-full py-4 text-[15px] font-bold shadow-[0_4px_14px_rgba(214,40,40,0.3)] transition-all duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                          Send Message
+                          {loading ? "Sending..." : "Send Message"}
                         </button>
                       </div>
 
@@ -491,12 +534,12 @@ function ContactPage() {
 
               {/* Right Column: Floating summary card, emergency block & socials */}
               <div className="space-y-8 lg:sticky lg:top-28">
-                
+
                 {/* Summary box */}
                 <Reveal variant="reveal-right">
                   <div className="bg-slate-900 text-white p-8 rounded-2xl shadow-xl relative overflow-hidden">
                     <div className="absolute top-0 left-0 right-0 h-[4px] bg-[#d62828]" />
-                    
+
                     <h3 className="text-lg font-bold uppercase tracking-wider text-sky-400 mb-6 font-sans">
                       Quick Contact
                     </h3>
@@ -509,7 +552,7 @@ function ContactPage() {
                           <a href="tel:8324062716" className="hover:underline font-bold text-white text-[15px]">(832) 406-2716</a>
                         </div>
                       </p>
-                      
+
                       <p className="flex items-start gap-3">
                         <Mail className="w-5 h-5 text-sky-400 shrink-0 mt-0.5" />
                         <div>
@@ -552,14 +595,8 @@ function ContactPage() {
                     </div>
 
                     <div className="mt-8 pt-6 border-t border-white/10 grid grid-cols-2 gap-3">
-                      <a 
-                        href="#contact" 
-                        className="bg-[#d62828] hover:brightness-110 text-white rounded-full py-3 text-[12px] font-bold text-center transition-all shadow-md"
-                      >
-                        Book Free Estimate
-                      </a>
-                      <a 
-                        href="/projects" 
+                      <a
+                        href="/projects"
                         className="bg-white/10 hover:bg-white/15 border border-white/20 text-white rounded-full py-3 text-[12px] font-bold text-center transition-all"
                       >
                         View Projects
@@ -579,8 +616,8 @@ function ContactPage() {
                       <p className="text-[13px] text-rose-700 leading-relaxed mt-1">
                         If you have a roofing emergency, water damage, or urgent repair need, don't wait – call us right away.
                       </p>
-                      <a 
-                        href="tel:8324062716" 
+                      <a
+                        href="tel:8324062716"
                         className="inline-flex items-center gap-2 text-rose-900 font-black text-[15px] hover:underline mt-3.5"
                       >
                         <Phone className="w-4 h-4" /> (832) 406-2716
@@ -626,7 +663,7 @@ function ContactPage() {
         <section className="py-20 bg-gray-50 border-t border-gray-200/50">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              
+
               {/* Map detail info */}
               <Reveal variant="reveal-left" className="space-y-6">
                 <div className="flex items-center gap-3 text-[#0077b6]">
@@ -635,7 +672,7 @@ function ContactPage() {
                     Find Us
                   </h3>
                 </div>
-                
+
                 <p className="text-[16px] text-[#4B5563] leading-relaxed">
                   We proudly serve Houston and all surrounding communities within a 50-mile radius. Visit our office or give us a call – we're always happy to help.
                 </p>
@@ -704,8 +741,8 @@ function ContactPage() {
 
             <div className="flex flex-wrap items-center justify-center gap-2.5 max-w-4xl mx-auto">
               {serviceAreas.map((city, idx) => (
-                <span 
-                  key={idx} 
+                <span
+                  key={idx}
                   className="bg-gray-50 text-gray-700 px-4 py-2.5 rounded-full text-[14px] font-bold border border-gray-100 hover:bg-[#0077b6] hover:text-white hover:border-[#0077b6] hover:-translate-y-0.5 transition-all duration-300 cursor-default"
                 >
                   {city}
@@ -722,7 +759,7 @@ function ContactPage() {
         {/* ================= FAQs ================= */}
         <section className="py-20 bg-gray-50 border-t border-gray-200/50">
           <div className="max-w-4xl mx-auto px-6">
-            
+
             <div className="text-center max-w-xl mx-auto mb-16">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 FAQ
@@ -761,20 +798,20 @@ function ContactPage() {
               <h2 className="text-3xl md:text-4xl font-sans font-bold text-white mb-4">
                 Ready to Get Started?
               </h2>
-              
+
               <p className="text-[15px] md:text-[17px] text-gray-300 max-w-2xl mx-auto leading-relaxed mb-10">
                 Don't wait – your dream home or business space is just a conversation away. Contact Cinco Services today and let's make it happen.
               </p>
 
               <div className="flex flex-wrap justify-center gap-4">
-                <a 
-                  href="tel:8324062716" 
+                <a
+                  href="tel:8324062716"
                   className="inline-flex items-center gap-2 bg-[#d62828] text-white rounded-full px-8 py-4 text-[15px] font-bold hover:brightness-110 hover:scale-[1.03] active:scale-[0.97] shadow-[0_4px_14px_rgba(214,40,40,0.4)] transition-all duration-300"
                 >
                   Call (832) 406-2716
                 </a>
-                <a 
-                  href="mailto:info@cincoservicesllc.com" 
+                <a
+                  href="mailto:info@cincoservicesllc.com"
                   className="inline-flex items-center gap-2.5 bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 text-white rounded-full px-8 py-4 text-[15px] font-bold hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
                 >
                   <Mail className="w-[16px] h-[16px]" /> Email Us
