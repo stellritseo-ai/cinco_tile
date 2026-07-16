@@ -54,7 +54,7 @@ function AboutPage() {
   const { openModal } = useEstimateModal();
   const atAGlance = [
     { icon: Award, label: "Experience", value: "15+ Years" },
-    { icon: MapPin, label: "Location", value: "1400 Broadfield Blvd, Houston, TX 77084" },
+    { icon: MapPin, label: "Location", value: "1400 Broadfield Blvd, £ 200 Houston, TX 77084" },
     { icon: Phone, label: "Phone", value: "(832) 406-2716" },
     { icon: Mail, label: "Email", value: "info@cincoservicesllc.com" },
     { icon: Map, label: "Service Radius", value: "50 Miles" },

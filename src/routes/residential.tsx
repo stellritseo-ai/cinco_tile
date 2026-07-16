@@ -1,22 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock, 
-  Shield, 
-  Check, 
-  Award, 
-  HardHat, 
-  Calendar, 
-  ArrowRight, 
-  CheckCircle, 
-  FileText, 
-  Building2, 
-  Sparkles, 
-  Wrench, 
-  Heart, 
-  TrendingUp, 
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Shield,
+  Check,
+  Award,
+  HardHat,
+  Calendar,
+  ArrowRight,
+  CheckCircle,
+  FileText,
+  Building2,
+  Sparkles,
+  Wrench,
+  Heart,
+  TrendingUp,
   Map,
   Hammer,
   Paintbrush,
@@ -34,12 +34,12 @@ import { Reveal } from "@/components/ui/Reveal";
 // Import images
 import residentialHero from "@/assets/residential_hero.png";
 const expertsBg = residentialHero;
-import bathroomImg from "@/assets/bathroom_remodel_hero.png";
-import kitchenImg from "@/assets/kitchen_remodel_hero.png";
-import tileImg from "@/assets/tile_installation_hero.png";
-import transformImg from "@/assets/transform_section.png";
-import estimateImg from "@/assets/estimate_section.png";
-import showroomImg from "@/assets/showroom_section.png";
+import bathroomImg from "@/assets/gallery/WhatsApp Image 2026-07-16 at 8.17.44 PM (1).jpeg";
+import kitchenImg from "@/assets/gallery/gallery_12.jpeg";
+import tileImg from "@/assets/gallery/gallery_2.jpeg";
+import transformImg from "@/assets/gallery/gallery_9.jpeg";
+import estimateImg from "@/assets/gallery/gallery_7.jpeg";
+import showroomImg from "@/assets/gallery/WhatsApp Image 2026-07-16 at 8.17.48 PM.jpeg";
 
 // Dynamically import all images in the gallery folder
 const galleryModules = import.meta.glob("../assets/gallery/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true });
@@ -77,37 +77,37 @@ function ResidentialPage() {
   ];
 
   const whyChooseUs = [
-    { 
-      title: "15+ Years of Residential Experience", 
-      desc: "We've worked on homes of all sizes, styles, and ages – bringing deep trade expertise to your property." 
+    {
+      title: "15+ Years of Residential Experience",
+      desc: "We've worked on homes of all sizes, styles, and ages – bringing deep trade expertise to your property."
     },
-    { 
-      title: "Full-Service Capabilities", 
-      desc: "From structural framing and roofing to painting and premium custom tile, we handle everything under one roof." 
+    {
+      title: "Full-Service Capabilities",
+      desc: "From structural framing and roofing to painting and premium custom tile, we handle everything under one roof."
     },
-    { 
-      title: "Respect for Your Living Space", 
-      desc: "Your home is treated as a sanctuary. We cover floors, wrap furniture in plastic, and clean up thoroughly daily." 
+    {
+      title: "Respect for Your Living Space",
+      desc: "Your home is treated as a sanctuary. We cover floors, wrap furniture in plastic, and clean up thoroughly daily."
     },
-    { 
-      title: "Clear Communication", 
-      desc: "You will always stay informed. We update you daily on what was accomplished and what is planned next." 
+    {
+      title: "Clear Communication",
+      desc: "You will always stay informed. We update you daily on what was accomplished and what is planned next."
     },
-    { 
-      title: "No Hidden Fees", 
-      desc: "Get highly detailed, itemized quotes that lay out the exact pricing. What we quote is what you pay." 
+    {
+      title: "No Hidden Fees",
+      desc: "Get highly detailed, itemized quotes that lay out the exact pricing. What we quote is what you pay."
     },
-    { 
-      title: "Licensed & Insured", 
-      desc: "We carry extensive general liability and workers' compensation coverage, ensuring full protection for your asset." 
+    {
+      title: "Licensed & Insured",
+      desc: "We carry extensive general liability and workers' compensation coverage, ensuring full protection for your asset."
     },
-    { 
-      title: "Satisfaction Guaranteed", 
-      desc: "We take extreme pride in our quality. We don't pack up or consider the project complete until you are 100% happy." 
+    {
+      title: "Satisfaction Guaranteed",
+      desc: "We take extreme pride in our quality. We don't pack up or consider the project complete until you are 100% happy."
     },
-    { 
-      title: "Flexible Scheduling", 
-      desc: "We work around your routine. Saturday hours (8:00 AM – 7:00 PM) are available to keep the project moving forward." 
+    {
+      title: "Flexible Scheduling",
+      desc: "We work around your routine. Saturday hours (8:00 AM – 7:00 PM) are available to keep the project moving forward."
     },
   ];
 
@@ -260,7 +260,7 @@ function ResidentialPage() {
     },
     {
       q: "How far do you travel for residential projects?",
-      a: "We serve homeowners within a 50-mile radius of our Houston location at 1400 Broadfield Blvd, covering Katy, Sugar Land, Cypress, The Woodlands, Pearland, and surrounding areas."
+      a: "We serve homeowners within a 50-mile radius of our Houston location at 1400 Broadfield Blvd, £ 200 Houston, TX 77084, covering Katy, Sugar Land, Cypress, The Woodlands, Pearland, and surrounding areas."
     },
     {
       q: "Do you offer free estimates?",
@@ -285,8 +285,8 @@ function ResidentialPage() {
   ];
 
   const serviceAreas = [
-    "Houston", "Katy", "Sugar Land", "Cypress", "Richmond", "Rosenberg", 
-    "Fulshear", "Missouri City", "Stafford", "Pearland", "Jersey Village", 
+    "Houston", "Katy", "Sugar Land", "Cypress", "Richmond", "Rosenberg",
+    "Fulshear", "Missouri City", "Stafford", "Pearland", "Jersey Village",
     "Tomball", "The Woodlands"
   ];
 
@@ -299,7 +299,7 @@ function ResidentialPage() {
         {/* ================= HERO SECTION ================= */}
         <section className="relative min-h-[60vh] sm:min-h-[55vh] md:min-h-[60vh] flex items-center justify-center overflow-hidden bg-[#111827]">
           {/* Background image with overlay */}
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 mix-blend-overlay scale-105"
             style={{ backgroundImage: `url(${residentialHero})` }}
           />
@@ -309,11 +309,11 @@ function ResidentialPage() {
             <span className="inline-block bg-[#d62828] text-white rounded-full px-5 py-1.5 text-[11px] md:text-[12px] font-bold uppercase tracking-[0.2em] mb-5 shadow-[0_4px_12px_rgba(214,40,40,0.3)]">
               Houston Home Remodeling
             </span>
-            
+
             <h1 className="font-sans text-[26px] sm:text-[36px] md:text-[56px] font-extrabold leading-[1.15] tracking-tight max-w-4xl mx-auto mt-2">
               Residential Services
             </h1>
-            
+
             <p className="mt-4 text-[16px] md:text-[20px] text-sky-200/90 max-w-2xl mx-auto font-medium leading-relaxed">
               Transforming Houses into Dream Homes – One Family at a Time
             </p>
@@ -337,14 +337,14 @@ function ResidentialPage() {
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_0.75fr] gap-12 lg:gap-16 items-start">
-              
+
               {/* Left Column: Intro */}
               <Reveal variant="reveal-left" className="space-y-6">
                 <h2 className="text-[28px] md:text-[38px] font-sans font-bold text-[#111827] leading-tight">
                   Premium Remodeling & Construction Services <br />
                   <span className="text-[#0077b6]">for Houston Homeowners</span>
                 </h2>
-                
+
                 <div className="text-[16px] md:text-[17px] text-[#4B5563] leading-relaxed space-y-6">
                   <p className="font-semibold text-lg text-gray-800">
                     Your home is your biggest investment and your personal sanctuary. At Cinco Services, we treat it with the care and respect it deserves. From complete home renovations and custom additions to roofing replacements, interior painting, and luxury tile installations – we bring over 15 years of expertise to every residential project we undertake.
@@ -355,14 +355,14 @@ function ResidentialPage() {
                 </div>
 
                 <div className="flex flex-wrap gap-4 pt-6">
-                  <a 
-                    href="#contact" 
+                  <a
+                    href="#contact"
                     className="inline-flex items-center gap-2 bg-[#d62828] text-white rounded-full px-8 py-3.5 text-[15px] font-bold hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] shadow-[0_4px_14px_rgba(214,40,40,0.3)] transition-all duration-300"
                   >
                     Get My Free Estimate
                   </a>
-                  <a 
-                    href="tel:8324062716" 
+                  <a
+                    href="tel:8324062716"
                     className="inline-flex items-center gap-2.5 bg-gray-100 hover:bg-gray-150 text-[#111827] rounded-full px-8 py-3.5 text-[15px] font-bold hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
                   >
                     <Phone className="w-[16px] h-[16px]" /> Call (832) 406-2716
@@ -374,11 +374,11 @@ function ResidentialPage() {
               <Reveal variant="reveal-right">
                 <div className="bg-slate-900 text-white p-8 rounded-2xl shadow-xl relative overflow-hidden">
                   <div className="absolute top-0 left-0 right-0 h-[4px] bg-[#d62828]" />
-                  
+
                   <h3 className="text-lg font-bold uppercase tracking-wider text-sky-400 mb-6 font-sans">
                     At a Glance
                   </h3>
-                  
+
                   <div className="space-y-4">
                     {sidebarItems.map((item, idx) => (
                       <div key={idx} className="border-b border-white/5 pb-3 last:border-b-0 last:pb-0">
@@ -402,7 +402,7 @@ function ResidentialPage() {
                     </p>
                     <p className="flex items-center gap-3 items-start">
                       <MapPin className="w-4 h-4 text-sky-400 mt-0.5 shrink-0" />
-                      <span>1400 Broadfield Blvd,<br />Houston, TX 77084</span>
+                      <span>1400 Broadfield Blvd,<br />£ 200 Houston, TX 77084</span>
                     </p>
                   </div>
                 </div>
@@ -415,7 +415,7 @@ function ResidentialPage() {
         {/* ================= WHY HOMEOWNERS CHOOSE CINCO ================= */}
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-6">
-            
+
             <div className="text-center max-w-xl mx-auto mb-16">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 THE CINCO DIFFERENCE
@@ -430,9 +430,9 @@ function ResidentialPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
               {whyChooseUs.map((item, idx) => (
-                <Reveal 
-                  key={idx} 
-                  variant="reveal" 
+                <Reveal
+                  key={idx}
+                  variant="reveal"
                   className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-150/50 hover:shadow-xl hover:border-sky-100 transition-all duration-300 flex flex-col justify-between"
                 >
                   <div>
@@ -456,7 +456,7 @@ function ResidentialPage() {
         {/* ================= DETAILED SERVICES SECTION ================= */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-6">
-            
+
             <div className="text-center max-w-xl mx-auto mb-20">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 OUR SERVICES
@@ -474,32 +474,32 @@ function ResidentialPage() {
               {servicesList.map((service, idx) => {
                 const Icon = service.icon;
                 const isEven = idx % 2 === 0;
-                
+
                 return (
-                  <div 
-                    key={service.id} 
+                  <div
+                    key={service.id}
                     className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center`}
                   >
                     {/* Image block */}
-                    <Reveal 
+                    <Reveal
                       variant={isEven ? "reveal-left" : "reveal-right"}
                       className={`relative ${!isEven ? "lg:order-2" : ""}`}
                     >
                       {/* Decorative Frame */}
                       <div className="absolute -inset-4 bg-sky-500/5 rounded-2xl -z-10 translate-x-3 translate-y-3" />
                       <div className="absolute -inset-4 border border-[#0077b6]/20 rounded-2xl -z-10 -translate-x-3 -translate-y-3" />
-                      
+
                       <div className="overflow-hidden shadow-xl rounded-2xl aspect-[4/3]">
-                        <img 
-                          src={service.image} 
-                          alt={service.title} 
-                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-[1s]" 
+                        <img
+                          src={service.image}
+                          alt={service.title}
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-[1s]"
                         />
                       </div>
                     </Reveal>
 
                     {/* Content block */}
-                    <Reveal 
+                    <Reveal
                       variant={isEven ? "reveal-right" : "reveal-left"}
                       className="space-y-6"
                     >
@@ -515,7 +515,7 @@ function ResidentialPage() {
                       <h3 className="text-2xl md:text-3xl font-sans font-bold text-[#111827] leading-tight">
                         {service.subtitle}
                       </h3>
-                      
+
                       <p className="text-[15px] md:text-[16px] text-gray-500 leading-relaxed">
                         {service.desc}
                       </p>
@@ -553,7 +553,7 @@ function ResidentialPage() {
         {/* ================= ROOM-SPECIFIC SERVICES TABLE ================= */}
         <section className="py-20 bg-gray-50">
           <div className="max-w-5xl mx-auto px-6">
-            
+
             <div className="text-center max-w-xl mx-auto mb-16">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 ROOM SERVICES
@@ -598,7 +598,7 @@ function ResidentialPage() {
         {/* ================= PROCESS FOR RESIDENTIAL PROJECTS ================= */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-6">
-            
+
             <div className="text-center max-w-xl mx-auto mb-16">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 STEP-BY-STEP
@@ -613,19 +613,19 @@ function ResidentialPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {processSteps.map((step, idx) => (
-                <Reveal 
-                  key={idx} 
-                  variant="reveal" 
+                <Reveal
+                  key={idx}
+                  variant="reveal"
                   className="bg-gray-50 border border-gray-100 p-8 rounded-2xl hover:bg-white hover:shadow-xl hover:border-sky-100 transition-all duration-300 relative overflow-hidden group"
                 >
                   <span className="text-6xl font-black text-slate-200/50 absolute top-4 right-6 select-none group-hover:text-[#0077b6]/10 transition-colors">
                     {step.step}
                   </span>
-                  
+
                   <h3 className="font-bold text-[17px] text-[#111827] mb-3 font-sans pr-10">
                     {step.title}
                   </h3>
-                  
+
                   <p className="text-[13.5px] md:text-[14.5px] text-gray-500 leading-relaxed">
                     {step.desc}
                   </p>
@@ -639,7 +639,7 @@ function ResidentialPage() {
         {/* ================= RESIDENTIAL GALLERY ================= */}
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-6">
-            
+
             <div className="text-center max-w-xl mx-auto mb-16">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 PROJECT GALLERY
@@ -654,28 +654,24 @@ function ResidentialPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { title: "Custom Master Bathroom Remodel", img: bathroomImg, desc: "Framing & custom tile layout" },
-                { title: "Premium Kitchen Backsplash", img: kitchenImg, desc: "Herringbone tile detailing" },
-                { title: "Full Home Remodeling Layout", img: transformImg, desc: "Flooring, paint, and trim work" },
-                { title: "Residential Roofing Project", img: estimateImg, desc: "Expert shingle replacement" },
-                { title: "Houston Construction Project", img: expertsBg, desc: "Framing & exterior solutions" },
-                { title: "Living Room Flooring Installation", img: tileImg, desc: "Custom tile work" },
+                { img: bathroomImg },
+                { img: kitchenImg },
+                { img: transformImg },
+                { img: estimateImg },
+                { img: showroomImg },
+                { img: tileImg },
               ].map((proj, idx) => (
-                <Reveal 
-                  key={idx} 
-                  variant="reveal-scale" 
+                <Reveal
+                  key={idx}
+                  variant="reveal-scale"
                   className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-150 hover:shadow-lg transition-all duration-300 group"
                 >
                   <div className="aspect-[4/3] overflow-hidden">
-                    <img 
-                      src={galleryImages[(20 + idx) % galleryImages.length] || proj.img} 
-                      alt={proj.title} 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                    <img
+                      src={proj.img}
+                      alt={`Residential project ${idx + 1}`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                  </div>
-                  <div className="p-5">
-                    <h3 className="font-bold text-[16px] text-gray-800 font-sans group-hover:text-[#0077b6] transition-colors">{proj.title}</h3>
-                    <p className="text-[13px] text-gray-400 mt-1 font-medium">{proj.desc}</p>
                   </div>
                 </Reveal>
               ))}
@@ -687,7 +683,7 @@ function ResidentialPage() {
         {/* ================= TESTIMONIALS ================= */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-6">
-            
+
             <div className="text-center max-w-xl mx-auto mb-16">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 REVIEWS
@@ -699,9 +695,9 @@ function ResidentialPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {testimonials.map((test, idx) => (
-                <Reveal 
-                  key={idx} 
-                  variant="reveal" 
+                <Reveal
+                  key={idx}
+                  variant="reveal"
                   className="bg-gray-50 border border-gray-100 p-8 rounded-2xl flex flex-col justify-between hover:bg-white hover:shadow-xl hover:border-sky-100 transition-all duration-300 relative group"
                 >
                   <div>
@@ -711,7 +707,7 @@ function ResidentialPage() {
                         <Sparkles key={starIdx} className="w-[16px] h-[16px] text-[#0077b6] fill-[#0077b6]" />
                       ))}
                     </div>
-                    
+
                     <p className="text-[14px] md:text-[15px] text-gray-600 leading-relaxed italic mb-6">
                       "{test.quote}"
                     </p>
@@ -731,7 +727,7 @@ function ResidentialPage() {
         {/* ================= FAQs ================= */}
         <section className="py-20 bg-gray-50">
           <div className="max-w-4xl mx-auto px-6">
-            
+
             <div className="text-center max-w-xl mx-auto mb-16">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 QUESTIONS
@@ -763,7 +759,7 @@ function ResidentialPage() {
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
-              
+
               {/* Credentials */}
               <Reveal variant="reveal-left" className="space-y-6">
                 <div className="flex items-center gap-3">
@@ -810,8 +806,8 @@ function ResidentialPage() {
                   </h4>
                   <div className="flex flex-wrap gap-2.5">
                     {serviceAreas.map((city, idx) => (
-                      <span 
-                        key={idx} 
+                      <span
+                        key={idx}
                         className="bg-gray-50 text-gray-700 px-4 py-2.5 rounded-full text-[13px] md:text-[14px] font-bold border border-gray-100 shadow-sm hover:bg-[#0077b6] hover:text-white hover:border-[#0077b6] hover:-translate-y-0.5 transition-all duration-300 cursor-default"
                       >
                         {city}
@@ -839,20 +835,20 @@ function ResidentialPage() {
               <h2 className="text-3xl md:text-4xl font-sans font-bold text-white mb-4">
                 Ready to Transform Your Home?
               </h2>
-              
+
               <p className="text-[15px] md:text-[17px] text-gray-300 max-w-2xl mx-auto leading-relaxed mb-10">
                 Whether you're planning a small update or a complete home transformation, Cinco Services is here to make it happen. Let's talk about your project and create something beautiful together.
               </p>
 
               <div className="flex flex-wrap justify-center gap-4">
-                <a 
-                  href="#contact" 
+                <a
+                  href="#contact"
                   className="inline-flex items-center gap-2 bg-[#d62828] text-white rounded-full px-8 py-4 text-[15px] font-bold hover:brightness-110 hover:scale-[1.03] active:scale-[0.97] shadow-[0_4px_14px_rgba(214,40,40,0.4)] transition-all duration-300"
                 >
                   Book My Free In-Home Estimate
                 </a>
-                <a 
-                  href="tel:8324062716" 
+                <a
+                  href="tel:8324062716"
                   className="inline-flex items-center gap-2.5 bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 text-white rounded-full px-8 py-4 text-[15px] font-bold hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
                 >
                   <Phone className="w-[16px] h-[16px]" /> Call (832) 406-2716

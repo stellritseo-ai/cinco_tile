@@ -86,7 +86,7 @@ ${parsed.data.message}
 `.trim();
 
     try {
-      const res = await fetch("https://formsubmit.co/ajax/jack@stellrit.com", {
+      const res = await fetch("https://formsubmit.co/ajax/info@cincoservicesllc.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

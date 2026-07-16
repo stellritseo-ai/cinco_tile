@@ -1,22 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock, 
-  Shield, 
-  Check, 
-  Award, 
-  HardHat, 
-  Calendar, 
-  ArrowRight, 
-  CheckCircle, 
-  FileText, 
-  Building2, 
-  Sparkles, 
-  Wrench, 
-  Heart, 
-  TrendingUp, 
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Shield,
+  Check,
+  Award,
+  HardHat,
+  Calendar,
+  ArrowRight,
+  CheckCircle,
+  FileText,
+  Building2,
+  Sparkles,
+  Wrench,
+  Heart,
+  TrendingUp,
   Map,
   Hammer,
   Paintbrush,
@@ -33,14 +33,14 @@ import { LiveChat } from "@/components/home/LiveChat";
 import { Reveal } from "@/components/ui/Reveal";
 
 // Import images
-import commercialRemodelHero from "@/assets/commercial_remodel_hero.png";
+import commercialRemodelHero from "@/assets/gallery/WhatsApp Image 2026-07-16 at 8.17.37 PM (1).jpeg";
 const showroomBg = commercialRemodelHero;
-import expertsImg from "@/assets/experts_section.png";
+import expertsImg from "@/assets/gallery/WhatsApp Image 2026-07-16 at 8.17.27 PM.jpeg";
 import bathroomImg from "@/assets/bathroom_remodel_hero.png";
 import kitchenImg from "@/assets/kitchen_remodel_hero.png";
 import tileImg from "@/assets/tile_installation_hero.png";
-import transformImg from "@/assets/transform_section.png";
-import estimateImg from "@/assets/estimate_section.png";
+import transformImg from "@/assets/gallery/gallery_23.jpeg";
+import estimateImg from "@/assets/gallery/WhatsApp Image 2026-07-16 at 8.17.32 PM (1).jpeg";
 
 // Dynamically import all images in the gallery folder
 const galleryModules = import.meta.glob("../assets/gallery/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true });
@@ -79,37 +79,37 @@ function CommercialPage() {
   ];
 
   const whyChooseUs = [
-    { 
-      title: "15+ Years of Commercial Experience", 
-      desc: "We've successfully executed retail, office, hospitality, and medical remodeling projects with precision." 
+    {
+      title: "15+ Years of Commercial Experience",
+      desc: "We've successfully executed retail, office, hospitality, and medical remodeling projects with precision."
     },
-    { 
-      title: "Minimal Business Disruption", 
-      desc: "We work around your schedule, offering night and weekend shifts to prevent losing business hours." 
+    {
+      title: "Minimal Business Disruption",
+      desc: "We work around your schedule, offering night and weekend shifts to prevent losing business hours."
     },
-    { 
-      title: "Full-Service Capabilities", 
-      desc: "From major construction and roofing down to detailed lobby painting and heavy-duty tile, we do it all." 
+    {
+      title: "Full-Service Capabilities",
+      desc: "From major construction and roofing down to detailed lobby painting and heavy-duty tile, we do it all."
     },
-    { 
-      title: "Code Compliance", 
-      desc: "We ensure full compliance with local building codes, ADA regulations, and safety guidelines." 
+    {
+      title: "Code Compliance",
+      desc: "We ensure full compliance with local building codes, ADA regulations, and safety guidelines."
     },
-    { 
-      title: "Project Management", 
-      desc: "You will have a dedicated commercial project manager as your single point of contact from start to finish." 
+    {
+      title: "Project Management",
+      desc: "You will have a dedicated commercial project manager as your single point of contact from start to finish."
     },
-    { 
-      title: "Scalable Solutions", 
-      desc: "Whether you need a quick office refresh or a full-scale commercial build-out, we scale to match your scope." 
+    {
+      title: "Scalable Solutions",
+      desc: "Whether you need a quick office refresh or a full-scale commercial build-out, we scale to match your scope."
     },
-    { 
-      title: "Licensed & Insured", 
-      desc: "Complete General Liability and Workers' Comp coverage ensures full safety compliance for your enterprise." 
+    {
+      title: "Licensed & Insured",
+      desc: "Complete General Liability and Workers' Comp coverage ensures full safety compliance for your enterprise."
     },
-    { 
-      title: "Transparent Pricing", 
-      desc: "Highly detailed, itemized estimates mean you stay on budget with zero hidden fees or surprise change orders." 
+    {
+      title: "Transparent Pricing",
+      desc: "Highly detailed, itemized estimates mean you stay on budget with zero hidden fees or surprise change orders."
     },
   ];
 
@@ -270,7 +270,7 @@ function CommercialPage() {
     },
     {
       q: "How far do you travel for commercial projects?",
-      a: "We serve commercial clients within a 50-mile radius of our main office located at 1400 Broadfield Blvd, Houston, TX 77084. This includes Katy, Sugar Land, Cypress, Richmond, Pearland, and The Woodlands."
+      a: "We serve commercial clients within a 50-mile radius of our main office located at 1400 Broadfield Blvd, £ 200 Houston, TX 77084. This includes Katy, Sugar Land, Cypress, Richmond, Pearland, and The Woodlands."
     },
     {
       q: "Do you offer free commercial estimates?",
@@ -299,15 +299,15 @@ function CommercialPage() {
   ];
 
   const industriesList = [
-    "Retail & Shopping Centers", "Restaurants & Cafes", "Hotels & Hospitality", 
-    "Medical & Dental Offices", "Professional Office Spaces", "Warehouses & Industrial Facilities", 
-    "Multi-Unit Residential (Apartments, Condos)", "Salons & Spas", "Educational Facilities", 
+    "Retail & Shopping Centers", "Restaurants & Cafes", "Hotels & Hospitality",
+    "Medical & Dental Offices", "Professional Office Spaces", "Warehouses & Industrial Facilities",
+    "Multi-Unit Residential (Apartments, Condos)", "Salons & Spas", "Educational Facilities",
     "Religious Institutions", "Fitness Centers & Gyms", "Car Dealerships & Auto Shops"
   ];
 
   const serviceAreas = [
-    "Houston", "Katy", "Sugar Land", "Cypress", "Richmond", "Rosenberg", 
-    "Fulshear", "Missouri City", "Stafford", "Pearland", "Jersey Village", 
+    "Houston", "Katy", "Sugar Land", "Cypress", "Richmond", "Rosenberg",
+    "Fulshear", "Missouri City", "Stafford", "Pearland", "Jersey Village",
     "Tomball", "The Woodlands"
   ];
 
@@ -320,7 +320,7 @@ function CommercialPage() {
         {/* ================= HERO SECTION ================= */}
         <section className="relative min-h-[60vh] sm:min-h-[55vh] md:min-h-[60vh] flex items-center justify-center overflow-hidden bg-[#111827]">
           {/* Background image with overlay */}
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 mix-blend-overlay scale-105"
             style={{ backgroundImage: `url(${commercialRemodelHero})` }}
           />
@@ -330,11 +330,11 @@ function CommercialPage() {
             <span className="inline-block bg-[#0077b6] text-white rounded-full px-5 py-1.5 text-[11px] md:text-[12px] font-bold uppercase tracking-[0.2em] mb-5 shadow-[0_4px_12px_rgba(0,119,182,0.3)]">
               Houston Commercial Construction
             </span>
-            
+
             <h1 className="font-sans text-[26px] sm:text-[36px] md:text-[56px] font-extrabold leading-[1.15] tracking-tight max-w-4xl mx-auto mt-2">
               Commercial Services
             </h1>
-            
+
             <p className="mt-4 text-[16px] md:text-[20px] text-sky-200/90 max-w-2xl mx-auto font-medium leading-relaxed">
               Professional Construction & Remodeling Solutions for Houston Businesses
             </p>
@@ -358,14 +358,14 @@ function CommercialPage() {
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_0.75fr] gap-12 lg:gap-16 items-start">
-              
+
               {/* Left Column: Intro */}
               <Reveal variant="reveal-left" className="space-y-6">
                 <h2 className="text-[28px] md:text-[38px] font-sans font-bold text-[#111827] leading-tight">
                   Reliable, Scalable Construction & Remodeling <br />
                   <span className="text-[#0077b6]">for Commercial Properties</span>
                 </h2>
-                
+
                 <div className="text-[16px] md:text-[17px] text-[#4B5563] leading-relaxed space-y-6">
                   <p className="font-semibold text-lg text-gray-800">
                     Your commercial property is a reflection of your brand – and it needs to be functional, safe, and impressive. At Cinco Services, we provide comprehensive construction, remodeling, roofing, painting, and tile services for businesses across Houston and surrounding areas.
@@ -376,14 +376,14 @@ function CommercialPage() {
                 </div>
 
                 <div className="flex flex-wrap gap-4 pt-6">
-                  <a 
-                    href="#contact" 
+                  <a
+                    href="#contact"
                     className="inline-flex items-center gap-2 bg-[#d62828] text-white rounded-full px-8 py-3.5 text-[15px] font-bold hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] shadow-[0_4px_14px_rgba(214,40,40,0.3)] transition-all duration-300"
                   >
                     Get My Free Commercial Estimate
                   </a>
-                  <a 
-                    href="tel:8324062716" 
+                  <a
+                    href="tel:8324062716"
                     className="inline-flex items-center gap-2.5 bg-gray-100 hover:bg-gray-150 text-[#111827] rounded-full px-8 py-3.5 text-[15px] font-bold hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
                   >
                     <Phone className="w-[16px] h-[16px]" /> Call (832) 406-2716
@@ -395,11 +395,11 @@ function CommercialPage() {
               <Reveal variant="reveal-right">
                 <div className="bg-slate-900 text-white p-8 rounded-2xl shadow-xl relative overflow-hidden">
                   <div className="absolute top-0 left-0 right-0 h-[4px] bg-[#d62828]" />
-                  
+
                   <h3 className="text-lg font-bold uppercase tracking-wider text-sky-400 mb-6 font-sans">
                     At a Glance
                   </h3>
-                  
+
                   <div className="space-y-4">
                     {sidebarItems.map((item, idx) => (
                       <div key={idx} className="border-b border-white/5 pb-3 last:border-b-0 last:pb-0">
@@ -423,7 +423,7 @@ function CommercialPage() {
                     </p>
                     <p className="flex items-center gap-3 items-start">
                       <MapPin className="w-4 h-4 text-sky-400 mt-0.5 shrink-0" />
-                      <span>1400 Broadfield Blvd,<br />Houston, TX 77084</span>
+                      <span>1400 Broadfield Blvd,<br />£ 200 Houston, TX 77084</span>
                     </p>
                   </div>
                 </div>
@@ -436,7 +436,7 @@ function CommercialPage() {
         {/* ================= WHY CHOOSE US ================= */}
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-6">
-            
+
             <div className="text-center max-w-xl mx-auto mb-16">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 BUSINESS ADVANTAGES
@@ -451,9 +451,9 @@ function CommercialPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
               {whyChooseUs.map((item, idx) => (
-                <Reveal 
-                  key={idx} 
-                  variant="reveal" 
+                <Reveal
+                  key={idx}
+                  variant="reveal"
                   className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-150/50 hover:shadow-xl hover:border-sky-100 transition-all duration-300 flex flex-col justify-between"
                 >
                   <div>
@@ -477,7 +477,7 @@ function CommercialPage() {
         {/* ================= DETAILED SERVICES SECTION ================= */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-6">
-            
+
             <div className="text-center max-w-xl mx-auto mb-20">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 COMMERCIAL SCOPE
@@ -495,32 +495,32 @@ function CommercialPage() {
               {servicesList.map((service, idx) => {
                 const Icon = service.icon;
                 const isEven = idx % 2 === 0;
-                
+
                 return (
-                  <div 
-                    key={service.id} 
+                  <div
+                    key={service.id}
                     className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center`}
                   >
                     {/* Image block */}
-                    <Reveal 
+                    <Reveal
                       variant={isEven ? "reveal-left" : "reveal-right"}
                       className={`relative ${!isEven ? "lg:order-2" : ""}`}
                     >
                       {/* Decorative Frame */}
                       <div className="absolute -inset-4 bg-sky-500/5 rounded-2xl -z-10 translate-x-3 translate-y-3" />
                       <div className="absolute -inset-4 border border-[#0077b6]/20 rounded-2xl -z-10 -translate-x-3 -translate-y-3" />
-                      
+
                       <div className="overflow-hidden shadow-xl rounded-2xl aspect-[4/3]">
-                        <img 
-                          src={service.image} 
-                          alt={service.title} 
-                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-[1s]" 
+                        <img
+                          src={service.image}
+                          alt={service.title}
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-[1s]"
                         />
                       </div>
                     </Reveal>
 
                     {/* Content block */}
-                    <Reveal 
+                    <Reveal
                       variant={isEven ? "reveal-right" : "reveal-left"}
                       className="space-y-6"
                     >
@@ -536,7 +536,7 @@ function CommercialPage() {
                       <h3 className="text-2xl md:text-3xl font-sans font-bold text-[#111827] leading-tight">
                         {service.subtitle}
                       </h3>
-                      
+
                       <p className="text-[15px] md:text-[16px] text-gray-500 leading-relaxed">
                         {service.desc}
                       </p>
@@ -574,7 +574,7 @@ function CommercialPage() {
         {/* ================= SPACE-SPECIFIC SERVICES TABLE ================= */}
         <section className="py-20 bg-gray-50">
           <div className="max-w-5xl mx-auto px-6">
-            
+
             <div className="text-center max-w-xl mx-auto mb-16">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 SECTOR TAILORED
@@ -611,7 +611,7 @@ function CommercialPage() {
         {/* ================= INDUSTRIES WE SERVE ================= */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-6">
-            
+
             <div className="text-center max-w-xl mx-auto mb-12">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 INDUSTRIES WE SERVE
@@ -623,9 +623,9 @@ function CommercialPage() {
 
             <div className="flex flex-wrap items-center justify-center gap-3.5 max-w-4xl mx-auto">
               {industriesList.map((ind, idx) => (
-                <Reveal 
-                  key={idx} 
-                  variant="reveal-scale" 
+                <Reveal
+                  key={idx}
+                  variant="reveal-scale"
                   className="bg-gray-50 text-gray-700 px-5 py-3 rounded-full text-[14px] font-bold border border-gray-100 hover:bg-[#0077b6] hover:text-white hover:border-[#0077b6] hover:-translate-y-0.5 transition-all duration-300 cursor-default"
                 >
                   {ind}
@@ -639,7 +639,7 @@ function CommercialPage() {
         {/* ================= PROCESS FOR COMMERCIAL PROJECTS ================= */}
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-6">
-            
+
             <div className="text-center max-w-xl mx-auto mb-16">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 COMMERCIAL PROCESS
@@ -654,19 +654,19 @@ function CommercialPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {processSteps.map((step, idx) => (
-                <Reveal 
-                  key={idx} 
-                  variant="reveal" 
+                <Reveal
+                  key={idx}
+                  variant="reveal"
                   className="bg-white border border-gray-150/50 p-8 rounded-2xl hover:shadow-xl hover:border-sky-100 transition-all duration-300 relative overflow-hidden group"
                 >
                   <span className="text-6xl font-black text-slate-100 absolute top-4 right-6 select-none group-hover:text-[#0077b6]/10 transition-colors">
                     {step.step}
                   </span>
-                  
+
                   <h3 className="font-bold text-[17px] text-[#111827] mb-3 font-sans pr-10">
                     {step.title}
                   </h3>
-                  
+
                   <p className="text-[13.5px] md:text-[14.5px] text-gray-500 leading-relaxed">
                     {step.desc}
                   </p>
@@ -680,7 +680,7 @@ function CommercialPage() {
         {/* ================= GALLERY ================= */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-6">
-            
+
             <div className="text-center max-w-xl mx-auto mb-16">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 PORTFOLIO
@@ -692,28 +692,24 @@ function CommercialPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { title: "Retail Showroom Tile & Framing", img: showroomBg, desc: "Sleek porcelain lobby layout" },
-                { title: "Commercial Office Boardroom Painting", img: expertsImg, desc: "Low-VOC premium color coat" },
-                { title: "Restaurant Dining Floor Tiling", img: tileImg, desc: "Slip-resistant ceramic solutions" },
-                { title: "Office Common Restroom Remodel", img: bathroomImg, desc: "Epoxy grouting & new plumbing" },
-                { title: "Retail Storefront Framing Update", img: transformImg, desc: "Load bearing structural beams" },
-                { title: "Flat TPO Roofing System replacement", img: estimateImg, desc: "Leakproof industrial insulation" }
+                { img: showroomBg },
+                { img: expertsImg },
+                { img: tileImg },
+                { img: bathroomImg },
+                { img: transformImg },
+                { img: estimateImg },
               ].map((proj, idx) => (
-                <Reveal 
-                  key={idx} 
-                  variant="reveal-scale" 
+                <Reveal
+                  key={idx}
+                  variant="reveal-scale"
                   className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-150 hover:shadow-lg transition-all duration-300 group"
                 >
                   <div className="aspect-[4/3] overflow-hidden">
-                    <img 
-                      src={galleryImages[(2 + idx) % galleryImages.length] || proj.img} 
-                      alt={proj.title} 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                    <img
+                      src={proj.img}
+                      alt={`Commercial project ${idx + 1}`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                  </div>
-                  <div className="p-5">
-                    <h3 className="font-bold text-[16px] text-gray-800 font-sans group-hover:text-[#0077b6] transition-colors">{proj.title}</h3>
-                    <p className="text-[13px] text-gray-400 mt-1 font-medium">{proj.desc}</p>
                   </div>
                 </Reveal>
               ))}
@@ -725,7 +721,7 @@ function CommercialPage() {
         {/* ================= TESTIMONIALS ================= */}
         <section className="py-20 bg-[#111827] text-white">
           <div className="max-w-7xl mx-auto px-6">
-            
+
             <div className="text-center max-w-xl mx-auto mb-16">
               <span className="text-[13px] font-bold text-sky-400 uppercase tracking-[0.25em] block">
                 BUSINESS REVIEWS
@@ -737,9 +733,9 @@ function CommercialPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {testimonials.map((test, idx) => (
-                <Reveal 
-                  key={idx} 
-                  variant="reveal" 
+                <Reveal
+                  key={idx}
+                  variant="reveal"
                   className="bg-slate-800 border border-slate-700/30 p-8 rounded-2xl flex flex-col justify-between hover:border-sky-400 transition-all duration-300 relative group"
                 >
                   <div>
@@ -749,7 +745,7 @@ function CommercialPage() {
                         <Sparkles key={starIdx} className="w-[16px] h-[16px] text-[#0077b6] fill-[#0077b6]" />
                       ))}
                     </div>
-                    
+
                     <p className="text-[14px] md:text-[15px] text-gray-300 leading-relaxed italic mb-6">
                       "{test.quote}"
                     </p>
@@ -770,7 +766,7 @@ function CommercialPage() {
         {/* ================= FAQS ================= */}
         <section className="py-20 bg-white">
           <div className="max-w-4xl mx-auto px-6">
-            
+
             <div className="text-center max-w-xl mx-auto mb-16">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 BUSINESS FAQS
@@ -802,7 +798,7 @@ function CommercialPage() {
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
-              
+
               {/* Credentials */}
               <Reveal variant="reveal-left" className="space-y-6">
                 <div className="flex items-center gap-3">
@@ -849,8 +845,8 @@ function CommercialPage() {
                   </h4>
                   <div className="flex flex-wrap gap-2.5">
                     {serviceAreas.map((city, idx) => (
-                      <span 
-                        key={idx} 
+                      <span
+                        key={idx}
                         className="bg-white text-gray-700 px-4 py-2.5 rounded-full text-[13px] md:text-[14px] font-bold border border-gray-150 shadow-sm hover:bg-[#0077b6] hover:text-white hover:border-[#0077b6] hover:-translate-y-0.5 transition-all duration-300 cursor-default"
                       >
                         {city}
@@ -878,20 +874,20 @@ function CommercialPage() {
               <h2 className="text-3xl md:text-4xl font-sans font-bold text-white mb-4">
                 Ready to Upgrade Your Commercial Property?
               </h2>
-              
+
               <p className="text-[15px] md:text-[17px] text-gray-300 max-w-2xl mx-auto leading-relaxed mb-10">
                 Whether you're planning a small office refresh or a large-scale commercial build, Cinco Services has the expertise and reliability to deliver exceptional results. Let's talk about your project.
               </p>
 
               <div className="flex flex-wrap justify-center gap-4">
-                <a 
-                  href="#contact" 
+                <a
+                  href="#contact"
                   className="inline-flex items-center gap-2 bg-[#d62828] text-white rounded-full px-8 py-4 text-[15px] font-bold hover:brightness-110 hover:scale-[1.03] active:scale-[0.97] shadow-[0_4px_14px_rgba(214,40,40,0.4)] transition-all duration-300"
                 >
                   Book My Free Commercial Estimate
                 </a>
-                <a 
-                  href="tel:8324062716" 
+                <a
+                  href="tel:8324062716"
                   className="inline-flex items-center gap-2.5 bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 text-white rounded-full px-8 py-4 text-[15px] font-bold hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
                 >
                   <Phone className="w-[16px] h-[16px]" /> Call (832) 406-2716

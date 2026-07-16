@@ -160,7 +160,7 @@ function ProjectsPage() {
     { icon: Wrench, label: "Capabilities", value: "Full-Service Construction" },
     { icon: Shield, label: "Licensed & Insured", value: "Yes" },
     { icon: FileText, label: "Free Estimates", value: "Yes" },
-    { icon: MapPin, label: "Location", value: "1400 Broadfield Blvd, Houston, TX" },
+    { icon: MapPin, label: "Location", value: "1400 Broadfield Blvd, £ 200 Houston, TX 77084" },
   ];
 
   const filterButtons = [

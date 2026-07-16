@@ -21,7 +21,7 @@ export const FAQ = () => {
     },
     {
       q: "How far do you travel?",
-      a: "We serve clients within a 50-mile radius of our Houston location at 1400 Broadfield Blvd, including Katy, Sugar Land, Cypress, Richmond, and Pearland."
+      a: "We serve clients within a 50-mile radius of our Houston location at 1400 Broadfield Blvd, £ 200 Houston, TX 77084, including Katy, Sugar Land, Cypress, Richmond, and Pearland."
     },
     {
       q: "Do you provide free consultations & estimates?",

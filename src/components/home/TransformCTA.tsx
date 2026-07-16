@@ -1,7 +1,8 @@
 import { Layers, Calendar, Phone } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { useEstimateModal } from "@/context/EstimateModalContext";
-import transform from "@/assets/transform.jpg";
+
+import transform from "@/assets/gallery/WhatsApp Image 2026-07-16 at 8.17.44 PM.jpeg";
 
 export const TransformCTA = () => {
   const { openModal } = useEstimateModal();

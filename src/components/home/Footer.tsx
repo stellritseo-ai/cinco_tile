@@ -49,48 +49,48 @@ export const Footer = () => {
             </ul>
           </div>
 
-        {/* Column 3: Areas We Serve */}
-        <div>
-          <h3 className="text-white font-bold text-[16px] pb-[12px] border-b border-gray-600 mb-[16px]">Areas We Serve</h3>
-          <div className="grid grid-cols-2 gap-x-[20px] gap-y-[14px] text-[14px] text-gray-300">
-            <ul className="space-y-[14px]">
-              {["Houston", "Katy", "Sugar Land", "Cypress", "Richmond"].map(city => <li key={city}>{city}</li>)}
-            </ul>
-            <ul className="space-y-[14px]">
-              {["Rosenberg", "Fulshear", "Missouri City", "Stafford", "Pearland"].map(city => <li key={city}>{city}</li>)}
+          {/* Column 3: Areas We Serve */}
+          <div>
+            <h3 className="text-white font-bold text-[16px] pb-[12px] border-b border-gray-600 mb-[16px]">Areas We Serve</h3>
+            <div className="grid grid-cols-2 gap-x-[20px] gap-y-[14px] text-[14px] text-gray-300">
+              <ul className="space-y-[14px]">
+                {["Houston", "Katy", "Sugar Land", "Cypress", "Richmond"].map(city => <li key={city}>{city}</li>)}
+              </ul>
+              <ul className="space-y-[14px]">
+                {["Rosenberg", "Fulshear", "Missouri City", "Stafford", "Pearland"].map(city => <li key={city}>{city}</li>)}
+              </ul>
+            </div>
+          </div>
+
+          {/* Column 4: Opening Hours */}
+          <div>
+            <h3 className="text-white font-bold text-[16px] pb-[12px] border-b border-gray-600 mb-[16px]">Opening Hours</h3>
+            <ul className="space-y-[14px] text-[14px] text-gray-300">
+              <li>Mon-Fri: 7:00AM-7:00PM</li>
+              <li>Sat: 8:00AM-7:00PM</li>
+              <li>Sun: Closed</li>
             </ul>
           </div>
+
+          {/* Column 5: Contact */}
+          <div>
+            <h3 className="text-white font-bold text-[16px] pb-[12px] border-b border-gray-600 mb-[16px]">Contact</h3>
+            <ul className="space-y-[14px] text-[14px] text-gray-300">
+              <li>(832) 406-2716</li>
+              <li>info@cincoservicesllc.com</li>
+              <li className="leading-[1.6]">1400 Broadfield Blvd,<br />£ 200 Houston, TX 77084</li>
+            </ul>
+          </div>
+
         </div>
 
-        {/* Column 4: Opening Hours */}
-        <div>
-          <h3 className="text-white font-bold text-[16px] pb-[12px] border-b border-gray-600 mb-[16px]">Opening Hours</h3>
-          <ul className="space-y-[14px] text-[14px] text-gray-300">
-            <li>Mon-Fri: 7:00AM-7:00PM</li>
-            <li>Sat: 8:00AM-7:00PM</li>
-            <li>Sun: Closed</li>
-          </ul>
-        </div>
-
-        {/* Column 5: Contact */}
-        <div>
-          <h3 className="text-white font-bold text-[16px] pb-[12px] border-b border-gray-600 mb-[16px]">Contact</h3>
-          <ul className="space-y-[14px] text-[14px] text-gray-300">
-            <li>(832) 406-2716</li>
-            <li>info@cincoservicesllc.com</li>
-            <li className="leading-[1.6]">1400 Broadfield Blvd,<br />Houston, TX 77084</li>
-          </ul>
+        <div className="pt-[30px] border-t border-gray-600 text-center">
+          <p className="text-[13px] text-gray-400">
+            ©{new Date().getFullYear()} - Cinco Services. All Rights Reserved. Designed and Developed By: <a href="https://stellrit.com" target="_blank" rel="noopener noreferrer" className="text-white font-bold hover:underline">StellR IT LLC</a>
+          </p>
         </div>
 
       </div>
-
-      <div className="pt-[30px] border-t border-gray-600 text-center">
-        <p className="text-[13px] text-gray-400">
-          ©{new Date().getFullYear()} - Cinco Services. All Rights Reserved. Designed and Developed By: <a href="https://stellrit.com" target="_blank" rel="noopener noreferrer" className="text-white font-bold hover:underline">StellR IT LLC</a>
-        </p>
-      </div>
-
-    </div>
-  </footer>
+    </footer>
   );
 };

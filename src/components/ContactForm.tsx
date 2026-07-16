@@ -39,7 +39,7 @@ export function ContactForm() {
     setErrorMsg("");
 
     try {
-      const res = await fetch("https://formsubmit.co/ajax/jack@stellrit.com", {
+      const res = await fetch("https://formsubmit.co/ajax/info@cincoservicesllc.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -102,7 +102,7 @@ export function ContactForm() {
                 {[
                   { i: Phone, t: "Call Us", v: "(832) 406-2716", href: "tel:8324062716" },
                   { i: Mail, t: "Email Us", v: "info@cincoservicesllc.com", href: "mailto:info@cincoservicesllc.com" },
-                  { i: MapPin, t: "Visit Us", v: "1400 Broadfield Blvd, Houston, TX 77084" },
+                  { i: MapPin, t: "Visit Us", v: "1400 Broadfield Blvd, £ 200 Houston, TX 77084" },
                 ].map(({ i: Icon, t, v, href }) => (
                   <div key={t} className="flex items-start gap-[16px]">
                     <div className="w-[48px] h-[48px] rounded-[12px] bg-white shadow-sm flex items-center justify-center shrink-0 border border-gray-100">
