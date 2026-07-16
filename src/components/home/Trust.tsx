@@ -2,9 +2,9 @@ import { ShieldCheck, Award, Store, MapPin, Building2, Sparkles, Banknote, Clock
 import { Reveal } from "@/components/ui/Reveal";
 import { useEstimateModal } from "@/context/EstimateModalContext";
 
-import trust1 from "@/assets/gallery/gallery_1.jpeg";
-import trust2 from "@/assets/gallery/gallery_2.jpeg";
-import trust3 from "@/assets/gallery/gallery_3.jpeg";
+import trust1 from "@/assets/gallery/WhatsApp Image 2026-07-16 at 8.17.27 PM.jpeg";
+import trust2 from "@/assets/gallery/WhatsApp Image 2026-07-16 at 8.17.47 PM (2).jpeg";
+import trust3 from "@/assets/gallery/WhatsApp Image 2026-07-16 at 8.17.37 PM.jpeg";
 
 export const Trust = () => {
   const { openModal } = useEstimateModal();
@@ -62,26 +62,26 @@ export const Trust = () => {
               <div className="relative w-full h-[420px] sm:h-[550px] lg:h-[650px] select-none">
                 {/* Main large image */}
                 <div className="absolute top-0 left-0 w-[72%] h-[75%] rounded-[24px] overflow-hidden shadow-xl border-4 border-white hover:scale-[1.02] hover:z-30 transition-all duration-500 ease-out group">
-                  <img 
-                    src={trust1} 
-                    alt="Cinco Services custom craftsmanship" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                  <img
+                    src={trust1}
+                    alt="Cinco Services custom craftsmanship"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 </div>
                 {/* Secondary overlapping image (top-right) */}
                 <div className="absolute top-[8%] right-0 w-[52%] h-[50%] rounded-[24px] overflow-hidden shadow-2xl border-4 border-white z-10 hover:scale-[1.04] hover:z-30 transition-all duration-500 ease-out group">
-                  <img 
-                    src={trust2} 
-                    alt="Cinco Services premium remodeling" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                  <img
+                    src={trust2}
+                    alt="Cinco Services premium remodeling"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 </div>
                 {/* Tertiary overlapping image (bottom-left/center) */}
                 <div className="absolute bottom-0 left-[18%] w-[58%] h-[42%] rounded-[24px] overflow-hidden shadow-2xl border-4 border-white z-20 hover:scale-[1.04] hover:z-30 transition-all duration-500 ease-out group">
-                  <img 
-                    src={trust3} 
-                    alt="Cinco Services construction detail" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                  <img
+                    src={trust3}
+                    alt="Cinco Services construction detail"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 </div>
               </div>

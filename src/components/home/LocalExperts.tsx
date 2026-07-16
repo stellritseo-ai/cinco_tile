@@ -1,7 +1,7 @@
 import { ArrowRight, Check } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { motion } from "framer-motion";
-import experts from "@/assets/experts.jpg";
+import experts from "@/assets/gallery/WhatsApp Image 2026-07-16 at 8.17.33 PM.jpeg";
 import floating1 from "@/assets/bathroom_remodel.png";
 import floating2 from "@/assets/kitchen_backsplash.png";
 export const LocalExperts = () => (

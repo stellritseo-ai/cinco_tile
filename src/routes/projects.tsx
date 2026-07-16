@@ -36,6 +36,7 @@ import { Nav } from "@/components/home/Nav";
 import { Footer } from "@/components/home/Footer";
 import { LiveChat } from "@/components/home/LiveChat";
 import { Reveal } from "@/components/ui/Reveal";
+import heroVideo from "@/assets/herovideo.mp4";
 
 // Import images
 import homeRemodelingHero from "@/assets/home_remodeling_hero.png";
@@ -85,41 +86,59 @@ const galleryImages = Object.values(galleryModules)
   .map((mod: any) => (mod && typeof mod === "object" && "default" in mod ? (mod.default as string) : null))
   .filter((url): url is string => typeof url === "string");
 
-// Categorize images dynamically based on index to distribute them across services
-const galleryItems = galleryImages.map((url, idx) => {
-  // Let's define categorizations
-  let categories = ["all", "residential"]; // All are residential or commercial
-  
-  // Distribute commercial tag to 30% of photos
-  if (idx % 3 === 0) {
-    categories.push("commercial");
-  }
-  
-  // Distribute based on index
-  const categoryPools = [
-    "tile",
-    "bathroom",
-    "kitchen",
-    "construction",
-    "roofing",
-    "painting",
-    "outdoor"
-  ];
-  
-  // Assign a primary category
-  const primaryCat = categoryPools[idx % categoryPools.length];
-  categories.push(primaryCat);
-  
-  // Additional logical combinations
-  if (primaryCat === "bathroom" || primaryCat === "kitchen") {
-    categories.push("tile");
-  }
-  
-  return {
+// Dynamically import all videos in the gallery folder
+const galleryVideoModules = import.meta.glob("../assets/gallery/*.{mp4,webm,ogg,MP4,WEBM,OGG}", { eager: true });
+const galleryVideos = Object.values(galleryVideoModules)
+  .map((mod: any) => (mod && typeof mod === "object" && "default" in mod ? (mod.default as string) : null))
+  .filter((url): url is string => typeof url === "string");
+
+// Construct gallery items combining videos and dynamically loaded images
+const galleryItems = [
+  {
+    url: heroVideo,
+    categories: ["all", "video"],
+    isVideo: true
+  },
+  ...galleryVideos.map((url) => ({
     url,
-    categories
-  };
-});
+    categories: ["all", "video"],
+    isVideo: true
+  })),
+  ...galleryImages.map((url, idx) => {
+    let categories = ["all", "residential"]; // All are residential or commercial
+    
+    // Distribute commercial tag to 30% of photos
+    if (idx % 3 === 0) {
+      categories.push("commercial");
+    }
+    
+    // Distribute based on index
+    const categoryPools = [
+      "tile",
+      "bathroom",
+      "kitchen",
+      "construction",
+      "roofing",
+      "painting",
+      "outdoor"
+    ];
+    
+    // Assign a primary category
+    const primaryCat = categoryPools[idx % categoryPools.length];
+    categories.push(primaryCat);
+    
+    // Additional logical combinations
+    if (primaryCat === "bathroom" || primaryCat === "kitchen") {
+      categories.push("tile");
+    }
+    
+    return {
+      url,
+      categories,
+      isVideo: false
+    };
+  })
+];
 
 function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -146,15 +165,7 @@ function ProjectsPage() {
 
   const filterButtons = [
     { id: "all", label: "All Projects" },
-    { id: "residential", label: "Residential" },
-    { id: "commercial", label: "Commercial" },
-    { id: "kitchen", label: "Kitchen Remodeling" },
-    { id: "bathroom", label: "Bathroom Remodeling" },
-    { id: "construction", label: "New Construction" },
-    { id: "roofing", label: "Roofing" },
-    { id: "painting", label: "Painting" },
-    { id: "tile", label: "Tile & Flooring" },
-    { id: "outdoor", label: "Outdoor & Patio" }
+    { id: "video", label: "Video Projects" }
   ];
   const projects: Project[] = [];
 
@@ -233,16 +244,22 @@ function ProjectsPage() {
             {/* Quick buttons */}
             <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-3.5 max-w-3xl mx-auto">
               <button 
-                onClick={() => setActiveFilter("residential")}
+                onClick={() => {
+                  setActiveFilter("all");
+                  document.getElementById("gallery")?.scrollIntoView({ behavior: "smooth" });
+                }}
                 className="bg-white/10 hover:bg-white/15 border border-white/25 rounded-full px-6 py-2.5 text-[13px] md:text-[14px] font-bold text-white transition-all cursor-pointer"
               >
-                View Residential Projects
+                View All Projects
               </button>
               <button 
-                onClick={() => setActiveFilter("commercial")}
+                onClick={() => {
+                  setActiveFilter("video");
+                  document.getElementById("gallery")?.scrollIntoView({ behavior: "smooth" });
+                }}
                 className="bg-white/10 hover:bg-white/15 border border-white/25 rounded-full px-6 py-2.5 text-[13px] md:text-[14px] font-bold text-white transition-all cursor-pointer"
               >
-                View Commercial Projects
+                View Video Projects
               </button>
             </div>
           </div>
@@ -320,7 +337,7 @@ function ProjectsPage() {
         </section>
 
         {/* ================= PORTFOLIO GALLERY ================= */}
-        <section className="py-20 bg-gray-50 border-y border-gray-200/50">
+        <section id="gallery" className="py-20 bg-gray-50 border-y border-gray-200/50">
           <div className="max-w-7xl mx-auto px-6">
             
             <div className="max-w-xl mb-12">
@@ -331,7 +348,7 @@ function ProjectsPage() {
                 Filter Our Project Gallery
               </h2>
               <p className="text-gray-500 text-[14px] mt-2">
-                Explore our real-world construction, framing, roofing, remodeling, and custom tile installations. Select a category to filter the photos. Click on any photo to zoom in.
+                Explore our real-world construction, framing, roofing, remodeling, and custom tile installations. Select a category to filter. Click on any project to view or play.
               </p>
             </div>
 
@@ -363,20 +380,38 @@ function ProjectsPage() {
                   <div 
                     onClick={() => {
                       setSelectedImg(item.url);
-                      const globalIdx = galleryImages.indexOf(item.url);
-                      setCurrentIndex(globalIdx !== -1 ? globalIdx : idx);
+                      setCurrentIndex(idx);
                     }}
                     className="group relative aspect-square rounded-2xl overflow-hidden shadow-sm border border-gray-150 cursor-pointer hover:shadow-xl hover:border-sky-300 transition-all duration-300 bg-gray-100"
                   >
-                    <img 
-                      src={item.url} 
-                      alt={`Cinco project ${idx + 1}`} 
-                      className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500 ease-out"
-                      loading="lazy"
-                    />
+                    {item.isVideo ? (
+                      <div className="w-full h-full relative">
+                        <video 
+                          src={item.url} 
+                          className="w-full h-full object-cover" 
+                          muted 
+                          playsInline
+                        />
+                        {/* Play button overlay */}
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-all duration-300">
+                          <div className="w-12 h-12 rounded-full bg-white/90 text-gray-800 flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                            <svg className="w-6 h-6 fill-current ml-0.5" viewBox="0 0 24 24">
+                              <path d="M8 5v14l11-7z" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <img 
+                        src={item.url} 
+                        alt={`Cinco project ${idx + 1}`} 
+                        className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500 ease-out"
+                        loading="lazy"
+                      />
+                    )}
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-black/35 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                       <span className="bg-white/95 text-gray-800 rounded-full px-4 py-2 text-xs font-bold shadow-md transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                        Zoom Photo
+                        {item.isVideo ? "Play Video" : "Zoom Photo"}
                       </span>
                     </div>
                   </div>
@@ -573,34 +608,44 @@ function ProjectsPage() {
           <button 
             onClick={(e) => {
               e.stopPropagation();
-              const nextIdx = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+              const nextIdx = (currentIndex - 1 + filteredGalleryItems.length) % filteredGalleryItems.length;
               setCurrentIndex(nextIdx);
-              setSelectedImg(galleryImages[nextIdx]);
+              setSelectedImg(filteredGalleryItems[nextIdx].url);
             }}
             className="absolute left-4 text-white hover:text-sky-400 bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all cursor-pointer z-[110] active:scale-95"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
 
-          {/* Main Zoomed Image */}
+          {/* Main Zoomed Content */}
           <div 
             className="relative max-w-full max-h-[85vh] flex items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
-            <img 
-              src={selectedImg} 
-              alt={`Gallery project zoomed view ${currentIndex + 1}`} 
-              className="max-w-[90vw] max-h-[80vh] object-contain rounded-xl shadow-2xl border border-white/10"
-            />
+            {filteredGalleryItems[currentIndex]?.isVideo ? (
+              <video 
+                src={selectedImg} 
+                className="max-w-[90vw] max-h-[80vh] rounded-xl shadow-2xl border border-white/10" 
+                controls 
+                autoPlay 
+                playsInline
+              />
+            ) : (
+              <img 
+                src={selectedImg} 
+                alt={`Gallery project zoomed view ${currentIndex + 1}`} 
+                className="max-w-[90vw] max-h-[80vh] object-contain rounded-xl shadow-2xl border border-white/10"
+              />
+            )}
           </div>
 
           {/* Right Arrow */}
           <button 
             onClick={(e) => {
               e.stopPropagation();
-              const nextIdx = (currentIndex + 1) % galleryImages.length;
+              const nextIdx = (currentIndex + 1) % filteredGalleryItems.length;
               setCurrentIndex(nextIdx);
-              setSelectedImg(galleryImages[nextIdx]);
+              setSelectedImg(filteredGalleryItems[nextIdx].url);
             }}
             className="absolute right-4 text-white hover:text-sky-400 bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all cursor-pointer z-[110] active:scale-95"
           >
@@ -609,7 +654,7 @@ function ProjectsPage() {
 
           {/* Index indicator */}
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/80 font-bold text-[13px] bg-black/60 px-4 py-2 rounded-full z-[110] uppercase tracking-wider font-sans">
-            Photo {currentIndex + 1} of {galleryImages.length}
+            {filteredGalleryItems[currentIndex]?.isVideo ? "Video" : "Photo"} {currentIndex + 1} of {filteredGalleryItems.length}
           </div>
         </div>
       )}
