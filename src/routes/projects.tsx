@@ -628,6 +628,7 @@ function ProjectsPage() {
                 className="max-w-[90vw] max-h-[80vh] rounded-xl shadow-2xl border border-white/10" 
                 controls 
                 autoPlay 
+                muted
                 playsInline
               />
             ) : (
