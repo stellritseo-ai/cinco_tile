@@ -274,7 +274,7 @@ ${message}
                     {[
                       { icon: Phone, title: "Phone", details: "(832) 406-2716", sub: "Available during business hours – or leave a voicemail.", href: "tel:8324062716" },
                       { icon: Mail, title: "Email", details: "info@cincoservicesllc.com", sub: "We respond to all emails within one business day.", href: "mailto:info@cincoservicesllc.com" },
-                      { icon: MapPin, title: "Address", details: "1400 Broadfield Blvd, £ 200 Houston, TX 77084", sub: "Centrally located to serve the greater Houston area.", href: "https://www.google.com/maps/place/1400+Broadfield+Blvd,+Houston,+TX+77084" },
+                      { icon: MapPin, title: "Address", details: "1400 Broadfield Blvd, Suite 200 Houston, TX 77084", sub: "Centrally located to serve the greater Houston area.", href: "https://www.google.com/maps/place/1400+Broadfield+Blvd,+Houston,+TX+77084" },
                       { icon: Clock, title: "Business Hours", details: "Mon–Fri: 7am–7pm | Sat: 8am–7pm", sub: "Appointments available outside regular hours upon request." },
                     ].map((info, idx) => {
                       const Icon = info.icon;
@@ -565,7 +565,7 @@ ${message}
                         <MapPin className="w-5 h-5 text-sky-400 shrink-0 mt-0.5" />
                         <div>
                           <span className="text-[11px] font-bold text-gray-500 block uppercase">Visit</span>
-                          <span className="text-white">1400 Broadfield Blvd,<br />£ 200 Houston, TX 77084</span>
+                          <span className="text-white">1400 Broadfield Blvd,<br />Suite 200 Houston, TX 77084</span>
                         </div>
                       </p>
 
@@ -682,7 +682,7 @@ ${message}
                     <MapPin className="w-5 h-5 text-[#0077b6] shrink-0 mt-0.5" />
                     <div>
                       <strong className="text-gray-850 font-bold block mb-0.5">Office Address:</strong>
-                      1400 Broadfield Blvd, £ 200 Houston, TX 77084
+                      1400 Broadfield Blvd, Suite 200 Houston, TX 77084
                     </div>
                   </div>
 

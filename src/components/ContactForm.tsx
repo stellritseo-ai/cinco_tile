@@ -12,6 +12,14 @@ const schema = z.object({
 
 type FormState = z.infer<typeof schema>;
 
+const Field = ({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) => (
+  <label className="block">
+    <span className="text-[14px] font-bold text-[#111827]">{label}</span>
+    <div className="mt-[8px]">{children}</div>
+    {error && <span className="mt-[4px] block text-[13px] text-red-500 font-medium">{error}</span>}
+  </label>
+);
+
 export function ContactForm() {
   const [form, setForm] = useState<FormState>({ name: "", email: "", phone: "", message: "" });
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
@@ -68,13 +76,7 @@ export function ContactForm() {
     }
   };
 
-  const Field = ({ label, name, children }: { label: string; name: keyof FormState; children: React.ReactNode }) => (
-    <label className="block">
-      <span className="text-[14px] font-bold text-[#111827]">{label}</span>
-      <div className="mt-[8px]">{children}</div>
-      {errors[name] && <span className="mt-[4px] block text-[13px] text-red-500 font-medium">{errors[name]}</span>}
-    </label>
-  );
+
 
   const inputCls = "w-full bg-white border border-gray-200 rounded-[8px] px-[16px] py-[12px] text-[15px] text-[#111827] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#d62828] focus:border-transparent transition-all";
 
@@ -102,7 +104,7 @@ export function ContactForm() {
                 {[
                   { i: Phone, t: "Call Us", v: "(832) 406-2716", href: "tel:8324062716" },
                   { i: Mail, t: "Email Us", v: "info@cincoservicesllc.com", href: "mailto:info@cincoservicesllc.com" },
-                  { i: MapPin, t: "Visit Us", v: "1400 Broadfield Blvd, £ 200 Houston, TX 77084" },
+                  { i: MapPin, t: "Visit Us", v: "1400 Broadfield Blvd, Suite 200 Houston, TX 77084" },
                 ].map(({ i: Icon, t, v, href }) => (
                   <div key={t} className="flex items-start gap-[16px]">
                     <div className="w-[48px] h-[48px] rounded-[12px] bg-white shadow-sm flex items-center justify-center shrink-0 border border-gray-100">
@@ -149,20 +151,20 @@ export function ContactForm() {
               ) : (
                 <>
                   <div className="grid sm:grid-cols-2 gap-[24px]">
-                    <Field label="Your Name" name="name">
+                    <Field label="Your Name" error={errors.name}>
                       <input className={inputCls} value={form.name} onChange={onChange("name")} placeholder="John Doe" maxLength={100} />
                     </Field>
-                    <Field label="Email Address" name="email">
+                    <Field label="Email Address" error={errors.email}>
                       <input type="email" className={inputCls} value={form.email} onChange={onChange("email")} placeholder="john@example.com" maxLength={255} />
                     </Field>
                   </div>
                   <div className="mt-[16px]">
-                    <Field label="Phone Number (optional)" name="phone">
+                    <Field label="Phone Number (optional)" error={errors.phone}>
                       <input type="tel" className={inputCls} value={form.phone} onChange={onChange("phone")} placeholder="(832) 406-2716" maxLength={30} />
                     </Field>
                   </div>
                   <div className="mt-[16px]">
-                    <Field label="How can we help?" name="message">
+                    <Field label="How can we help?" error={errors.message}>
                       <textarea rows={4} className={inputCls + " resize-none"} value={form.message} onChange={onChange("message")} placeholder="Tell us about your project, square footage, timeline..." maxLength={2000} />
                     </Field>
                   </div>

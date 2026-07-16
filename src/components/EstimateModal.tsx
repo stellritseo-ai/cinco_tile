@@ -19,6 +19,34 @@ const schema = z.object({
 
 type FormState = z.infer<typeof schema>;
 
+const Field = ({
+  label,
+  required,
+  optional,
+  error,
+  children,
+}: {
+  label: string;
+  required?: boolean;
+  optional?: boolean;
+  error?: string;
+  children: React.ReactNode;
+}) => (
+  <label className="block w-full">
+    <span className="text-[14px] font-bold text-[#1f2937] font-sans">
+      {label}
+      {required && <span className="text-red-500 ml-1">*</span>}
+      {optional && <span className="text-slate-400 font-normal ml-1">(Optional)</span>}
+    </span>
+    <div className="mt-[8px] relative">{children}</div>
+    {error && (
+      <span className="mt-[4px] block text-[13px] text-red-500 font-medium font-sans">
+        {error}
+      </span>
+    )}
+  </label>
+);
+
 interface EstimateModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -128,34 +156,6 @@ ${parsed.data.message}
     }
   };
 
-  const Field = ({
-    label,
-    name,
-    required,
-    optional,
-    children,
-  }: {
-    label: string;
-    name: keyof FormState;
-    required?: boolean;
-    optional?: boolean;
-    children: React.ReactNode;
-  }) => (
-    <label className="block w-full">
-      <span className="text-[14px] font-bold text-[#1f2937] font-sans">
-        {label}
-        {required && <span className="text-red-500 ml-1">*</span>}
-        {optional && <span className="text-slate-400 font-normal ml-1">(Optional)</span>}
-      </span>
-      <div className="mt-[8px] relative">{children}</div>
-      {errors[name] && (
-        <span className="mt-[4px] block text-[13px] text-red-500 font-medium font-sans">
-          {errors[name]}
-        </span>
-      )}
-    </label>
-  );
-
   const inputCls =
     "w-full bg-white border border-gray-200 rounded-[12px] px-[16px] py-[12px] text-[15px] text-[#111827] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-red-100 focus:border-[#d62828] transition-all font-sans";
 
@@ -204,7 +204,7 @@ ${parsed.data.message}
             <div className="space-y-[16px]">
               {/* Row 1: Full Name & Email Address */}
               <div className="grid sm:grid-cols-2 gap-[16px]">
-                <Field label="Full Name" name="name" required>
+                <Field label="Full Name" error={errors.name} required>
                   <input
                     type="text"
                     className={inputCls}
@@ -214,7 +214,7 @@ ${parsed.data.message}
                     maxLength={100}
                   />
                 </Field>
-                <Field label="Email Address" name="email" required>
+                <Field label="Email Address" error={errors.email} required>
                   <input
                     type="email"
                     className={inputCls}
@@ -228,7 +228,7 @@ ${parsed.data.message}
 
               {/* Row 2: Phone Number & Service Needed */}
               <div className="grid sm:grid-cols-2 gap-[16px]">
-                <Field label="Phone Number" name="phone" optional>
+                <Field label="Phone Number" error={errors.phone} optional>
                   <input
                     type="tel"
                     className={inputCls}
@@ -238,7 +238,7 @@ ${parsed.data.message}
                     maxLength={30}
                   />
                 </Field>
-                <Field label="Service Needed" name="serviceNeeded" required>
+                <Field label="Service Needed" error={errors.serviceNeeded} required>
                   <select
                     className={selectCls}
                     value={form.serviceNeeded}
@@ -262,7 +262,7 @@ ${parsed.data.message}
 
               {/* Row 3: Property Type & Timeline */}
               <div className="grid sm:grid-cols-2 gap-[16px]">
-                <Field label="Property Type" name="propertyType" required>
+                <Field label="Property Type" error={errors.propertyType} required>
                   <select
                     className={selectCls}
                     value={form.propertyType}
@@ -273,7 +273,7 @@ ${parsed.data.message}
                     <option value="Commercial">Commercial</option>
                   </select>
                 </Field>
-                <Field label="Timeline" name="timeline" optional>
+                <Field label="Timeline" error={errors.timeline} optional>
                   <select
                     className={selectCls}
                     value={form.timeline}
@@ -291,7 +291,7 @@ ${parsed.data.message}
 
               {/* Row 4: Preferred Contact, Best Time to Call, Approx. Sq. Footage */}
               <div className="grid sm:grid-cols-3 gap-[16px] items-start">
-                <Field label="Preferred Contact" name="preferredContact" optional>
+                <Field label="Preferred Contact" error={errors.preferredContact} optional>
                   <div className="flex items-center gap-[16px] h-[48px]">
                     {[
                       { value: "Phone", label: "Phone" },
@@ -320,7 +320,7 @@ ${parsed.data.message}
                   </div>
                 </Field>
 
-                <Field label="Best Time to Call" name="bestTimeToCall" optional>
+                <Field label="Best Time to Call" error={errors.bestTimeToCall} optional>
                   <select
                     className={selectCls}
                     value={form.bestTimeToCall}
@@ -333,7 +333,7 @@ ${parsed.data.message}
                   </select>
                 </Field>
 
-                <Field label="Approx. Sq. Footage" name="approxSqFootage" optional>
+                <Field label="Approx. Sq. Footage" error={errors.approxSqFootage} optional>
                   <input
                     type="text"
                     className={inputCls}
@@ -346,7 +346,7 @@ ${parsed.data.message}
               </div>
 
               {/* Textarea: How Can We Help? */}
-              <Field label="How Can We Help?" name="message" required>
+              <Field label="How Can We Help?" error={errors.message} required>
                 <textarea
                   rows={4}
                   className={`${inputCls} resize-none`}

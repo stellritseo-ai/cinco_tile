@@ -187,7 +187,7 @@ function HomeRemodelingPage() {
     },
     {
       q: "How far do you travel for remodeling projects?",
-      a: "We serve homeowners within a 50-mile radius of our Houston location at 1400 Broadfield Blvd, £ 200 Houston, TX 77084, which includes Katy, Sugar Land, Cypress, Pearland, and the Woodlands."
+      a: "We serve homeowners within a 50-mile radius of our Houston location at 1400 Broadfield Blvd, Suite 200 Houston, TX 77084, which includes Katy, Sugar Land, Cypress, Pearland, and the Woodlands."
     },
     {
       q: "Do you offer free estimates?",

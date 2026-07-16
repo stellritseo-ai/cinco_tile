@@ -78,7 +78,7 @@ export const Footer = () => {
             <ul className="space-y-[14px] text-[14px] text-gray-300">
               <li>(832) 406-2716</li>
               <li>info@cincoservicesllc.com</li>
-              <li className="leading-[1.6]">1400 Broadfield Blvd,<br />£ 200 Houston, TX 77084</li>
+              <li className="leading-[1.6]">1400 Broadfield Blvd,<br />Suite 200 Houston, TX 77084</li>
             </ul>
           </div>
 

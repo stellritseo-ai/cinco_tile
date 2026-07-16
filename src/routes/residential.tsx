@@ -260,7 +260,7 @@ function ResidentialPage() {
     },
     {
       q: "How far do you travel for residential projects?",
-      a: "We serve homeowners within a 50-mile radius of our Houston location at 1400 Broadfield Blvd, £ 200 Houston, TX 77084, covering Katy, Sugar Land, Cypress, The Woodlands, Pearland, and surrounding areas."
+      a: "We serve homeowners within a 50-mile radius of our Houston location at 1400 Broadfield Blvd, Suite 200 Houston, TX 77084, covering Katy, Sugar Land, Cypress, The Woodlands, Pearland, and surrounding areas."
     },
     {
       q: "Do you offer free estimates?",
@@ -402,7 +402,7 @@ function ResidentialPage() {
                     </p>
                     <p className="flex items-center gap-3 items-start">
                       <MapPin className="w-4 h-4 text-sky-400 mt-0.5 shrink-0" />
-                      <span>1400 Broadfield Blvd,<br />£ 200 Houston, TX 77084</span>
+                      <span>1400 Broadfield Blvd,<br />Suite 200 Houston, TX 77084</span>
                     </p>
                   </div>
                 </div>

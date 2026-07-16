@@ -270,7 +270,7 @@ function CommercialPage() {
     },
     {
       q: "How far do you travel for commercial projects?",
-      a: "We serve commercial clients within a 50-mile radius of our main office located at 1400 Broadfield Blvd, £ 200 Houston, TX 77084. This includes Katy, Sugar Land, Cypress, Richmond, Pearland, and The Woodlands."
+      a: "We serve commercial clients within a 50-mile radius of our main office located at 1400 Broadfield Blvd, Suite 200 Houston, TX 77084. This includes Katy, Sugar Land, Cypress, Richmond, Pearland, and The Woodlands."
     },
     {
       q: "Do you offer free commercial estimates?",
@@ -423,7 +423,7 @@ function CommercialPage() {
                     </p>
                     <p className="flex items-center gap-3 items-start">
                       <MapPin className="w-4 h-4 text-sky-400 mt-0.5 shrink-0" />
-                      <span>1400 Broadfield Blvd,<br />£ 200 Houston, TX 77084</span>
+                      <span>1400 Broadfield Blvd,<br />Suite 200 Houston, TX 77084</span>
                     </p>
                   </div>
                 </div>

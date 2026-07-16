@@ -159,7 +159,7 @@ function NewHomeConstructionPage() {
     },
     {
       q: "How far do you travel for new home construction?",
-      a: "We build homes within a 50-mile radius of our Houston location at 1400 Broadfield Blvd, £ 200 Houston, TX 77084."
+      a: "We build homes within a 50-mile radius of our Houston location at 1400 Broadfield Blvd, Suite 200 Houston, TX 77084."
     },
     {
       q: "Do you handle permits and inspections?",
