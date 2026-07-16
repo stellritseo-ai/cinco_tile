@@ -10,15 +10,20 @@ export const Hero = () => {
       <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
         <source src={heroVideo} type="video/mp4" />
       </video>
-      <div className="absolute inset-0 bg-black/25" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/10" />
+
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 w-full pt-10">
         <div className="max-w-5xl text-white mx-auto text-center">
-          <h1 className="font-sans text-[28px] sm:text-[35px] md:text-[45px] mt-[130px] sm:mt-[150px] md:mt-[219px] font-bold leading-[38px] sm:leading-[45px] md:leading-[60px] tracking-tight">
+          <h1 
+            style={{ textShadow: '0 4px 20px rgba(0, 0, 0, 0.95), 0 2px 6px rgba(0, 0, 0, 0.95)' }}
+            className="font-sans text-[28px] sm:text-[35px] md:text-[45px] mt-[130px] sm:mt-[150px] md:mt-[219px] font-bold leading-[38px] sm:leading-[45px] md:leading-[60px] tracking-tight"
+          >
             15+ Years of Precision Home Remodeling &amp; <br className="hidden sm:block" /> <span className="text-sky-400 font-black">Construction in Houston</span>
           </h1>
-          <p className="mt-[10px] text-[14px] sm:text-[16px] md:text-[18px] text-white/90 max-w-[700px] leading-[24px] sm:leading-[28px] md:leading-[33px] font-medium mx-auto px-2">
+          <p 
+            style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.95), 0 1px 4px rgba(0, 0, 0, 0.95)' }}
+            className="mt-[10px] text-[14px] sm:text-[16px] md:text-[18px] text-white/95 max-w-[700px] leading-[24px] sm:leading-[28px] md:leading-[33px] font-medium mx-auto px-2"
+          >
             From whole-home remodeling and custom framing to roofing, painting, and premium tile installations – we bring unmatched craftsmanship and reliability to residential and commercial clients within 50 miles of Houston.
           </p>
           <div className="mt-[20px] sm:mt-[25px] flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 px-4 sm:px-0">
@@ -40,7 +45,12 @@ export const Hero = () => {
             ].map(({ i: Icon, t }) => (
               <div key={t} className="flex items-center text-left gap-2 md:gap-4 shrink-0">
                 <Icon className="w-[18px] h-[18px] sm:w-[20px] sm:h-[20px] md:w-[30px] md:h-[30px] text-brand fill-brand shrink-0" />
-                <span className="text-white font-semibold text-[12px] sm:text-[13px] md:text-[15px] whitespace-nowrap leading-none">{t}</span>
+                <span 
+                  style={{ textShadow: '0 2px 6px rgba(0, 0, 0, 0.9)' }}
+                  className="text-white font-semibold text-[12px] sm:text-[13px] md:text-[15px] whitespace-nowrap leading-none"
+                >
+                  {t}
+                </span>
               </div>
             ))}
           </div>
