@@ -1,4 +1,8 @@
-import mongoose from "mongoose";
+import { createRequire } from "node:module";
+import type mongooseType from "mongoose";
+
+const require = createRequire(import.meta.url);
+const mongoose = require("mongoose") as typeof mongooseType;
 import crypto from "node:crypto";
 
 export function hashPassword(password: string): string {
