@@ -1,6 +1,4 @@
-import { createRequire } from "node:module";
-const require = createRequire(import.meta.url);
-const cloudinary = require("cloudinary").v2;
+import { v2 as cloudinary } from "cloudinary";
 
 // Configure Cloudinary from environment variables ONLY — never hardcode credentials
 // Set CLOUDINARY_URL in Vercel environment variables dashboard:
