@@ -25,10 +25,10 @@ export default defineConfig({
     // require() calls crash with "require is not defined" at runtime.
     // @ts-ignore
     externals: {
-      external: ["mongoose", "mongodb"],
+      external: ["mongoose", "mongodb", "cloudinary"],
     },
   },
   ssr: {
-    external: ["mongoose", "mongodb"],
+    external: ["mongoose", "mongodb", "cloudinary"],
   },
 });

@@ -74,6 +74,7 @@ import {
   getPortalUsersFn,
   createPortalUserFn,
   deletePortalUserFn,
+  getPortalSettingsFn,
   updatePortalSettingsFn,
   incrementVisitsFn
 } from "./api/db.functions";
