@@ -2,27 +2,47 @@ import { Star, User } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { motion } from "framer-motion";
 import { useEstimateModal } from "@/context/EstimateModalContext";
+import { useEffect, useState } from "react";
+import { getReviews, type Review } from "@/lib/leads-store";
+
+const FALLBACK_REVIEWS = [
+  {
+    name: "Lisa M.",
+    location: "Houston",
+    text: "\u201cCinco Services did our master bathroom remodel \u2013 from framing and plumbing to new bathtub and custom shower tile. Flawless work. Showed up on time, cleaned up every day. Highly recommend.\u201d"
+  },
+  {
+    name: "James R.",
+    location: "Katy",
+    text: "\u201cThey handled our entire home remodeling project \u2013 including wall removal, interior painting, and beautiful flooring. Professional, fair price, and the quality is stunning.\u201d"
+  },
+  {
+    name: "Carmen T.",
+    location: "Sugar Land",
+    text: "\u201cThe team replaced our roof and did exterior painting. Fast, honest, and detail-oriented. Will use them again for our kitchen remodel.\u201d"
+  }
+];
 
 export const Testimonials = () => {
   const { openModal } = useEstimateModal();
+  const [reviews, setReviews] = useState<{ name: string; location: string; text: string }[]>(FALLBACK_REVIEWS);
 
-  const reviews = [
-    {
-      name: "Lisa M.",
-      location: "Houston",
-      text: "“Cinco Services did our master bathroom remodel – from framing and plumbing to new bathtub and custom shower tile. Flawless work. Showed up on time, cleaned up every day. Highly recommend.”"
-    },
-    {
-      name: "James R.",
-      location: "Katy",
-      text: "“They handled our entire home remodeling project – including wall removal, interior painting, and beautiful flooring. Professional, fair price, and the quality is stunning.”"
-    },
-    {
-      name: "Carmen T.",
-      location: "Sugar Land",
-      text: "“The team replaced our roof and did exterior painting. Fast, honest, and detail-oriented. Will use them again for our kitchen remodel.”"
-    }
-  ];
+  useEffect(() => {
+    getReviews()
+      .then((data: Review[]) => {
+        const featured = data.filter(r => r.featured);
+        if (featured.length > 0) {
+          setReviews(featured.map(r => ({
+            name: r.author,
+            location: r.location,
+            text: r.text
+          })));
+        }
+      })
+      .catch(() => {
+        // Keep fallback reviews on error
+      });
+  }, []);
 
   return (
     <section className="bg-[#F6F5F2] py-[50px] sm:py-[60px] w-full overflow-hidden">

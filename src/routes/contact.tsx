@@ -96,7 +96,35 @@ ${message}
 `.trim();
 
     try {
-      const res = await fetch("https://formsubmit.co/ajax/info@cincoservicesllc.com", {
+      // 1. Save to MongoDB Atlas: Web Emails & Leads
+      const { addWebEmail, addCustomLead } = await import("@/lib/leads-store");
+
+      await Promise.all([
+        addWebEmail({
+          name: fullName.trim(),
+          email: email.trim(),
+          phone: phone.trim() || "",
+          service: service || "Contact Page Form",
+          message: messageDetails,
+          source: "Contact Page Intake Form"
+        }).catch((e) => console.error("[ContactPage] Failed to save WebEmail:", e)),
+
+        addCustomLead({
+          name: fullName.trim(),
+          email: email.trim(),
+          phone: phone.trim() || "(Not provided)",
+          address: "Houston, TX",
+          projectType: service?.toLowerCase().includes("tile") ? "remodeling" : "new-construction",
+          description: messageDetails,
+          contactTime: bestTime || "morning",
+          status: "new",
+          estimatedValue: 20000,
+          notes: `SqFt: ${sqFootage || 'N/A'}, Timeline: ${timeline || 'N/A'}`
+        }).catch((e) => console.error("[ContactPage] Failed to save Lead:", e))
+      ]);
+
+      // 2. Also send external email notification via formsubmit.co
+      fetch("https://formsubmit.co/ajax/info@cincoservicesllc.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -109,12 +137,7 @@ ${message}
           phone: phone.trim() || "Not provided",
           message: messageDetails,
         }),
-      });
-
-      const data = await res.json();
-      if (!res.ok || data.success === "false") {
-        throw new Error(data.message || "Submission failed");
-      }
+      }).catch(() => {});
 
       setLoading(false);
       setIsSubmitted(true);

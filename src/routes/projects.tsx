@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getGalleryPhotos, type GalleryPhoto } from "@/lib/leads-store";
 import { 
   Phone, 
   Mail, 
@@ -80,70 +81,38 @@ interface Project {
   };
 }
 
-// Dynamically import all images in the gallery folder
-const galleryModules = import.meta.glob("../assets/gallery/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true });
-const galleryImages = Object.values(galleryModules)
-  .map((mod: any) => (mod && typeof mod === "object" && "default" in mod ? (mod.default as string) : null))
-  .filter((url): url is string => typeof url === "string");
-
 // Dynamically import all videos in the gallery folder
 const galleryVideoModules = import.meta.glob("../assets/gallery/*.{mp4,webm,ogg,MP4,WEBM,OGG}", { eager: true });
 const galleryVideos = Object.values(galleryVideoModules)
   .map((mod: any) => (mod && typeof mod === "object" && "default" in mod ? (mod.default as string) : null))
   .filter((url): url is string => typeof url === "string");
 
-// Construct gallery items combining videos and dynamically loaded images
-const galleryItems = [
+const videoItems = [
   {
     url: heroVideo,
-    categories: ["all", "video"],
+    categories: ["video"],
     isVideo: true
   },
   ...galleryVideos.map((url) => ({
     url,
-    categories: ["all", "video"],
+    categories: ["video"],
     isVideo: true
-  })),
-  ...galleryImages.map((url, idx) => {
-    let categories = ["all", "residential"]; // All are residential or commercial
-    
-    // Distribute commercial tag to 30% of photos
-    if (idx % 3 === 0) {
-      categories.push("commercial");
-    }
-    
-    // Distribute based on index
-    const categoryPools = [
-      "tile",
-      "bathroom",
-      "kitchen",
-      "construction",
-      "roofing",
-      "painting",
-      "outdoor"
-    ];
-    
-    // Assign a primary category
-    const primaryCat = categoryPools[idx % categoryPools.length];
-    categories.push(primaryCat);
-    
-    // Additional logical combinations
-    if (primaryCat === "bathroom" || primaryCat === "kitchen") {
-      categories.push("tile");
-    }
-    
-    return {
-      url,
-      categories,
-      isVideo: false
-    };
-  })
+  }))
 ];
 
 function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState("all");
   const [selectedImg, setSelectedImg] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [dbPhotos, setDbPhotos] = useState<GalleryPhoto[]>([]);
+
+  useEffect(() => {
+    getGalleryPhotos().then(photos => {
+      if (photos && Array.isArray(photos)) {
+        setDbPhotos(photos);
+      }
+    }).catch(err => console.error("Failed to load gallery photos:", err));
+  }, []);
 
   const trustBadges = [
     { text: "15+ Years Experience" },
@@ -164,10 +133,9 @@ function ProjectsPage() {
   ];
 
   const filterButtons = [
-    { id: "all", label: "All Projects" },
-    { id: "video", label: "Video Projects" }
+    { id: "all", label: "All Images" },
+    { id: "video", label: "Project Video" }
   ];
-  const projects: Project[] = [];
 
   const beforeAfterTransformations = [
     { title: "Kitchen Remodels", desc: "Dated cabinets and tiles turned into modern culinary spaces." },
@@ -204,14 +172,16 @@ function ProjectsPage() {
     { cat: "Outdoor & Patio", desc: "Patio tiles, outdoor kitchens, decks, and exterior living spaces" }
   ];
 
-  // Filtering Logic
-  const filteredProjects = activeFilter === "all" 
-    ? projects 
-    : projects.filter(proj => proj.tags.includes(activeFilter));
+  // Only display photos uploaded via dashboard (MongoDB & Cloudinary)
+  const mongoGalleryItems = dbPhotos.map(p => ({
+    url: p.url,
+    categories: ["all"],
+    isVideo: false
+  }));
 
-  const filteredGalleryItems = activeFilter === "all" 
-    ? galleryItems 
-    : galleryItems.filter(item => item.categories.includes(activeFilter));
+  const filteredGalleryItems = activeFilter === "video" 
+    ? videoItems 
+    : mongoGalleryItems;
 
   return (
     <div className="bg-background text-foreground min-h-screen flex flex-col font-sans">
@@ -420,14 +390,9 @@ function ProjectsPage() {
             </div>
 
             {filteredGalleryItems.length === 0 && (
-              <div className="text-center py-20 border border-dashed border-gray-200 rounded-3xl">
-                <span className="text-gray-400 block text-lg font-semibold">No project photos found in this category.</span>
-                <button 
-                  onClick={() => setActiveFilter("all")}
-                  className="text-[#0077b6] font-bold text-[14px] mt-2 hover:underline cursor-pointer"
-                >
-                  Clear filters
-                </button>
+              <div className="text-center py-20 border border-dashed border-gray-200 rounded-3xl bg-gray-50/50">
+                <span className="text-gray-600 block text-lg font-bold">No project photos uploaded yet.</span>
+                <p className="text-gray-400 text-xs mt-1">Upload images from the admin dashboard (Update Gallery tab) to display them here in real time.</p>
               </div>
             )}
 

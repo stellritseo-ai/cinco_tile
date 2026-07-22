@@ -5,6 +5,11 @@
 //     error logger plugins, and sandbox detection (port/host/strictPort).
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { loadEnv } from "vite";
+
+// Load all environment variables (including non-VITE_ prefixed ones) from .env into process.env in development
+const env = loadEnv(process.env.NODE_ENV || "development", process.cwd(), "");
+Object.assign(process.env, env);
 
 export default defineConfig({
   tanstackStart: {
@@ -14,5 +19,15 @@ export default defineConfig({
   },
   nitro: {
     preset: "vercel",
+    // Externalize CJS packages so Vercel can handle them natively.
+    // Without this, Nitro bundles mongoose into ESM and its internal
+    // require() calls crash with "require is not defined" at runtime.
+    // @ts-ignore
+    externals: {
+      external: ["mongoose", "mongodb"],
+    },
+  },
+  ssr: {
+    external: ["mongoose", "mongodb"],
   },
 });

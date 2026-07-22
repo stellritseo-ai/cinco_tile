@@ -15,11 +15,13 @@ import { Route as RoofingServicesRouteImport } from './routes/roofing-services'
 import { Route as ResidentialRouteImport } from './routes/residential'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as NewHomeConstructionRouteImport } from './routes/new-home-construction'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as KitchenRemodelingRouteImport } from './routes/kitchen-remodeling'
 import { Route as InteriorPaintingRouteImport } from './routes/interior-painting'
 import { Route as HomeRemodelingRouteImport } from './routes/home-remodeling'
 import { Route as FlooringInstallationRouteImport } from './routes/flooring-installation'
 import { Route as ExteriorPaintingRouteImport } from './routes/exterior-painting'
+import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CommercialRouteImport } from './routes/commercial'
 import { Route as BathroomRemodelingRouteImport } from './routes/bathroom-remodeling'
@@ -57,6 +59,11 @@ const NewHomeConstructionRoute = NewHomeConstructionRouteImport.update({
   path: '/new-home-construction',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const KitchenRemodelingRoute = KitchenRemodelingRouteImport.update({
   id: '/kitchen-remodeling',
   path: '/kitchen-remodeling',
@@ -80,6 +87,11 @@ const FlooringInstallationRoute = FlooringInstallationRouteImport.update({
 const ExteriorPaintingRoute = ExteriorPaintingRouteImport.update({
   id: '/exterior-painting',
   path: '/exterior-painting',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -114,11 +126,13 @@ export interface FileRoutesByFullPath {
   '/bathroom-remodeling': typeof BathroomRemodelingRoute
   '/commercial': typeof CommercialRoute
   '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRoute
   '/exterior-painting': typeof ExteriorPaintingRoute
   '/flooring-installation': typeof FlooringInstallationRoute
   '/home-remodeling': typeof HomeRemodelingRoute
   '/interior-painting': typeof InteriorPaintingRoute
   '/kitchen-remodeling': typeof KitchenRemodelingRoute
+  '/login': typeof LoginRoute
   '/new-home-construction': typeof NewHomeConstructionRoute
   '/projects': typeof ProjectsRoute
   '/residential': typeof ResidentialRoute
@@ -132,11 +146,13 @@ export interface FileRoutesByTo {
   '/bathroom-remodeling': typeof BathroomRemodelingRoute
   '/commercial': typeof CommercialRoute
   '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRoute
   '/exterior-painting': typeof ExteriorPaintingRoute
   '/flooring-installation': typeof FlooringInstallationRoute
   '/home-remodeling': typeof HomeRemodelingRoute
   '/interior-painting': typeof InteriorPaintingRoute
   '/kitchen-remodeling': typeof KitchenRemodelingRoute
+  '/login': typeof LoginRoute
   '/new-home-construction': typeof NewHomeConstructionRoute
   '/projects': typeof ProjectsRoute
   '/residential': typeof ResidentialRoute
@@ -151,11 +167,13 @@ export interface FileRoutesById {
   '/bathroom-remodeling': typeof BathroomRemodelingRoute
   '/commercial': typeof CommercialRoute
   '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRoute
   '/exterior-painting': typeof ExteriorPaintingRoute
   '/flooring-installation': typeof FlooringInstallationRoute
   '/home-remodeling': typeof HomeRemodelingRoute
   '/interior-painting': typeof InteriorPaintingRoute
   '/kitchen-remodeling': typeof KitchenRemodelingRoute
+  '/login': typeof LoginRoute
   '/new-home-construction': typeof NewHomeConstructionRoute
   '/projects': typeof ProjectsRoute
   '/residential': typeof ResidentialRoute
@@ -171,11 +189,13 @@ export interface FileRouteTypes {
     | '/bathroom-remodeling'
     | '/commercial'
     | '/contact'
+    | '/dashboard'
     | '/exterior-painting'
     | '/flooring-installation'
     | '/home-remodeling'
     | '/interior-painting'
     | '/kitchen-remodeling'
+    | '/login'
     | '/new-home-construction'
     | '/projects'
     | '/residential'
@@ -189,11 +209,13 @@ export interface FileRouteTypes {
     | '/bathroom-remodeling'
     | '/commercial'
     | '/contact'
+    | '/dashboard'
     | '/exterior-painting'
     | '/flooring-installation'
     | '/home-remodeling'
     | '/interior-painting'
     | '/kitchen-remodeling'
+    | '/login'
     | '/new-home-construction'
     | '/projects'
     | '/residential'
@@ -207,11 +229,13 @@ export interface FileRouteTypes {
     | '/bathroom-remodeling'
     | '/commercial'
     | '/contact'
+    | '/dashboard'
     | '/exterior-painting'
     | '/flooring-installation'
     | '/home-remodeling'
     | '/interior-painting'
     | '/kitchen-remodeling'
+    | '/login'
     | '/new-home-construction'
     | '/projects'
     | '/residential'
@@ -226,11 +250,13 @@ export interface RootRouteChildren {
   BathroomRemodelingRoute: typeof BathroomRemodelingRoute
   CommercialRoute: typeof CommercialRoute
   ContactRoute: typeof ContactRoute
+  DashboardRoute: typeof DashboardRoute
   ExteriorPaintingRoute: typeof ExteriorPaintingRoute
   FlooringInstallationRoute: typeof FlooringInstallationRoute
   HomeRemodelingRoute: typeof HomeRemodelingRoute
   InteriorPaintingRoute: typeof InteriorPaintingRoute
   KitchenRemodelingRoute: typeof KitchenRemodelingRoute
+  LoginRoute: typeof LoginRoute
   NewHomeConstructionRoute: typeof NewHomeConstructionRoute
   ProjectsRoute: typeof ProjectsRoute
   ResidentialRoute: typeof ResidentialRoute
@@ -283,6 +309,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewHomeConstructionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/kitchen-remodeling': {
       id: '/kitchen-remodeling'
       path: '/kitchen-remodeling'
@@ -316,6 +349,13 @@ declare module '@tanstack/react-router' {
       path: '/exterior-painting'
       fullPath: '/exterior-painting'
       preLoaderRoute: typeof ExteriorPaintingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -362,11 +402,13 @@ const rootRouteChildren: RootRouteChildren = {
   BathroomRemodelingRoute: BathroomRemodelingRoute,
   CommercialRoute: CommercialRoute,
   ContactRoute: ContactRoute,
+  DashboardRoute: DashboardRoute,
   ExteriorPaintingRoute: ExteriorPaintingRoute,
   FlooringInstallationRoute: FlooringInstallationRoute,
   HomeRemodelingRoute: HomeRemodelingRoute,
   InteriorPaintingRoute: InteriorPaintingRoute,
   KitchenRemodelingRoute: KitchenRemodelingRoute,
+  LoginRoute: LoginRoute,
   NewHomeConstructionRoute: NewHomeConstructionRoute,
   ProjectsRoute: ProjectsRoute,
   ResidentialRoute: ResidentialRoute,

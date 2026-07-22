@@ -114,7 +114,35 @@ ${parsed.data.message}
 `.trim();
 
     try {
-      const res = await fetch("https://formsubmit.co/ajax/info@cincoservicesllc.com", {
+      // 1. Save to MongoDB Atlas: Web Emails & Leads
+      const { addWebEmail, addCustomLead } = await import("@/lib/leads-store");
+
+      await Promise.all([
+        addWebEmail({
+          name: parsed.data.name,
+          email: parsed.data.email,
+          phone: parsed.data.phone || "",
+          service: parsed.data.serviceNeeded || "Free Estimate Request",
+          message: messageDetails,
+          source: "Free Estimate Modal"
+        }).catch((e) => console.error("[EstimateModal] Failed to save WebEmail:", e)),
+
+        addCustomLead({
+          name: parsed.data.name,
+          email: parsed.data.email,
+          phone: parsed.data.phone || "(Not provided)",
+          address: "Houston, TX",
+          projectType: parsed.data.serviceNeeded?.toLowerCase().includes("tile") ? "remodeling" : "new-construction",
+          description: messageDetails,
+          contactTime: parsed.data.bestTimeToCall || "morning",
+          status: "new",
+          estimatedValue: 25000,
+          notes: `SqFt: ${parsed.data.approxSqFootage || 'N/A'}, Timeline: ${parsed.data.timeline || 'N/A'}`
+        }).catch((e) => console.error("[EstimateModal] Failed to save Lead:", e))
+      ]);
+
+      // 2. Also send external email notification via formsubmit.co
+      fetch("https://formsubmit.co/ajax/info@cincoservicesllc.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -127,12 +155,7 @@ ${parsed.data.message}
           phone: parsed.data.phone || "Not provided",
           message: messageDetails,
         }),
-      });
-
-      const data = await res.json();
-      if (!res.ok || data.success === "false") {
-        throw new Error(data.message || "Submission failed");
-      }
+      }).catch(() => {});
 
       setStatus("success");
       // Reset form

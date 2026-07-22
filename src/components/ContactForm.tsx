@@ -47,7 +47,35 @@ export function ContactForm() {
     setErrorMsg("");
 
     try {
-      const res = await fetch("https://formsubmit.co/ajax/info@cincoservicesllc.com", {
+      // 1. Save to MongoDB: Web Emails & Leads
+      const { addWebEmail, addCustomLead } = await import("@/lib/leads-store");
+      
+      await Promise.all([
+        addWebEmail({
+          name: parsed.data.name,
+          email: parsed.data.email,
+          phone: parsed.data.phone || "",
+          service: "General Inquiry",
+          message: parsed.data.message,
+          source: "Contact Form Section"
+        }).catch((e) => console.error("[ContactForm] Failed to save WebEmail:", e)),
+        
+        addCustomLead({
+          name: parsed.data.name,
+          email: parsed.data.email,
+          phone: parsed.data.phone || "(Not provided)",
+          address: "Houston, TX",
+          projectType: "remodeling",
+          description: parsed.data.message,
+          contactTime: "anytime",
+          status: "new",
+          estimatedValue: 15000,
+          notes: "Submitted via Homepage Contact Form"
+        }).catch((e) => console.error("[ContactForm] Failed to save Lead:", e))
+      ]);
+
+      // 2. Also send external email notification via formsubmit.co
+      fetch("https://formsubmit.co/ajax/info@cincoservicesllc.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -60,12 +88,7 @@ export function ContactForm() {
           phone: parsed.data.phone || "Not provided",
           message: parsed.data.message,
         }),
-      });
-
-      const data = await res.json();
-      if (!res.ok || data.success === "false") {
-        throw new Error(data.message || "Submission failed");
-      }
+      }).catch(() => {});
 
       setStatus("success");
       setForm({ name: "", email: "", phone: "", message: "" });

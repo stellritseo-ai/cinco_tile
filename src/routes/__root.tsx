@@ -9,6 +9,9 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 import { EstimateModalProvider, useEstimateModal } from "@/context/EstimateModalContext";
+import { SettingsProvider } from "@/context/settings-context";
+import { TranslationProvider } from "@/context/translation-context";
+import { ChatWidget } from "@/components/ChatWidget";
 import { EstimateModal } from "@/components/EstimateModal";
 
 import appCss from "../styles.css?url";
@@ -68,7 +71,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: faviconImg, type: "image/png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" },
       { rel: "stylesheet", href: appCss },
     ],
   }),
@@ -89,9 +92,13 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   return (
-    <EstimateModalProvider>
-      <RootContent />
-    </EstimateModalProvider>
+    <TranslationProvider>
+      <SettingsProvider>
+        <EstimateModalProvider>
+          <RootContent />
+        </EstimateModalProvider>
+      </SettingsProvider>
+    </TranslationProvider>
   );
 }
 
@@ -126,10 +133,22 @@ function RootContent() {
     return () => document.removeEventListener("click", handleGlobalClick, { capture: true });
   }, [openModal]);
 
+  const isDashboard = typeof window !== "undefined" && 
+    (window.location.pathname.startsWith("/dashboard") || window.location.pathname === "/login");
+
+  useEffect(() => {
+    if (!isDashboard) {
+      import("@/lib/leads-store").then(({ incrementVisits }) => {
+        incrementVisits().catch(() => {});
+      });
+    }
+  }, [isDashboard]);
+
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
       <EstimateModal isOpen={isOpen} onClose={closeModal} />
+      {!isDashboard && <ChatWidget />}
     </QueryClientProvider>
   );
 }
