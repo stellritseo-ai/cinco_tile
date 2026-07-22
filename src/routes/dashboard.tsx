@@ -37,7 +37,8 @@ import {
   Info,
   Image as ImageIcon,
   Eye,
-  X
+  X,
+  Menu
 } from "lucide-react";
 import {
   ResponsiveContainer,
@@ -166,6 +167,7 @@ function DashboardPage() {
 
   const { language } = useTranslation();
   const [activeTab, setActiveTab] = useState<"overview" | "leads" | "reviews" | "settings" | "chat" | "gallery" | "emails" | "security">("overview");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Portal Security States
   const [portalUsers, setPortalUsers] = useState<PortalUser[]>([]);
@@ -1199,6 +1201,12 @@ function DashboardPage() {
       {/* ── FIXED TOP HEADER BAR ── */}
       <header className="fixed top-0 left-0 right-0 h-[68px] z-50 bg-gradient-to-r from-[#0F172A] via-[#1E293B] to-[#0F172A] text-white px-6 md:px-10 flex items-center justify-between shadow-xl border-b border-slate-800 font-sans backdrop-blur-md">
         <div className="flex items-center gap-3.5">
+          <button 
+            className="md:hidden p-2 -ml-2 text-slate-300 hover:text-white"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            <Menu className="w-6 h-6" />
+          </button>
           <Link to="/" className="hover:opacity-90 transition-opacity flex items-center gap-2 group">
             <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/20 p-1 flex items-center justify-center shadow-md">
               <img src={logo} alt="Cinco Tile" className="w-full h-full object-contain" />
@@ -1256,9 +1264,25 @@ function DashboardPage() {
 
       {/* ── DASHBOARD WORKSPACE ── */}
       <div className="flex mt-[68px] h-[calc(100vh-68px)] overflow-hidden">
+        {/* Mobile Backdrop */}
+        {mobileMenuOpen && (
+          <div 
+            className="md:hidden fixed inset-0 bg-black/50 z-30 backdrop-blur-sm"
+            style={{ top: '68px' }}
+            onClick={() => setMobileMenuOpen(false)}
+          />
+        )}
+        
         {/* ── SIDEBAR ── */}
-        <aside className="hidden md:flex flex-col w-[260px] shrink-0 h-full bg-gradient-to-b from-[#0F172A] via-[#111827] to-[#0a0f1a] border-r border-slate-700/50 shadow-[6px_0_30px_rgba(0,0,0,0.25)] overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-slate-700">
-          <nav className="flex flex-col h-full p-4 space-y-1">
+        <aside 
+          className={`fixed md:static inset-y-0 left-0 z-40 transform ${mobileMenuOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col w-[260px] shrink-0 h-full bg-gradient-to-b from-[#0F172A] via-[#111827] to-[#0a0f1a] border-r border-slate-700/50 shadow-[6px_0_30px_rgba(0,0,0,0.25)] overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-slate-700`}
+          style={{ top: '68px', height: 'calc(100vh - 68px)' }}
+        >
+          <nav className="flex flex-col h-full p-4 space-y-1 pb-20" onClick={(e) => {
+            if ((e.target as HTMLElement).closest('button')) {
+              setMobileMenuOpen(false);
+            }
+          }}>
             {/* Nav label */}
             <div className="px-3 pt-1 pb-3 text-[9px] font-extrabold text-slate-500 uppercase tracking-[0.18em]">
               Navigation Menu
