@@ -6,6 +6,7 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 import { loadEnv } from "vite";
+import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 
 // Load all environment variables (including non-VITE_ prefixed ones) from .env into process.env in development
 const env = loadEnv(process.env.NODE_ENV || "development", process.cwd(), "");

@@ -1,5 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
-import { INITIAL_LEADS, INITIAL_REVIEWS, INITIAL_CHATS } from "../leads-store";
+import { INITIAL_LEADS, INITIAL_REVIEWS, INITIAL_CHATS } from "../initial-data";
 
 // ── LEADS FUNCTIONS ──
 
