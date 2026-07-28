@@ -108,6 +108,7 @@ function ProjectsPage() {
   const [selectedImg, setSelectedImg] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [dbPhotos, setDbPhotos] = useState<GalleryPhoto[]>([]);
+  const [failedImages, setFailedImages] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     getGalleryPhotos().then(photos => {
@@ -182,9 +183,9 @@ function ProjectsPage() {
     isVideo: false
   }));
 
-  const filteredGalleryItems = activeFilter === "video" 
+  const filteredGalleryItems = (activeFilter === "video" 
     ? videoItems 
-    : mongoGalleryItems;
+    : mongoGalleryItems).filter(item => !failedImages.has(item.url));
 
   return (
     <div className="bg-background text-foreground min-h-screen flex flex-col font-sans">
@@ -380,6 +381,7 @@ function ProjectsPage() {
                         alt={`Cinco project ${idx + 1}`} 
                         className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500 ease-out"
                         loading="lazy"
+                        onError={() => setFailedImages(prev => new Set(prev).add(item.url))}
                       />
                     )}
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-black/35 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">

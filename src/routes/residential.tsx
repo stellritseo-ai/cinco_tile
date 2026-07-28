@@ -39,8 +39,9 @@ import bathroomImg from "@/assets/gallery/WhatsApp Image 2026-07-16 at 8.17.44�
 import kitchenImg from "@/assets/gallery/gallery_12.jpeg";
 import tileImg from "@/assets/gallery/gallery_2.jpeg";
 import transformImg from "@/assets/gallery/gallery_9.jpeg";
-import estimateImg from "@/assets/gallery/gallery_7.jpeg";
+const estimateImg = "https://res.cloudinary.com/kgizlgsn/image/upload/v1784754552/cinco_gallery/btzpv6tns11j6lj4deqg.jpg";
 import showroomImg from "@/assets/gallery/WhatsApp Image 2026-07-16 at 8.17.48 PM.jpeg";
+const tileImg3 = "https://res.cloudinary.com/kgizlgsn/image/upload/v1784754622/cinco_gallery/wqfud1eunszbicd5eu0a.jpg";
 
 // Dynamically import all images in the gallery folder
 const galleryModules = import.meta.glob("../assets/gallery/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true });
@@ -184,7 +185,7 @@ function ResidentialPage() {
       title: "Custom Tile & Flooring Installation",
       subtitle: "Premium Tile & Flooring – Beauty That Lasts",
       desc: "With over 15 years of tile expertise, we're the go-to choice for homeowners who want stunning, durable floors and surfaces.",
-      image: tileImg,
+      image: tileImg3,
       icon: Layers,
       bulletPoints: [
         "Tile Choices: Ceramic, Granite, Marble, Limestone, Porcelain, Slate, Onyx, Travertine",
