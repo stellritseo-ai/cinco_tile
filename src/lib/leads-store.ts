@@ -439,9 +439,6 @@ export interface PortalSettings {
   id?: string;
   adminEmail: string;
   officePhone: string;
-  autoSmsTemplate: string;
-  sendAutoEmail: boolean;
-  sendAutoSms: boolean;
   hoursWeekday: string;
   hoursSaturday: string;
   hoursSunday: string;

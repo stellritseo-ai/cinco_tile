@@ -1,10 +1,12 @@
 import { Layers, Calendar, Phone } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { useEstimateModal } from "@/context/EstimateModalContext";
+import { useSettings } from "@/context/settings-context";
 
 import transform from "@/assets/gallery/WhatsApp Image 2026-07-16 at 8.17.44 PM.jpeg";
 
 export const TransformCTA = () => {
+  const { settings } = useSettings();
   const { openModal } = useEstimateModal();
   return (
     <section className="bg-white py-[60px] w-full">
@@ -45,11 +47,11 @@ export const TransformCTA = () => {
                 </button>
 
                 <a
-                  href="tel:8324062716"
+                  href={`tel:${settings.officePhone.replace(/\\D/g, "")}`}
                   className="inline-flex items-center justify-center gap-[10px] bg-[#00bcff] text-white rounded-[8px] px-[24px] py-[14px] font-bold text-[15px] hover:brightness-110 hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 shadow-[0_4px_14px_0_rgba(0,188,255,0.3)]"
                 >
                   <Phone className="w-[18px] h-[18px]" strokeWidth={2.5} />
-                  Call (832) 406-2716
+                  Call {settings.officePhone}
                 </a>
               </div>
             </div>

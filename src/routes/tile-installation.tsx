@@ -37,6 +37,7 @@ import { Nav } from "@/components/home/Nav";
 import { Footer } from "@/components/home/Footer";
 import { LiveChat } from "@/components/home/LiveChat";
 import { Reveal } from "@/components/ui/Reveal";
+import { useSettings } from "@/context/settings-context";
 
 // Import images
 import tileInstallationHero from "@/assets/tile_installation_hero.png";
@@ -67,6 +68,7 @@ export const Route = createFileRoute("/tile-installation")({
 });
 
 function TileInstallationPage() {
+  const { settings } = useSettings();
   const trustBadges = [
     { text: "15+ Years Tile Expertise" },
     { text: "Licensed & Insured" },
@@ -247,10 +249,10 @@ function TileInstallationPage() {
                 Get My Free Tile Estimate
               </a>
               <a 
-                href="tel:8324062716"
+                href={`tel:${settings.officePhone.replace(/\D/g, "")}`}
                 className="bg-white/10 hover:bg-white/15 border border-white/25 rounded-full px-8 py-3.5 text-[14px] font-bold text-white transition-all"
               >
-                Call (832) 406-2716
+                Call {settings.officePhone}
               </a>
             </div>
 
@@ -777,10 +779,10 @@ function TileInstallationPage() {
                   Get My Free Tile Estimate
                 </a>
                 <a 
-                  href="tel:8324062716" 
+                  href={`tel:${settings.officePhone.replace(/\D/g, "")}`} 
                   className="inline-flex items-center gap-2.5 bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 text-white rounded-full px-8 py-4 text-[15px] font-bold hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
                 >
-                  <Phone className="w-[16px] h-[16px]" /> Call (832) 406-2716
+                  <Phone className="w-[16px] h-[16px]" /> Call {settings.officePhone}
                 </a>
               </div>
             </Reveal>

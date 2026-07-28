@@ -32,6 +32,7 @@ import { Nav } from "@/components/home/Nav";
 import { Footer } from "@/components/home/Footer";
 import { LiveChat } from "@/components/home/LiveChat";
 import { Reveal } from "@/components/ui/Reveal";
+import { useSettings } from "@/context/settings-context";
 
 // Import images
 import estimateBg from "@/assets/estimate.jpg";
@@ -50,6 +51,7 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
+  const { settings } = useSettings();
   // Form States
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -186,7 +188,7 @@ ${message}
   const faqs = [
     {
       q: "How quickly will you respond to my inquiry?",
-      a: "We respond to all calls, emails, and form submissions within one business day. For urgent matters, please call us directly at (832) 406-2716."
+      a: `We respond to all calls, emails, and form submissions within one business day. For urgent matters, please call us directly at ${settings.officePhone}.`
     },
     {
       q: "Do you offer free estimates?",
@@ -210,7 +212,7 @@ ${message}
     },
     {
       q: "What if I have an emergency repair need?",
-      a: "For urgent roofing, water damage, or other emergency repairs, call us immediately at (832) 406-2716."
+      a: `For urgent roofing, water damage, or other emergency repairs, call us immediately at ${settings.officePhone}.`
     }
   ];
 
@@ -245,13 +247,13 @@ ${message}
             {/* Quick buttons */}
             <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-3.5 max-w-3xl mx-auto">
               <a
-                href="tel:8324062716"
+                href={`tel:${settings.officePhone.replace(/\\D/g, "")}`}
                 className="bg-[#d62828] hover:brightness-110 rounded-full px-8 py-3 text-[14px] font-bold text-white transition-all shadow-[0_4px_12px_rgba(214,40,40,0.3)]"
               >
-                Call (832) 406-2716
+                Call {settings.officePhone}
               </a>
               <a
-                href="mailto:info@cincoservicesllc.com"
+                href={`mailto:${settings.adminEmail}`}
                 className="bg-white/10 hover:bg-white/15 border border-white/25 rounded-full px-8 py-3 text-[14px] font-bold text-white transition-all"
               >
                 Email Us
@@ -295,10 +297,10 @@ ${message}
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     {[
-                      { icon: Phone, title: "Phone", details: "(832) 406-2716", sub: "Available during business hours – or leave a voicemail.", href: "tel:8324062716" },
-                      { icon: Mail, title: "Email", details: "info@cincoservicesllc.com", sub: "We respond to all emails within one business day.", href: "mailto:info@cincoservicesllc.com" },
+                      { icon: Phone, title: "Phone", details: settings.officePhone, sub: "Available during business hours – or leave a voicemail.", href: `tel:${settings.officePhone.replace(/\\D/g, "")}` },
+                      { icon: Mail, title: "Email", details: settings.adminEmail, sub: "We respond to all emails within one business day.", href: `mailto:${settings.adminEmail}` },
                       { icon: MapPin, title: "Address", details: "1400 Broadfield Blvd, Suite 200 Houston, TX 77084", sub: "Centrally located to serve the greater Houston area.", href: "https://www.google.com/maps/place/1400+Broadfield+Blvd,+Houston,+TX+77084" },
-                      { icon: Clock, title: "Business Hours", details: "Mon–Fri: 7am–7pm | Sat: 8am–7pm", sub: "Appointments available outside regular hours upon request." },
+                      { icon: Clock, title: "Business Hours", details: `Mon-Fri: ${settings.hoursWeekday} | Sat: ${settings.hoursSaturday}`, sub: "Appointments available outside regular hours upon request." },
                     ].map((info, idx) => {
                       const Icon = info.icon;
                       return (
@@ -572,7 +574,7 @@ ${message}
                         <Phone className="w-5 h-5 text-sky-400 shrink-0 mt-0.5" />
                         <div>
                           <span className="text-[11px] font-bold text-gray-500 block uppercase">Call Us</span>
-                          <a href="tel:8324062716" className="hover:underline font-bold text-white text-[15px]">(832) 406-2716</a>
+                          <a href={`tel:${settings.officePhone.replace(/\\D/g, "")}`} className="hover:underline font-bold text-white text-[15px]">{settings.officePhone}</a>
                         </div>
                       </p>
 
@@ -580,7 +582,7 @@ ${message}
                         <Mail className="w-5 h-5 text-sky-400 shrink-0 mt-0.5" />
                         <div>
                           <span className="text-[11px] font-bold text-gray-500 block uppercase">Email</span>
-                          <a href="mailto:info@cincoservicesllc.com" className="hover:underline text-white text-[15px]">info@cincoservicesllc.com</a>
+                          <a href={`mailto:${settings.adminEmail}`} className="hover:underline text-white text-[15px]">{settings.adminEmail}</a>
                         </div>
                       </p>
 
@@ -596,7 +598,7 @@ ${message}
                         <Clock className="w-5 h-5 text-sky-400 shrink-0 mt-0.5" />
                         <div>
                           <span className="text-[11px] font-bold text-gray-500 block uppercase">Hours</span>
-                          <span className="text-white">Mon–Fri: 7am–7pm<br />Sat: 8am–7pm | Sun: Closed</span>
+                          <span className="text-white">Mon–Fri: {settings.hoursWeekday}<br />Sat: {settings.hoursSaturday} | Sun: {settings.hoursSunday}</span>
                         </div>
                       </p>
 
@@ -640,10 +642,10 @@ ${message}
                         If you have a roofing emergency, water damage, or urgent repair need, don't wait – call us right away.
                       </p>
                       <a
-                        href="tel:8324062716"
+                        href={`tel:${settings.officePhone.replace(/\\D/g, "")}`}
                         className="inline-flex items-center gap-2 text-rose-900 font-black text-[15px] hover:underline mt-3.5"
                       >
-                        <Phone className="w-4 h-4" /> (832) 406-2716
+                        <Phone className="w-4 h-4" /> {settings.officePhone}
                       </a>
                       <p className="text-[11px] text-rose-500 font-semibold italic mt-1">
                         Available during business hours. For after-hours emergencies, please leave a voicemail.
@@ -828,13 +830,13 @@ ${message}
 
               <div className="flex flex-wrap justify-center gap-4">
                 <a
-                  href="tel:8324062716"
+                  href={`tel:${settings.officePhone.replace(/\\D/g, "")}`}
                   className="inline-flex items-center gap-2 bg-[#d62828] text-white rounded-full px-8 py-4 text-[15px] font-bold hover:brightness-110 hover:scale-[1.03] active:scale-[0.97] shadow-[0_4px_14px_rgba(214,40,40,0.4)] transition-all duration-300"
                 >
-                  Call (832) 406-2716
+                  Call {settings.officePhone}
                 </a>
                 <a
-                  href="mailto:info@cincoservicesllc.com"
+                  href={`mailto:${settings.adminEmail}`}
                   className="inline-flex items-center gap-2.5 bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 text-white rounded-full px-8 py-4 text-[15px] font-bold hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
                 >
                   <Mail className="w-[16px] h-[16px]" /> Email Us
@@ -851,7 +853,7 @@ ${message}
       {/* Mobile Sticky Bottom CTA */}
       <div className="mobile-sticky-cta md:hidden">
         <a
-          href="tel:8324062716"
+          href={`tel:${settings.officePhone.replace(/\\D/g, "")}`}
           className="flex-1 inline-flex items-center justify-center gap-2 bg-[#0077b6] text-white rounded-xl py-3 text-[14px] font-bold active:scale-[0.97] transition-all"
         >
           <Phone className="w-[16px] h-[16px] shrink-0" /> Call Now

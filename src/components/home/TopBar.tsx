@@ -1,5 +1,6 @@
 import { MapPin, Clock, Phone, ChevronDown } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
+import { useSettings } from "@/context/settings-context";
 
 const languages = [
   { code: "en", name: "English", flag: "🇺🇸" },
@@ -9,6 +10,7 @@ const languages = [
 ];
 
 export const TopBar = () => {
+  const { settings } = useSettings();
   const [selectedLang, setSelectedLang] = useState("en");
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -126,15 +128,15 @@ export const TopBar = () => {
             <MapPin className="w-[13px] h-[13px] text-[#0077b6] shrink-0" /> Serving Houston &amp; nearby
           </span>
           <span className="hidden md:flex items-center gap-[6px] whitespace-nowrap">
-            <Clock className="w-[13px] h-[13px] text-[#0077b6] shrink-0" /> Mon–Fri 7am–7pm, Sat 8am–7pm
+            <Clock className="w-[13px] h-[13px] text-[#0077b6] shrink-0" /> Mon-Fri: {settings.hoursWeekday} | Sat: {settings.hoursSaturday}
           </span>
         </div>
         <div className="flex items-center gap-[20px] ml-auto flex-wrap">
           <a
-            href="tel:8324062716"
+            href={`tel:${settings.officePhone.replace(/\\D/g, "")}`}
             className="flex items-center gap-[6px] font-bold text-white hover:text-[#0077b6] transition-colors py-1 whitespace-nowrap"
           >
-            <Phone className="w-[13px] h-[13px] shrink-0" /> (832) 406-2716
+            <Phone className="w-[13px] h-[13px] shrink-0" /> {settings.officePhone}
           </a>
 
           {/* Hidden Google Translate container */}

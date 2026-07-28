@@ -2,6 +2,7 @@ import { useState } from "react";
 import { z } from "zod";
 import { Send, Phone, Mail, MapPin, CheckCircle2, Loader2 } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
+import { useSettings } from "@/context/settings-context";
 
 const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -21,6 +22,7 @@ const Field = ({ label, error, children }: { label: string; error?: string; chil
 );
 
 export function ContactForm() {
+  const { settings } = useSettings();
   const [form, setForm] = useState<FormState>({ name: "", email: "", phone: "", message: "" });
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -75,7 +77,7 @@ export function ContactForm() {
       ]);
 
       // 2. Also send external email notification via formsubmit.co
-      fetch("https://formsubmit.co/ajax/info@cincoservicesllc.com", {
+      fetch("https://formsubmit.co/ajax/" + settings.adminEmail, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -125,8 +127,8 @@ export function ContactForm() {
 
               <div className="mt-[48px] space-y-[32px]">
                 {[
-                  { i: Phone, t: "Call Us", v: "(832) 406-2716", href: "tel:8324062716" },
-                  { i: Mail, t: "Email Us", v: "info@cincoservicesllc.com", href: "mailto:info@cincoservicesllc.com" },
+                  { i: Phone, t: "Call Us", v: settings.officePhone, href: `tel:${settings.officePhone.replace(/\\D/g, "")}` },
+                  { i: Mail, t: "Email Us", v: settings.adminEmail, href: `mailto:${settings.adminEmail}` },
                   { i: MapPin, t: "Visit Us", v: "1400 Broadfield Blvd, Suite 200 Houston, TX 77084" },
                 ].map(({ i: Icon, t, v, href }) => (
                   <div key={t} className="flex items-start gap-[16px]">
@@ -183,7 +185,7 @@ export function ContactForm() {
                   </div>
                   <div className="mt-[16px]">
                     <Field label="Phone Number (optional)" error={errors.phone}>
-                      <input type="tel" className={inputCls} value={form.phone} onChange={onChange("phone")} placeholder="(832) 406-2716" maxLength={30} />
+                      <input type="tel" className={inputCls} value={form.phone} onChange={onChange("phone")} placeholder={settings.officePhone} maxLength={30} />
                     </Field>
                   </div>
                   <div className="mt-[16px]">

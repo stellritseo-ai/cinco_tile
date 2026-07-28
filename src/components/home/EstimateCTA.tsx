@@ -1,11 +1,13 @@
 import { Reveal } from "@/components/ui/Reveal";
 import { SlidersHorizontal, Phone } from "lucide-react";
 import { useEstimateModal } from "@/context/EstimateModalContext";
+import { useSettings } from "@/context/settings-context";
 import estimateBg from "@/assets/estimate.jpg";
 import showroomSvg from "@/assets/showroom.svg";
 import estimateSvg from "@/assets/estimate.svg";
 
 export const EstimateCTA = () => {
+  const { settings } = useSettings();
   const { openModal } = useEstimateModal();
 
   return (
@@ -48,11 +50,11 @@ export const EstimateCTA = () => {
                   Book My Free Estimate
                 </button>
                 <a
-                  href="tel:8324062716"
+                  href={`tel:${settings.officePhone.replace(/\\D/g, "")}`}
                   className="inline-flex items-center justify-center gap-[10px] bg-[#00bcff] text-white font-bold text-[16px] h-[48px] px-[24px] rounded-[6px] hover:brightness-110 hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 shadow-[0_4px_14px_0_rgba(0,188,255,0.3)] whitespace-nowrap"
                 >
                   <Phone className="w-[18px] h-[18px] shrink-0" />
-                  Call (832) 406-2716
+                  Call {settings.officePhone}
                 </a>
               </div>
             </div>

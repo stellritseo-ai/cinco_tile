@@ -28,6 +28,7 @@ import { TopBar } from "@/components/home/TopBar";
 import { Nav } from "@/components/home/Nav";
 import { Footer } from "@/components/home/Footer";
 import { LiveChat } from "@/components/home/LiveChat";
+import { useSettings } from "@/context/settings-context";
 import { Reveal } from "@/components/ui/Reveal";
 import { useEstimateModal } from "@/context/EstimateModalContext";
 
@@ -52,13 +53,14 @@ export const Route = createFileRoute("/about")({
 
 function AboutPage() {
   const { openModal } = useEstimateModal();
+  const { settings } = useSettings();
   const atAGlance = [
     { icon: Award, label: "Experience", value: "15+ Years" },
     { icon: MapPin, label: "Location", value: "1400 Broadfield Blvd, Suite 200 Houston, TX 77084" },
-    { icon: Phone, label: "Phone", value: "(832) 406-2716" },
-    { icon: Mail, label: "Email", value: "info@cincoservicesllc.com" },
+    { icon: Phone, label: "Phone", value: settings.officePhone },
+    { icon: Mail, label: "Email", value: settings.adminEmail },
     { icon: Map, label: "Service Radius", value: "50 Miles" },
-    { icon: Clock, label: "Hours", value: "Mon–Fri: 7am–7pm | Sat: 8am–7pm" },
+    { icon: Clock, label: "Hours", value: `Mon-Fri: ${settings.hoursWeekday} | Sat: ${settings.hoursSaturday}` },
     { icon: Wrench, label: "Services", value: "Remodeling, Construction, Roofing, Painting, Tile" },
     { icon: Users, label: "Clients", value: "Residential & Commercial" },
     { icon: Shield, label: "Licensed & Insured", value: "Yes (TX General Liability & Workers' Comp)" },
@@ -570,10 +572,10 @@ function AboutPage() {
                   Book My Free Estimate
                 </button>
                 <a 
-                  href="tel:8324062716" 
+                  href={`tel:${settings.officePhone.replace(/\D/g, "")}`} 
                   className="inline-flex items-center gap-2.5 bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 text-white rounded-full px-8 py-4 text-[15px] font-bold hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
                 >
-                  <Phone className="w-[16px] h-[16px]" /> Call (832) 406-2716
+                  <Phone className="w-[16px] h-[16px]" /> Call {settings.officePhone}
                 </a>
               </div>
             </Reveal>

@@ -182,9 +182,6 @@ export const LeadSettingsModel = mongoose.models.LeadSettings || mongoose.model(
 const PortalSettingsSchema = new mongoose.Schema({
   adminEmail: { type: String, default: "info@cincoservicesllc.com" },
   officePhone: { type: String, default: "(832) 406-2716" },
-  autoSmsTemplate: { type: String, default: "Hi {Name}, thank you for contacting Cinco Services! We will contact you during the {Time} to discuss your {Type} project." },
-  sendAutoEmail: { type: Boolean, default: true },
-  sendAutoSms: { type: Boolean, default: true },
   hoursWeekday: { type: String, default: "8:00 AM - 5:00 PM" },
   hoursSaturday: { type: String, default: "8:00 AM - 5:00 PM" },
   hoursSunday: { type: String, default: "Closed (Emergency 24/7)" },

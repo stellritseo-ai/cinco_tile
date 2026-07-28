@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useLocation } from "@tanstack/react-router";
+import { useSettings } from "@/context/settings-context";
 import logoImg from "@/assets/cincologo.png";
 
 const servicesSubmenu = [
@@ -87,6 +88,7 @@ const servicesSubmenu = [
 ];
 
 export const Nav = () => {
+  const { settings } = useSettings();
   const [isOpen, setIsOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const location = useLocation();
@@ -193,8 +195,8 @@ export const Nav = () => {
 
             {/* Header Right (Call & Hamburger) */}
             <div className="flex items-center gap-2 sm:gap-4">
-              <a href="tel:8324062716" className="inline-flex items-center gap-2 bg-[#d62828] text-white rounded-full px-3 sm:px-5 py-2 sm:py-2.5 text-[12px] sm:text-[13px] md:text-[14px] font-bold hover:bg-[#b52020] hover:scale-[1.03] active:scale-[0.97] shadow-[0_4px_14px_0_rgba(214,40,40,0.3)] transition-all duration-300 whitespace-nowrap">
-                <Phone className="w-[13px] h-[13px] sm:w-[14px] sm:h-[14px] shrink-0" /> <span className="hidden sm:inline">Call (832) 406-2716</span><span className="sm:hidden">Call Now</span>
+              <a href={`tel:${settings.officePhone.replace(/\\D/g, "")}`} className="inline-flex items-center gap-2 bg-[#d62828] text-white rounded-full px-3 sm:px-5 py-2 sm:py-2.5 text-[12px] sm:text-[13px] md:text-[14px] font-bold hover:bg-[#b52020] hover:scale-[1.03] active:scale-[0.97] shadow-[0_4px_14px_0_rgba(214,40,40,0.3)] transition-all duration-300 whitespace-nowrap">
+                <Phone className="w-[13px] h-[13px] sm:w-[14px] sm:h-[14px] shrink-0" /> <span className="hidden sm:inline">Call {settings.officePhone}</span><span className="sm:hidden">Call Now</span>
               </a>
 
               {/* Custom Animated Hamburger Button */}
@@ -321,10 +323,10 @@ export const Nav = () => {
           {/* Call button inside drawer */}
           <div className="mt-auto pt-6 border-t border-slate-800/60 flex flex-col gap-4">
             <a
-              href="tel:8324062716"
+              href={`tel:${settings.officePhone.replace(/\\D/g, "")}`}
               className="inline-flex items-center justify-center gap-2 bg-[#d62828] text-white rounded-full py-3.5 text-[14px] font-bold hover:bg-[#b52020] active:scale-[0.98] transition-all duration-300 shadow-[0_4px_14px_0_rgba(214,40,40,0.3)] w-full"
             >
-              <Phone className="w-[14px] h-[14px]" /> Call (832) 406-2716
+              <Phone className="w-[14px] h-[14px]" /> Call {settings.officePhone}
             </a>
           </div>
         </div>

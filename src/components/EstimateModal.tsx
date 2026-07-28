@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { z } from "zod";
 import { X, Loader2, CheckCircle2 } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { useSettings } from "@/context/settings-context";
 
 const schema = z.object({
   name: z.string().trim().min(1, "Full Name is required").max(100),
@@ -53,6 +54,7 @@ interface EstimateModalProps {
 }
 
 export function EstimateModal({ isOpen, onClose }: EstimateModalProps) {
+  const { settings } = useSettings();
   const [form, setForm] = useState<FormState>({
     name: "",
     email: "",
@@ -142,7 +144,7 @@ ${parsed.data.message}
       ]);
 
       // 2. Also send external email notification via formsubmit.co
-      fetch("https://formsubmit.co/ajax/info@cincoservicesllc.com", {
+      fetch("https://formsubmit.co/ajax/" + settings.adminEmail, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -256,8 +258,8 @@ ${parsed.data.message}
                     type="tel"
                     className={inputCls}
                     value={form.phone}
-                    onChange={onChange("phone")}
-                    placeholder="(832) 555-0199"
+                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                    placeholder={settings.officePhone}
                     maxLength={30}
                   />
                 </Field>

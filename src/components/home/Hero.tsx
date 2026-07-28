@@ -1,8 +1,10 @@
 import { Phone, Shield, Award, HardHat, SlidersHorizontal } from "lucide-react";
 import heroVideo from "@/assets/herovideo.mp4";
 import { useEstimateModal } from "@/context/EstimateModalContext";
+import { useSettings } from "@/context/settings-context";
 
 export const Hero = () => {
+  const { settings } = useSettings();
   const { openModal } = useEstimateModal();
 
   return (
@@ -33,8 +35,8 @@ export const Hero = () => {
             >
               <SlidersHorizontal className="w-[18px] h-[18px] shrink-0" /> Get My Free Estimate
             </button>
-            <a href="tel:8324062716" className="inline-flex items-center justify-center gap-2.5 bg-[#00bcff] text-white rounded-full px-7 py-3 text-[15px] font-bold hover:brightness-110 transition-all shadow-[0_4px_14px_0_rgba(0,188,255,0.35)]">
-              <Phone className="w-[18px] h-[18px] shrink-0" /> Call (832) 406-2716
+            <a href={`tel:${settings.officePhone.replace(/\\D/g, "")}`} className="inline-flex items-center justify-center gap-2.5 bg-[#00bcff] text-white rounded-full px-7 py-3 text-[15px] font-bold hover:brightness-110 transition-all shadow-[0_4px_14px_0_rgba(0,188,255,0.35)]">
+              <Phone className="w-[18px] h-[18px] shrink-0" /> Call {settings.officePhone}
             </a>
           </div>
           <div className="mt-10 sm:mt-16 flex flex-row items-center justify-center gap-5 sm:gap-6 md:gap-12 max-w-full overflow-x-auto py-2 px-4 flex-wrap">

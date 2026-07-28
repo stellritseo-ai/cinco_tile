@@ -37,6 +37,7 @@ import { Nav } from "@/components/home/Nav";
 import { Footer } from "@/components/home/Footer";
 import { LiveChat } from "@/components/home/LiveChat";
 import { Reveal } from "@/components/ui/Reveal";
+import { useSettings } from "@/context/settings-context";
 import heroVideo from "@/assets/herovideo.mp4";
 
 // Import images
@@ -101,7 +102,9 @@ const videoItems = [
 ];
 
 function ProjectsPage() {
+  const { settings } = useSettings();
   const [activeFilter, setActiveFilter] = useState("all");
+  const [activeCategory, setActiveCategory] = useState("All");
   const [selectedImg, setSelectedImg] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [dbPhotos, setDbPhotos] = useState<GalleryPhoto[]>([]);
@@ -538,10 +541,10 @@ function ProjectsPage() {
                   Book My Free Estimate
                 </a>
                 <a 
-                  href="tel:8324062716" 
+                  href={`tel:${settings.officePhone.replace(/\\D/g, "")}`} 
                   className="inline-flex items-center gap-2.5 bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 text-white rounded-full px-8 py-4 text-[15px] font-bold hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
                 >
-                  <Phone className="w-[16px] h-[16px]" /> Call (832) 406-2716
+                  <Phone className="w-[16px] h-[16px]" /> Call {settings.officePhone}
                 </a>
               </div>
             </Reveal>

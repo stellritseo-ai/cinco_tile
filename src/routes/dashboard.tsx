@@ -1151,9 +1151,6 @@ function DashboardPage() {
   const [settings, setSettings] = useState<PortalSettings>({
     adminEmail: "robertsa210@icloud.com",
     officePhone: "(210) 429-5526",
-    autoSmsTemplate: "Hi {Name}, thank you for contacting Cinco Tile! Robert Thompson will contact you during the {Time} to discuss your {Type} project.",
-    sendAutoEmail: true,
-    sendAutoSms: true,
     hoursWeekday: "8:00 AM - 5:00 PM",
     hoursSaturday: "8:00 AM - 5:00 PM",
     hoursSunday: "Closed (Emergency 24/7)",
@@ -1202,7 +1199,7 @@ function DashboardPage() {
       <header className="fixed top-0 left-0 right-0 h-[68px] z-50 bg-gradient-to-r from-[#0F172A] via-[#1E293B] to-[#0F172A] text-white px-6 md:px-10 flex items-center justify-between shadow-xl border-b border-slate-800 font-sans backdrop-blur-md">
         <div className="flex items-center gap-3.5">
           <button 
-            className="md:hidden p-2 -ml-2 text-slate-300 hover:text-white"
+            className="md:hidden p-2 -ml-2 text-slate-300 hover:text-white shrink-0"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <Menu className="w-6 h-6" />
@@ -1224,14 +1221,14 @@ function DashboardPage() {
 
         <div className="flex items-center gap-4">
           {/* Website Visitors Indicator */}
-          <div className="flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md select-none">
-            <div className="relative flex h-2.5 w-2.5">
+          <div className="hidden sm:flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md select-none">
+            <div className="relative flex h-2.5 w-2.5 shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
             </div>
             <div className="flex flex-col text-left leading-none">
               <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Website Visitors</span>
-              <span className="text-[12px] font-black text-white mt-0.5">
+              <span className="text-[12px] font-black text-white mt-0.5 whitespace-nowrap">
                 {globalSettings?.totalVisits || 247} <span className="text-[9.5px] font-semibold text-emerald-400 ml-1">({Math.max(1, chatSessions.filter(s => !s.isClosed).length)} Online)</span>
               </span>
             </div>
@@ -2074,58 +2071,8 @@ function DashboardPage() {
                     </div>
                   </div>
 
-                  {/* Row 2 */}
-                  <div>
-                    <label className="block text-[11px] font-bold text-neutral-700 uppercase tracking-wider mb-1.5">
-                      Automated Customer Text/SMS Template
-                    </label>
-                    <textarea
-                      rows={3}
-                      disabled={isViewer}
-                      value={settings.autoSmsTemplate}
-                      onChange={(e) => setSettings({ ...settings, autoSmsTemplate: e.target.value })}
-                      className="w-full bg-[#fbfaf7] rounded-lg border border-neutral-200 px-4 py-2.5 text-xs text-neutral-800 focus:outline-none focus:ring-1 focus:ring-[#0077b6] resize-none font-light leading-relaxed"
-                    />
-                    <span className="text-[10px] text-neutral-450 mt-1 block">
-                      Variables auto-populated: {'{Name}'}, {'{Time}'}, {'{Type}'}
-                    </span>
-                  </div>
-
-                  {/* Row 3 */}
-                  <div className="border-t border-[#eae8e1] pt-6 grid sm:grid-cols-3 gap-4">
-                    <div className="flex items-center justify-between p-4 bg-[#fcfbf8] rounded-xl border border-neutral-100">
-                      <div>
-                        <span className="text-xs font-bold text-neutral-800 block">Automated Email Alert</span>
-                        <span className="text-[10px] text-neutral-400 font-light">Send receipt copies to Robert</span>
-                      </div>
-                      <label className={`relative inline-flex items-center ${isViewer ? "cursor-not-allowed opacity-50" : "cursor-pointer"}`}>
-                        <input
-                          type="checkbox"
-                          disabled={isViewer}
-                          checked={settings.sendAutoEmail}
-                          onChange={(e) => setSettings({ ...settings, sendAutoEmail: e.target.checked })}
-                          className="sr-only peer"
-                        />
-                        <div className="w-9 h-5 bg-neutral-200 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#0077b6]" />
-                      </label>
-                    </div>
-
-                    <div className="flex items-center justify-between p-4 bg-[#fcfbf8] rounded-xl border border-neutral-100">
-                      <div>
-                        <span className="text-xs font-bold text-neutral-800 block">Immediate SMS Alert</span>
-                        <span className="text-[10px] text-neutral-400 font-light">Send welcome message to client phone</span>
-                      </div>
-                      <label className={`relative inline-flex items-center ${isViewer ? "cursor-not-allowed opacity-50" : "cursor-pointer"}`}>
-                        <input
-                          type="checkbox"
-                          disabled={isViewer}
-                          checked={settings.sendAutoSms}
-                          onChange={(e) => setSettings({ ...settings, sendAutoSms: e.target.checked })}
-                          className="sr-only peer"
-                        />
-                        <div className="w-9 h-5 bg-neutral-200 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#0077b6]" />
-                      </label>
-                    </div>
+                  {/* Additional Actions */}
+                  <div className="border-t border-[#eae8e1] pt-6 grid sm:grid-cols-1 gap-4">
 
                     <div className="flex items-center justify-between p-4 bg-red-50/20 rounded-xl border border-red-100/50">
                       <div>

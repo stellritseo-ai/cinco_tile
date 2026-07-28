@@ -31,6 +31,7 @@ import { Nav } from "@/components/home/Nav";
 import { Footer } from "@/components/home/Footer";
 import { LiveChat } from "@/components/home/LiveChat";
 import { Reveal } from "@/components/ui/Reveal";
+import { useSettings } from "@/context/settings-context";
 
 // Import images
 import commercialRemodelHero from "@/assets/gallery/WhatsApp Image 2026-07-16 at 8.17.37 PM (1).jpeg";
@@ -61,6 +62,7 @@ export const Route = createFileRoute("/commercial")({
 });
 
 function CommercialPage() {
+  const { settings } = useSettings();
   const trustBadges = [
     { icon: Shield, text: "Licensed & Insured" },
     { icon: Award, text: "Satisfaction Guaranteed" },
@@ -383,10 +385,10 @@ function CommercialPage() {
                     Get My Free Commercial Estimate
                   </a>
                   <a
-                    href="tel:8324062716"
+                    href={`tel:${settings.officePhone.replace(/\\D/g, "")}`}
                     className="inline-flex items-center gap-2.5 bg-gray-100 hover:bg-gray-150 text-[#111827] rounded-full px-8 py-3.5 text-[15px] font-bold hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
                   >
-                    <Phone className="w-[16px] h-[16px]" /> Call (832) 406-2716
+                    <Phone className="w-[16px] h-[16px]" /> Call {settings.officePhone}
                   </a>
                 </div>
               </Reveal>
@@ -415,11 +417,11 @@ function CommercialPage() {
                   <div className="mt-8 pt-6 border-t border-white/10 text-[14px] space-y-3.5 text-gray-300">
                     <p className="flex items-center gap-3">
                       <Phone className="w-4 h-4 text-sky-400" />
-                      <a href="tel:8324062716" className="hover:underline font-bold text-white">(832) 406-2716</a>
+                      <a href={`tel:${settings.officePhone.replace(/\\D/g, "")}`} className="hover:underline font-bold text-white">{settings.officePhone}</a>
                     </p>
                     <p className="flex items-center gap-3">
                       <Mail className="w-4 h-4 text-sky-400" />
-                      <a href="mailto:info@cincoservicesllc.com" className="hover:underline">info@cincoservicesllc.com</a>
+                      <a href={`mailto:${settings.adminEmail}`} className="hover:underline">{settings.adminEmail}</a>
                     </p>
                     <p className="flex items-center gap-3 items-start">
                       <MapPin className="w-4 h-4 text-sky-400 mt-0.5 shrink-0" />
@@ -887,10 +889,10 @@ function CommercialPage() {
                   Book My Free Commercial Estimate
                 </a>
                 <a
-                  href="tel:8324062716"
+                  href={`tel:${settings.officePhone.replace(/\\D/g, "")}`}
                   className="inline-flex items-center gap-2.5 bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 text-white rounded-full px-8 py-4 text-[15px] font-bold hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
                 >
-                  <Phone className="w-[16px] h-[16px]" /> Call (832) 406-2716
+                  <Phone className="w-[16px] h-[16px]" /> Call {settings.officePhone}
                 </a>
               </div>
             </Reveal>
@@ -906,10 +908,10 @@ function CommercialPage() {
       {/* Mobile Sticky Bottom CTA */}
       <div className="mobile-sticky-cta md:hidden">
         <a
-          href="tel:8324062716"
+          href={`tel:${settings.officePhone.replace(/\D/g, "")}`}
           className="flex-1 inline-flex items-center justify-center gap-2 bg-[#0077b6] text-white rounded-xl py-3 text-[14px] font-bold active:scale-[0.97] transition-all"
         >
-          <Phone className="w-[16px] h-[16px] shrink-0" /> Call Now
+          <Phone className="w-4 h-4" /> Call Us
         </a>
         <a
           href="#contact"

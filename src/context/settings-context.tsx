@@ -12,9 +12,6 @@ interface SettingsContextProps {
 const defaultSettings: PortalSettings = {
   adminEmail: "info@cincoservicesllc.com",
   officePhone: "(832) 406-2716",
-  autoSmsTemplate: "Hi {Name}, thank you for contacting Cinco Services! Our team will contact you during the {Time} to discuss your {Type} project.",
-  sendAutoEmail: true,
-  sendAutoSms: true,
   hoursWeekday: "8:00 AM - 5:00 PM",
   hoursSaturday: "8:00 AM - 5:00 PM",
   hoursSunday: "Closed (Emergency 24/7)",

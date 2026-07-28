@@ -1,8 +1,10 @@
 import { Facebook, Instagram } from "lucide-react";
 import { useLocation } from "@tanstack/react-router";
+import { useSettings } from "@/context/settings-context";
 import logoImg from "@/assets/cincologo.png";
 
 export const Footer = () => {
+  const { settings } = useSettings();
   const location = useLocation();
   const isHome = location.pathname === "/";
 
@@ -66,9 +68,9 @@ export const Footer = () => {
           <div>
             <h3 className="text-white font-bold text-[16px] pb-[12px] border-b border-gray-600 mb-[16px]">Opening Hours</h3>
             <ul className="space-y-[14px] text-[14px] text-gray-300">
-              <li>Mon-Fri: 7:00AM-7:00PM</li>
-              <li>Sat: 8:00AM-7:00PM</li>
-              <li>Sun: Closed</li>
+              <li>Mon-Fri: {settings.hoursWeekday}</li>
+              <li>Sat: {settings.hoursSaturday}</li>
+              <li>Sun: {settings.hoursSunday}</li>
             </ul>
           </div>
 
@@ -76,8 +78,8 @@ export const Footer = () => {
           <div>
             <h3 className="text-white font-bold text-[16px] pb-[12px] border-b border-gray-600 mb-[16px]">Contact</h3>
             <ul className="space-y-[14px] text-[14px] text-gray-300">
-              <li>(832) 406-2716</li>
-              <li>info@cincoservicesllc.com</li>
+              <li>{settings.officePhone}</li>
+              <li>{settings.adminEmail}</li>
               <li className="leading-[1.6]">1400 Broadfield Blvd,<br />Suite 200 Houston, TX 77084</li>
             </ul>
           </div>
