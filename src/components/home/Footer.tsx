@@ -88,7 +88,7 @@ export const Footer = () => {
 
         <div className="pt-[30px] border-t border-gray-600 text-center">
           <p className="text-[13px] text-gray-400">
-            ©{new Date().getFullYear()} - Cinco Services. All Rights Reserved. Designed and Developed By: <a href="https://stellrit.com" target="_blank" rel="noopener noreferrer" className="text-white font-bold hover:underline">StellR IT LLC</a>
+            ©{new Date().getFullYear()} - Cinco Services. All Rights Reserved.
           </p>
         </div>
 
