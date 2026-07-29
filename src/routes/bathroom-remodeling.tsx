@@ -1,23 +1,23 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock, 
-  Shield, 
-  Check, 
-  Award, 
-  HardHat, 
-  Calendar, 
-  ArrowRight, 
-  CheckCircle, 
-  FileText, 
-  Building2, 
-  Sparkles, 
-  Wrench, 
-  Heart, 
-  TrendingUp, 
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Shield,
+  Check,
+  Award,
+  HardHat,
+  Calendar,
+  ArrowRight,
+  CheckCircle,
+  FileText,
+  Building2,
+  Sparkles,
+  Wrench,
+  Heart,
+  TrendingUp,
   Map,
   Home,
   Hammer,
@@ -41,13 +41,20 @@ import { useSettings } from "@/context/settings-context";
 
 // Import images
 import bathroomRemodelHero from "@/assets/bathroom_remodel_hero.png";
-import expertsImg from "@/assets/experts_section.png";
-import showroomImg from "@/assets/showroom_section.png";
-import transformImg from "@/assets/transform_section.png";
+// import expertsImg from "@/assets/experts_section.png";
+import showroomImg from "@/assets/gallery/gallery_4.jpeg";
+// import transformImg from "@/assets/transform_section.png";
 import bathroomImg from "@/assets/bathroom_remodel_hero.png";
-import kitchenImg from "@/assets/kitchen_remodel_hero.png";
-import tileImg from "@/assets/tile_installation_hero.png";
-import estimateImg from "@/assets/estimate_section.png";
+// import kitchenImg from "@/assets/kitchen_remodel_hero.png";
+// import tileImg from "@/assets/tile_installation_hero.png";
+// import estimateImg from "@/assets/estimate_section.png";
+
+import Gallery1 from "@/assets/gallery/gallery_4.jpeg";
+import Gallery2 from "@/assets/gallery/gallery_6.jpeg";
+import Gallery3 from "@/assets/gallery/gallery_8.jpeg";
+import Gallery4 from "@/assets/gallery/gallery_9.jpeg";
+import Gallery5 from "@/assets/gallery/gallery_10.jpeg";
+import Gallery6 from "@/assets/gallery/gallery_13.jpeg";
 
 // Dynamically import all images in the gallery folder
 const galleryModules = import.meta.glob("../assets/gallery/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}", { eager: true });
@@ -218,8 +225,8 @@ function BathroomRemodelingPage() {
   ];
 
   const cities = [
-    "Houston", "Katy", "Sugar Land", "Cypress", "Richmond", "Rosenberg", 
-    "Fulshear", "Missouri City", "Stafford", "Pearland", "Jersey Village", 
+    "Houston", "Katy", "Sugar Land", "Cypress", "Richmond", "Rosenberg",
+    "Fulshear", "Missouri City", "Stafford", "Pearland", "Jersey Village",
     "Tomball", "The Woodlands"
   ];
 
@@ -232,7 +239,7 @@ function BathroomRemodelingPage() {
         {/* ================= HERO SECTION ================= */}
         <section className="relative min-h-[60vh] sm:min-h-[55vh] flex items-center justify-center overflow-hidden bg-[#111827]">
           {/* Background image with overlay */}
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 mix-blend-overlay scale-105"
             style={{ backgroundImage: `url(${bathroomRemodelHero})` }}
           />
@@ -242,24 +249,24 @@ function BathroomRemodelingPage() {
             <span className="inline-block bg-[#d62828] text-white rounded-full px-5 py-1.5 text-[11px] md:text-[12px] font-bold uppercase tracking-[0.2em] mb-5 shadow-[0_4px_12px_rgba(214,40,40,0.3)]">
               Cinco Bathroom
             </span>
-            
+
             <h1 className="font-sans text-[26px] sm:text-[36px] md:text-[54px] font-extrabold leading-[1.15] tracking-tight max-w-4xl mx-auto mt-2">
               Bathroom Remodeling
             </h1>
-            
+
             <p className="mt-4 text-[16px] md:text-[19px] text-sky-200/90 max-w-2xl mx-auto font-medium leading-relaxed">
               Transform Your Bathroom into a Luxurious, Functional Retreat
             </p>
 
             {/* Quick buttons */}
             <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-3.5 max-w-3xl mx-auto">
-              <a 
+              <a
                 href="#contact"
                 className="bg-[#d62828] hover:brightness-110 rounded-full px-8 py-3.5 text-[14px] font-bold text-white transition-all shadow-[0_4px_12px_rgba(214,40,40,0.3)]"
               >
                 Get My Free Bathroom Remodel Estimate
               </a>
-              <a 
+              <a
                 href={`tel:${settings.officePhone.replace(/\D/g, "")}`}
                 className="bg-white/10 hover:bg-white/15 border border-white/25 rounded-full px-8 py-3.5 text-[14px] font-bold text-white transition-all"
               >
@@ -283,14 +290,14 @@ function BathroomRemodelingPage() {
         <section className="py-12 sm:py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_0.7fr] gap-12 lg:gap-16 items-start">
-              
+
               {/* Left Column: Intro */}
               <Reveal variant="reveal-left" className="space-y-6">
                 <h2 className="text-[28px] md:text-[38px] font-sans font-bold text-[#111827] leading-tight">
                   Expert Bathroom Remodeling <br />
                   <span className="text-[#0077b6]">Design, Quality, and Craftsmanship You Deserve</span>
                 </h2>
-                
+
                 <div className="text-[16px] md:text-[17px] text-[#4B5563] leading-relaxed space-y-6">
                   <p className="font-semibold text-lg text-gray-800">
                     Your bathroom should be more than just functional – it should be a sanctuary where you start and end each day in comfort and style. At Cinco Services, we specialize in complete bathroom remodeling that transforms outdated, inefficient spaces into stunning, spa-like retreats.
@@ -301,8 +308,8 @@ function BathroomRemodelingPage() {
                 </div>
 
                 <div className="flex flex-wrap gap-4 pt-4">
-                  <a 
-                    href="#contact" 
+                  <a
+                    href="#contact"
                     className="inline-flex items-center gap-2 bg-[#d62828] text-white rounded-full px-8 py-3.5 text-[15px] font-bold hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] shadow-[0_4px_14px_rgba(214,40,40,0.3)] transition-all duration-300"
                   >
                     Request a Design Consultation
@@ -314,11 +321,11 @@ function BathroomRemodelingPage() {
               <Reveal variant="reveal-right">
                 <div className="bg-slate-900 text-white p-8 rounded-2xl shadow-xl relative overflow-hidden">
                   <div className="absolute top-0 left-0 right-0 h-[4px] bg-[#d62828]" />
-                  
+
                   <h3 className="text-lg font-bold uppercase tracking-wider text-sky-400 mb-6 font-sans">
                     At a Glance
                   </h3>
-                  
+
                   <div className="space-y-4">
                     {atAGlance.map((item, idx) => {
                       const Icon = item.icon;
@@ -343,7 +350,7 @@ function BathroomRemodelingPage() {
         {/* ================= WHY CHOOSE US ================= */}
         <section className="py-20 bg-gray-50 border-t border-gray-200/50">
           <div className="max-w-7xl mx-auto px-6">
-            
+
             <div className="text-center max-w-xl mx-auto mb-16">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 CRAFTSMANSHIP
@@ -357,9 +364,9 @@ function BathroomRemodelingPage() {
               {whyChooseUs.map((item, idx) => {
                 const Icon = item.icon;
                 return (
-                  <Reveal 
-                    key={idx} 
-                    variant="reveal-scale" 
+                  <Reveal
+                    key={idx}
+                    variant="reveal-scale"
                     className="bg-white p-8 rounded-2xl border border-gray-150 shadow-sm hover:shadow-lg transition-shadow"
                   >
                     <div className="w-12 h-12 rounded-xl bg-sky-50 text-[#0077b6] flex items-center justify-center mb-6">
@@ -378,7 +385,7 @@ function BathroomRemodelingPage() {
         {/* ================= DETAILED SERVICE BLOCKS ================= */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-6 space-y-24">
-            
+
             <div className="text-center max-w-xl mx-auto mb-16">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 OUR SCOPE
@@ -427,7 +434,7 @@ function BathroomRemodelingPage() {
 
             {/* Master vs. Guest vs. Powder */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              
+
               {/* Master */}
               <Reveal variant="reveal-left" className="space-y-4 bg-gray-50 p-8 rounded-2xl border border-gray-150/50 flex flex-col justify-between">
                 <div className="space-y-4">
@@ -520,7 +527,7 @@ function BathroomRemodelingPage() {
         {/* ================= SPEC COMPARISONS TABLES ================= */}
         <section className="py-20 bg-gray-50 border-t border-gray-200/50">
           <div className="max-w-5xl mx-auto px-6 space-y-16">
-            
+
             <div className="text-center max-w-xl mx-auto">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 COMPREHENSIVE GUIDES
@@ -611,7 +618,7 @@ function BathroomRemodelingPage() {
         {/* ================= PROCESS ================= */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-6">
-            
+
             <div className="text-center max-w-xl mx-auto mb-16">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 OUR WORKFLOW
@@ -626,9 +633,9 @@ function BathroomRemodelingPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 font-sans">
               {processSteps.map((step, idx) => (
-                <Reveal 
-                  key={idx} 
-                  variant="reveal-scale" 
+                <Reveal
+                  key={idx}
+                  variant="reveal-scale"
                   className="bg-white p-6 rounded-2xl border border-gray-150 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative"
                 >
                   <span className="absolute top-4 right-4 bg-[#d62828] text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full">
@@ -652,7 +659,7 @@ function BathroomRemodelingPage() {
         {/* ================= GALLERY PLACEHOLDER ================= */}
         <section className="py-20 bg-white border-t border-gray-200/50">
           <div className="max-w-7xl mx-auto px-6">
-            
+
             <div className="text-center max-w-xl mx-auto mb-16">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 COMPLETED WORK
@@ -664,19 +671,19 @@ function BathroomRemodelingPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { img: bathroomImg, title: "Modern double vanity master suite" },
-                { img: transformImg, title: "Freestanding tub soaking station" },
-                { img: tileImg, title: "Curbless walk-in tile shower" },
-                { img: expertsImg, title: "Guest bath tub-to-shower swap" },
-                { img: estimateImg, title: "Powder room floating quartz vanity" },
-                { img: showroomImg, title: "Intricate mosaic tiling surrounds" }
+                { img: Gallery1, title: "" },
+                { img: Gallery2, title: "" },
+                { img: Gallery3, title: "" },
+                { img: Gallery4, title: "" },
+                { img: Gallery5, title: "" },
+                { img: Gallery6, title: "" }
               ].map((item, idx) => (
-                <Reveal 
-                  key={idx} 
-                  variant="reveal-scale" 
+                <Reveal
+                  key={idx}
+                  variant="reveal-scale"
                   className="group relative rounded-2xl overflow-hidden shadow-sm aspect-[4/3] border border-gray-150"
                 >
-                  <img src={galleryImages[(14 + idx) % galleryImages.length] || item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+                  <img src={item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-5">
                     <span className="text-white font-bold text-[15px]">{item.title}</span>
                   </div>
@@ -690,7 +697,7 @@ function BathroomRemodelingPage() {
         {/* ================= TESTIMONIALS ================= */}
         <section className="py-20 bg-gray-50 border-t border-gray-200/50">
           <div className="max-w-7xl mx-auto px-6">
-            
+
             <div className="text-center max-w-xl mx-auto mb-16">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 TESTIMONIALS
@@ -702,9 +709,9 @@ function BathroomRemodelingPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {testimonials.map((t, idx) => (
-                <Reveal 
-                  key={idx} 
-                  variant="reveal-scale" 
+                <Reveal
+                  key={idx}
+                  variant="reveal-scale"
                   className="bg-white p-8 rounded-2xl border border-gray-150 shadow-sm flex flex-col justify-between relative"
                 >
                   <Quote className="absolute top-4 right-6 w-8 h-8 text-sky-100" />
@@ -731,7 +738,7 @@ function BathroomRemodelingPage() {
         {/* ================= FAQs ================= */}
         <section className="py-20 bg-white">
           <div className="max-w-4xl mx-auto px-6">
-            
+
             <div className="text-center max-w-xl mx-auto mb-16">
               <span className="text-[13px] font-bold text-[#0077b6] uppercase tracking-[0.25em] block">
                 FAQ
@@ -776,8 +783,8 @@ function BathroomRemodelingPage() {
 
             <div className="flex flex-wrap items-center justify-center gap-2 max-w-4xl mx-auto">
               {cities.map((city, idx) => (
-                <span 
-                  key={idx} 
+                <span
+                  key={idx}
                   className="bg-white text-gray-700 px-4 py-2 rounded-full text-[13.5px] font-bold border border-gray-200"
                 >
                   {city}
@@ -802,20 +809,20 @@ function BathroomRemodelingPage() {
               <h2 className="text-3xl md:text-4xl font-sans font-bold text-white mb-4">
                 Ready to Transform Your Bathroom?
               </h2>
-              
+
               <p className="text-[15px] md:text-[17px] text-gray-300 max-w-2xl mx-auto leading-relaxed mb-10">
                 Whether you're dreaming of a spa-like master bathroom, a functional guest bath, or a stunning powder room, Cinco Services delivers exceptional craftsmanship and lasting results. Contact us today for a free estimate.
               </p>
 
               <div className="flex flex-wrap justify-center gap-4">
-                <a 
-                  href="#contact" 
+                <a
+                  href="#contact"
                   className="inline-flex items-center gap-2 bg-[#d62828] text-white rounded-full px-8 py-4 text-[15px] font-bold hover:brightness-110 hover:scale-[1.03] active:scale-[0.97] shadow-[0_4px_14px_rgba(214,40,40,0.4)] transition-all duration-300"
                 >
                   Get My Free Bathroom Remodel Estimate
                 </a>
-                <a 
-                  href={`tel:${settings.officePhone.replace(/\D/g, "")}`} 
+                <a
+                  href={`tel:${settings.officePhone.replace(/\D/g, "")}`}
                   className="inline-flex items-center gap-2.5 bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 text-white rounded-full px-8 py-4 text-[15px] font-bold hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
                 >
                   <Phone className="w-[16px] h-[16px]" /> Call {settings.officePhone}
