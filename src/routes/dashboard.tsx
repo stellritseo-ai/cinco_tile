@@ -127,7 +127,7 @@ export const Route = createFileRoute("/dashboard")({
 
 function DashboardPage() {
   const navigate = useNavigate();
-  const { settings: globalSettings, refreshSettings } = useSettings();
+  const { settings: globalSettings, loading: settingsLoading, refreshSettings } = useSettings();
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
   const [currentUser, setCurrentUser] = useState<{ id: string; username: string; role: string } | null>(null);
 
@@ -1157,12 +1157,15 @@ function DashboardPage() {
     maintenanceMode: false
   });
 
-  // Sync local state with context when loaded
+  const [hasInitializedSettings, setHasInitializedSettings] = useState(false);
+
+  // Sync local state with context when loaded, but only once so we don't overwrite active typing
   useEffect(() => {
-    if (globalSettings) {
+    if (globalSettings && !settingsLoading && !hasInitializedSettings) {
       setSettings(globalSettings);
+      setHasInitializedSettings(true);
     }
-  }, [globalSettings]);
+  }, [globalSettings, settingsLoading, hasInitializedSettings]);
 
   const handleSaveSettings = async (e: React.FormEvent) => {
     e.preventDefault();
