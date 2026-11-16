@@ -49,7 +49,7 @@ export function ContactForm() {
     setErrorMsg("");
 
     try {
-      // 1. Save to MongoDB: Web Emails & Leads
+      // 1. Save to MongoDB: Web Emails (triggers secure Zoho SMTP email to jack@stellrit.com) & Leads
       const { addWebEmail, addCustomLead } = await import("@/lib/leads-store");
       
       await Promise.all([
@@ -75,22 +75,6 @@ export function ContactForm() {
           notes: "Submitted via Homepage Contact Form"
         }).catch((e) => console.error("[ContactForm] Failed to save Lead:", e))
       ]);
-
-      // 2. Also send external email notification via formsubmit.co
-      fetch("https://formsubmit.co/ajax/" + settings.adminEmail, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json",
-        },
-        body: JSON.stringify({
-          _subject: `New Contact Form Submission - ${parsed.data.name}`,
-          name: parsed.data.name,
-          email: parsed.data.email,
-          phone: parsed.data.phone || "Not provided",
-          message: parsed.data.message,
-        }),
-      }).catch(() => {});
 
       setStatus("success");
       setForm({ name: "", email: "", phone: "", message: "" });

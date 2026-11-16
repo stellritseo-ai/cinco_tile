@@ -98,7 +98,7 @@ ${message}
 `.trim();
 
     try {
-      // 1. Save to MongoDB Atlas: Web Emails & Leads
+      // 1. Save to MongoDB: Web Emails (triggers secure Zoho SMTP email to jack@stellrit.com) & Leads
       const { addWebEmail, addCustomLead } = await import("@/lib/leads-store");
 
       await Promise.all([
@@ -124,22 +124,6 @@ ${message}
           notes: `SqFt: ${sqFootage || 'N/A'}, Timeline: ${timeline || 'N/A'}`
         }).catch((e) => console.error("[ContactPage] Failed to save Lead:", e))
       ]);
-
-      // 2. Also send external email notification via formsubmit.co
-      fetch("https://formsubmit.co/ajax/info@cincoservicesllc.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json",
-        },
-        body: JSON.stringify({
-          _subject: `New Contact Submission - ${fullName.trim()}`,
-          name: fullName.trim(),
-          email: email.trim(),
-          phone: phone.trim() || "Not provided",
-          message: messageDetails,
-        }),
-      }).catch(() => {});
 
       setLoading(false);
       setIsSubmitted(true);

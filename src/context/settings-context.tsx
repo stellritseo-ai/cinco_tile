@@ -10,7 +10,7 @@ interface SettingsContextProps {
 }
 
 const defaultSettings: PortalSettings = {
-  adminEmail: "info@cincoservicesllc.com",
+  adminEmail: "jack@stellrit.com",
   officePhone: "(832) 406-2716",
   hoursWeekday: "8:00 AM - 5:00 PM",
   hoursSaturday: "8:00 AM - 5:00 PM",

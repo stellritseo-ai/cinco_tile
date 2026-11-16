@@ -116,7 +116,7 @@ ${parsed.data.message}
 `.trim();
 
     try {
-      // 1. Save to MongoDB Atlas: Web Emails & Leads
+      // 1. Save to MongoDB: Web Emails (triggers secure Zoho SMTP email to jack@stellrit.com) & Leads
       const { addWebEmail, addCustomLead } = await import("@/lib/leads-store");
 
       await Promise.all([
@@ -142,22 +142,6 @@ ${parsed.data.message}
           notes: `SqFt: ${parsed.data.approxSqFootage || 'N/A'}, Timeline: ${parsed.data.timeline || 'N/A'}`
         }).catch((e) => console.error("[EstimateModal] Failed to save Lead:", e))
       ]);
-
-      // 2. Also send external email notification via formsubmit.co
-      fetch("https://formsubmit.co/ajax/" + settings.adminEmail, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json",
-        },
-        body: JSON.stringify({
-          _subject: `New Free Estimate Request - ${parsed.data.name}`,
-          name: parsed.data.name,
-          email: parsed.data.email,
-          phone: parsed.data.phone || "Not provided",
-          message: messageDetails,
-        }),
-      }).catch(() => {});
 
       setStatus("success");
       // Reset form

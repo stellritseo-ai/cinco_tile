@@ -303,6 +303,25 @@ export const createChatSessionFn = createServerFn({ method: "POST" })
     });
 
     await newSession.save();
+
+    // Secure Zoho SMTP notification for new live chat leads
+    if (data.clientEmail) {
+      try {
+        const { sendEmailNotification } = await import("../email.server");
+        await sendEmailNotification({
+          name: data.clientName,
+          email: data.clientEmail,
+          phone: data.clientPhone,
+          service: "Live Chat Conversation",
+          source: "Website Live Chat Widget",
+          subject: `New Live Chat Started: ${data.clientName}`,
+          message: `Visitor ${data.clientName} (${data.clientEmail}) started a chat session from ${data.clientCity || "Houston"}. Log in to the Admin Dashboard to reply live.`
+        });
+      } catch (chatErr) {
+        console.error("[createChatSessionFn] Failed to send chat notification:", chatErr);
+      }
+    }
+
     const obj = newSession.toObject();
     return {
       ...obj,
@@ -487,7 +506,29 @@ export const addWebEmailFn = createServerFn({ method: "POST" })
     });
     await newEmail.save();
 
+    // Secure Zoho SMTP notification to jack@stellrit.com (from .env)
+    try {
+      const { sendEmailNotification } = await import("../email.server");
+      await sendEmailNotification({
+        name: newEmail.name,
+        email: newEmail.email,
+        phone: newEmail.phone,
+        service: newEmail.service,
+        message: newEmail.message,
+        source: newEmail.source,
+        subject: `New Lead: ${newEmail.name} (${newEmail.service || "Website Inquiry"})`
+      });
+    } catch (emailErr) {
+      console.error("[addWebEmailFn] Error sending email notification:", emailErr);
+    }
+
     return { ...newEmail.toObject(), id: newEmail._id.toString(), _id: undefined };
+  });
+
+export const sendContactEmailFn = createServerFn({ method: "POST" })
+  .handler(async ({ data }: { data: any }) => {
+    const { sendEmailNotification } = await import("../email.server");
+    return await sendEmailNotification(data);
   });
 
 export const deleteWebEmailFn = createServerFn({ method: "POST" })

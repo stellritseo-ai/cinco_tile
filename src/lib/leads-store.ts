@@ -66,6 +66,7 @@ import {
   updateGalleryPhotoDetailsFn,
   getWebEmailsFn,
   addWebEmailFn,
+  sendContactEmailFn,
   deleteWebEmailFn,
   loginAdminFn,
   verifyAdminTokenFn,
@@ -394,6 +395,18 @@ export const getWebEmails = async (): Promise<WebEmail[]> => {
 
 export const addWebEmail = async (emailData: Omit<WebEmail, "id" | "createdAt">): Promise<WebEmail> => {
   return addWebEmailFn({ data: emailData });
+};
+
+export const sendContactEmail = async (payload: {
+  name: string;
+  email: string;
+  phone?: string;
+  service?: string;
+  message?: string;
+  source?: string;
+  subject?: string;
+}) => {
+  return sendContactEmailFn({ data: payload });
 };
 
 export const deleteWebEmail = async (id: string): Promise<WebEmail[]> => {
