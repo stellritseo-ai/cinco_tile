@@ -180,7 +180,7 @@ export const LeadSettingsModel = mongoose.models.LeadSettings || mongoose.model(
 
 // 9. Portal Settings Schema
 const PortalSettingsSchema = new mongoose.Schema({
-  adminEmail: { type: String, default: "jack@stellrit.com" },
+  adminEmail: { type: String, default: "Info@cincoservicesllc.com" },
   officePhone: { type: String, default: "(832) 406-2716" },
   hoursWeekday: { type: String, default: "8:00 AM - 5:00 PM" },
   hoursSaturday: { type: String, default: "8:00 AM - 5:00 PM" },

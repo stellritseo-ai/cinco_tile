@@ -1149,8 +1149,8 @@ function DashboardPage() {
 
   // Settings state
   const [settings, setSettings] = useState<PortalSettings>({
-    adminEmail: "robertsa210@icloud.com",
-    officePhone: "(210) 429-5526",
+    adminEmail: "Info@cincoservicesllc.com",
+    officePhone: "(832) 406-2716",
     hoursWeekday: "8:00 AM - 5:00 PM",
     hoursSaturday: "8:00 AM - 5:00 PM",
     hoursSunday: "Closed (Emergency 24/7)",
